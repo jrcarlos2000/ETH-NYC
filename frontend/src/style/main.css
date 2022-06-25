@@ -1,0 +1,289 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(255, 255, 255);
+}
+a{
+  text-decoration: none;
+}
+.desktop{display: none;}
+.mobile{display: block;}
+.page-header{
+  margin-top: 10vw;
+  margin-left: 5vw;
+  font-size: 8vw;
+  color: white;
+}
+.button{
+  cursor: pointer;
+  background-color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.7s ease;
+  background-image: linear-gradient(200deg, #FF3E60 40%, #6f0c34);
+}
+.button:hover{
+  transform: scale(1.1);
+}
+.background-pic{
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/team.png");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+}
+.logo{
+  color: white;
+  font-size: 7vw;
+  margin: 5vw 0 0 5vw;
+  font-weight: 900;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.196);
+}
+.connect-container{
+  position: absolute;
+  top: 3vw;
+  right: 3vw;
+}
+.slogan-container{
+  width: 100%;
+  height: 44vw;
+  margin-top: 26vw;
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  color: white;
+  text-align: center;
+  padding-top: 10vw;
+  border-radius: 10px;
+  box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.59);
+}
+.slogan{
+  font-size: 8vw;
+  font-weight: 800;
+}
+.slogan-mini{
+  margin-top: 5vw;
+  letter-spacing: 0.4vw;
+  font-size: 4vw;
+}
+.main-btns{
+  width: 100%;
+  margin-top: 10vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 8vw;
+}
+.main-btn{
+  width: 80vw;
+  height: 25vw;
+  font-size: 8vw;
+  margin: 12vw 0 6vw 0;
+  box-shadow: 3px 7px 20px rgba(0, 0, 0, 0.358);
+  background-color: #FF3E60;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  @media screen and (min-width: 1200px) {
+    .main-page{
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      overflow: hidden;
+    }
+    .desktop{display: block;}
+    .mobile{display: none;}
+    .background-pic{
+      height: 100vh;
+      background-position: bottom;
+
+    }
+    .page-header{
+      margin-top: 5vh;
+      margin-left: 2vw;
+      font-size: 3vw;
+    }
+    .logo{
+      color: white;
+      font-size: 2.5vw;
+      margin: 2vw 0 0 2vw;
+    }
+    .connect-container{
+      top: 2.5vh;
+      right: 7vw;
+      max-width: 29vw;
+      z-index: 1000;
+      overflow: hidden;
+    }
+    .slogan-container{
+      position: absolute;
+      top: 13vh;
+      width: 60vw;
+      margin: 0 auto;
+      height: 9vw;
+      margin: 0 20vw 0 20vw;
+      padding-top: 3vw;
+      border-radius: 30px;
+
+    }
+    .slogan{
+      margin-top: 0;
+      font-size: 3.2vw;
+      font-weight: 800;
+    }
+    .slogan-mini{
+      margin-top: 0.7vw;
+      letter-spacing: 0.12vw;
+      font-size: 1.2vw;
+    }
+    .main-btns{
+      margin-top: 30vh;
+      height: 30vw;
+      flex-wrap: nowrap;
+      padding: 0;
+    }
+    .main-btn{
+      width: 25vw;
+      height: 7vw;
+      font-size: 2.4vw;
+      margin: 5vh 4vw 3vh 4vw;
+      border-radius: 10px;
+      transition: all 0.5s ease;
+      background-image: linear-gradient(200deg, #FF3E60 40%, #6f0c34);
+      color: white
+    }
+    .main-btn:hover{
+      transform: scale(1.1);
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.527);
+    }
+    .upcoming-header{
+      margin-left: -85vw;
+      position: absolute;
+      color: white;
+      font-weight: 900;
+      margin-top: -0.5vw;
+    }
+    .featured-offers{
+      display: flex;
+      flex-wrap: nowrap;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      justify-content: center;
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.553) );
+      backdrop-filter: blur(4px);
+      z-index: -1;
+      padding: 2vw 0 0 0 ;
+      position: absolute;
+      bottom: 0;
+    }
+    .main-offer-dim{
+      position: absolute;
+      width: 24vw;
+      height: 11vw;
+      padding: 1.2vw;
+      margin: -1.2vw 0 0 -1.2vw;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      backdrop-filter: blur(2px);
+    }
+    .main-offer {
+        display: grid; 
+        grid-template-columns: 1fr; 
+        grid-template-rows: 0.5fr 1fr 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+          "offer-row1"
+          "offer-row2"
+          "offer-row3"; 
+          color: rgb(255, 255, 255);
+          box-shadow: 4px 10px 25px rgba(0, 0, 0, 0.543);
+          width: 24vw;
+          height: 11vw;
+          margin: 3vw 3.2vw 2vw 3.2vw;
+          padding: 1.2vw;
+          border: solid 3px black;
+          border-radius: 10px;
+          background-color: rgb(29, 29, 29);
+          z-index: -1;
+          background-image: url("../images/nycbanner.png");
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+      }
+      .offer-row1 { 
+        grid-area: offer-row1; 
+        width: 100%;
+        display: flex;
+        z-index: 1;
+      }
+      .main-offer-name{
+        width: 19vw;
+        margin-bottom: 0.5vw;
+      }
+      .offer-ppl{
+        margin-left: 3.5vw;
+      }
+      .offer-row2 { 
+        grid-area: offer-row2; 
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        z-index: 1;
+      }
+      .tag{
+        max-height: 1.2vw;
+        padding: 0.4vw;
+        text-align: center;
+        background-color: rgb(34, 34, 34);
+        margin: 0.5vw 0.8vw 0 0vw;
+        border-radius: 5px;
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.493);
+        font-size: 1vw;
+        color: rgb(255, 255, 255);
+      }
+      .offer-row3 { 
+        grid-area: offer-row3; 
+        display: flex;
+        padding-top: 1.5vw;
+        z-index: 1;
+      }
+      .chip-in-txt{
+        font-size: 1.1vw;
+      }
+      .join-btn{
+        width: 12vw;
+        margin-left: 4vw;
+      }
+      .profile-btn{
+        width: 3vw;
+        height: 3vw;
+        background-image: url("../images/profile-icon.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 1vw;
+        top: 2vh;
+        border-radius: 30px;
+        transition: all 0.7s ease;
+        background-color: rgb(30, 30, 30);
+      }
+      .profile-btn:hover{
+        transform: scale(1.1);
+      }
+
+  }

@@ -1,0 +1,76 @@
+.profile-container{
+    height: 82vh;
+    width: 42vw;
+    margin: 0 auto;
+    margin-top: 2vh;
+    background-color: rgb(30, 30, 30);
+    border-radius: 30px;
+    box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.631);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.profile-pic{
+    margin-top: 5vh;
+    width: 10vw;
+    height: 10vw;
+    background-image: url("../images//profile.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.general-info{
+    width: 100%;
+    text-align: center;
+    margin-top: 3vh;
+}
+.badges{
+    text-align: left;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    border-radius: 30px;
+    height: 44vh;
+    margin-top: 6vh;
+    padding-top: 4vh;
+    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.514);
+}
+.badges-header{
+    text-align: left;
+    margin-left: 2.5vw;
+    font-size: 2.5vw;
+}
+.nfts{
+    height: 34vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20vh;
+    margin-top: -16vh;
+    -webkit-mask-image: linear-gradient(to top,black 50%,transparent 72%);
+    mask-image: linear-gradient(to top,black 70%,transparent 20%);
+}
+.nft-container{
+    width: 10vw;
+    margin: 3vh 1.2vw 4vh 1.2vw;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.nft-image{
+    width: 10vw;
+    height: 10vw;
+    background-image: url("../images/nycbanner.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+.nft-city{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}

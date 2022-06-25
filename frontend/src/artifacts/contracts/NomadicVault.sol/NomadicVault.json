@@ -1,0 +1,303 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_stayId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_newMember",
+        "type": "address"
+      }
+    ],
+    "name": "JoinStay",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_stayId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_trustee",
+        "type": "address"
+      }
+    ],
+    "name": "ProposeStay",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_stayId",
+        "type": "uint256"
+      }
+    ],
+    "name": "StayIsFull",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "checkDeadlines",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "_stayIndexes",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "getShortStays",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "descriptionURI",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "trustee",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "nPersons",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "slotsReserved",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountFunded",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address[]",
+            "name": "members",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256",
+            "name": "totalPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "pricePerPerson",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deadline",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "isCreatorSlot",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isActive",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "isFull",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct NomadicVault.ShortStay[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_stayId",
+        "type": "uint256"
+      }
+    ],
+    "name": "joinShortStay",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_descriptionURI",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_nPersons",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_totalPrice",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_timeAvailable",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "_isCreatorSlot",
+        "type": "bool"
+      }
+    ],
+    "name": "proposeShortStay",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "stayId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "stays",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "descriptionURI",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "trustee",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "nPersons",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "slotsReserved",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amountFunded",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "totalPrice",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "pricePerPerson",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "isCreatorSlot",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "isActive",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "isFull",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

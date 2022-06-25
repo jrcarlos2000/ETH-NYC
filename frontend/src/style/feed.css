@@ -1,0 +1,124 @@
+body{
+    background-color: rgb(0, 0, 0);
+}
+.feed{
+    width: 75vw;
+    height: 75.5vh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    padding-bottom: 7vw;
+    padding-top: 15vw;
+    margin-top: -14vw;
+    -webkit-mask-image: linear-gradient(to top,black 70%,transparent 74%);
+    mask-image: linear-gradient(to top,black 70%,transparent 20%);
+}
+.top-dim{
+    width: 70vw;
+    height: 10vh;
+    position: fixed;
+}
+#feed-header{
+    color: white;
+    margin-top: 2vw;
+}
+.feed-page{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+.search-container{
+    margin-top: 10vh;
+    height: 75vh;
+    width: 22vw;
+    padding: 3vw;
+    padding-top: 5vh;
+    background-color: rgb(29, 29, 29);
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: -5px 0 25px rgb(0, 0, 0);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.input-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.input-label{
+    width: 100%;
+    margin-top: 2vw;
+    color: rgb(123, 123, 123);
+}
+.input{
+    width: 24vw;
+    height: 7vh;
+    padding-left: 1vw;
+    margin: 1.5vh 0vw 1.5vh 0vw;
+    font-size: 1.5vw;
+    border-radius: 15px;
+    border: solid 2px rgb(0, 0, 0);
+    font-size: 1.2vw;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+#housemates-input{
+    width: 12vw !important;
+}
+#textfield{
+    height: 14vh;
+    padding-top: 0.5vw;
+}
+.search-btn{
+    width: 15vw;
+    height: 7.5vh;
+    font-size: 2vw;
+    margin-top: 3vw;
+    background-image: linear-gradient(200deg, #FF3E60 40%, #6f0c34);
+    box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.35);
+    transition: all 0.7s ease;
+}
+.search-btn:hover{
+    transform: scale(1.1);
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.35);
+}
+.stay-container{
+    margin: 7vh 1vw 0vw 4vw;
+    box-shadow: 4px 5px 30px rgba(0, 0, 0, 0.682);
+    border-radius: 20px;
+    background-color: rgb(29, 29, 29);
+    width: 50vw;
+    margin-right: 0 !important;
+    display: grid; 
+    grid-template-columns: 15vw 35vw; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "stay-banner stay-info"; 
+      overflow: hidden;
+}
+.stay-info{
+    padding: 1vw 1.5vw 1.5vw 2vw;
+    grid-area: stay-info;
+}
+.stay-banner{
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/nycbanner.png");
+    background-position: center;
+    background-size: cover;
+    grid-area: stay-banner; 
+    border-radius: 30px;
+}
+.join-btn{
+    height: 3vw;
+    margin-left: 9vw;
+}
+#feed-ppl{
+    margin-left: 9vw;
+}
+#feed-city-header{
+    font-size: 2vw;
+}

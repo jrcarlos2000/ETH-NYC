@@ -1,0 +1,604 @@
+{
+  "address": "0xD725Db3824fF8B91474cF3803158D77004042196",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IWorldID",
+          "name": "_worldId",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidNullifier",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_stayId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_newMember",
+          "type": "address"
+        }
+      ],
+      "name": "JoinStay",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_stayId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_trustee",
+          "type": "address"
+        }
+      ],
+      "name": "ProposeStay",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_stayId",
+          "type": "uint256"
+        }
+      ],
+      "name": "StayIsFull",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "checkDeadlines",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_stayIndexes",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "getShortStays",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "descriptionURI",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "trustee",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nPersons",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "slotsReserved",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountFunded",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address[]",
+              "name": "members",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pricePerPerson",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "isCreatorSlot",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "isActive",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "isFull",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct NomadicWorldCoin.ShortStay[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_stayId",
+          "type": "uint256"
+        }
+      ],
+      "name": "joinShortStay",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_descriptionURI",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nPersons",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_totalPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_timeAvailable",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "_isCreatorSlot",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "root",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "nullifierHash",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256[8]",
+          "name": "proof",
+          "type": "uint256[8]"
+        }
+      ],
+      "name": "proposeShortStay",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "stayId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "stays",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "descriptionURI",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "trustee",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "nPersons",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "slotsReserved",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amountFunded",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "pricePerPerson",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isCreatorSlot",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isActive",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isFull",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xb1c8377d4055c1f9ab413c50b5ed08d4612e3881ba243ee3049f7b19d51d2f31",
+  "receipt": {
+    "to": null,
+    "from": "0x4bdB8234AD81F26985d257F36a2d2d8c30365546",
+    "contractAddress": "0xD725Db3824fF8B91474cF3803158D77004042196",
+    "transactionIndex": 20,
+    "gasUsed": "1135598",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000800000000000000000000100000000004000000000000000000000000000000000000000000000000080000000000000000000000000000000000000000000000004000000000080000000000000000000200000000000000000000000000000000000000000000000000000000000004000000000000000000001800000000000000000000000000000100040000000000000000000000000000000000000000000000000000000000010000000100000",
+    "blockHash": "0x087b9635e6958360bc6ed5bd3bf73fa8eb2ac8dca06529ccaa07a803eee61abe",
+    "transactionHash": "0xb1c8377d4055c1f9ab413c50b5ed08d4612e3881ba243ee3049f7b19d51d2f31",
+    "logs": [
+      {
+        "transactionIndex": 20,
+        "blockNumber": 26905798,
+        "transactionHash": "0xb1c8377d4055c1f9ab413c50b5ed08d4612e3881ba243ee3049f7b19d51d2f31",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x0000000000000000000000004bdb8234ad81f26985d257f36a2d2d8c30365546",
+          "0x000000000000000000000000be188d6641e8b680743a4815dfa0f6208038960f"
+        ],
+        "data": "0x00000000000000000000000000000000000000000000000000469a5b3b75720000000000000000000000000000000000000000000000000011332ed8197de906000000000000000000000000000000000000000000001bea784057be8e5db61d00000000000000000000000000000000000000000000000010ec947cde087706000000000000000000000000000000000000000000001bea7886f219c9d3281d",
+        "logIndex": 44,
+        "blockHash": "0x087b9635e6958360bc6ed5bd3bf73fa8eb2ac8dca06529ccaa07a803eee61abe"
+      }
+    ],
+    "blockNumber": 26905798,
+    "cumulativeGasUsed": "5530847",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xABB70f7F39035586Da57B3c8136035f87AC0d2Aa"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "11994cf9e6d0a780df1b8fe2b188623a",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract IWorldID\",\"name\":\"_worldId\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"InvalidNullifier\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_stayId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_newMember\",\"type\":\"address\"}],\"name\":\"JoinStay\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_stayId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_trustee\",\"type\":\"address\"}],\"name\":\"ProposeStay\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_stayId\",\"type\":\"uint256\"}],\"name\":\"StayIsFull\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"checkDeadlines\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"_stayIndexes\",\"type\":\"uint256[]\"}],\"name\":\"getShortStays\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"descriptionURI\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"trustee\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"nPersons\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"slotsReserved\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountFunded\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"members\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pricePerPerson\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isCreatorSlot\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isFull\",\"type\":\"bool\"}],\"internalType\":\"struct NomadicWorldCoin.ShortStay[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_stayId\",\"type\":\"uint256\"}],\"name\":\"joinShortStay\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_descriptionURI\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_nPersons\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_totalPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_timeAvailable\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"_isCreatorSlot\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"root\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"nullifierHash\",\"type\":\"uint256\"},{\"internalType\":\"uint256[8]\",\"name\":\"proof\",\"type\":\"uint256[8]\"}],\"name\":\"proposeShortStay\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"stayId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"stays\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"descriptionURI\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"trustee\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"nPersons\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"slotsReserved\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountFunded\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pricePerPerson\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isCreatorSlot\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isFull\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"stateVariables\":{\"groupId\":{\"details\":\"The WorldID group ID (1)\"},\"nullifierHashes\":{\"details\":\"Whether a nullifier hash has been used already. Used to prevent double-signaling\"},\"worldId\":{\"details\":\"The WorldID instance that will be used for verifying proofs\"}},\"version\":1},\"userdoc\":{\"errors\":{\"InvalidNullifier()\":[{\"notice\":\"Thrown when attempting to reuse a nullifier\"}]},\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/NomadicWorldCoin.sol\":\"NomadicWorldCoin\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/utils/Counters.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/Counters.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @title Counters\\n * @author Matt Condon (@shrugs)\\n * @dev Provides counters that can only be incremented, decremented or reset. This can be used e.g. to track the number\\n * of elements in a mapping, issuing ERC721 ids, or counting request ids.\\n *\\n * Include with `using Counters for Counters.Counter;`\\n */\\nlibrary Counters {\\n    struct Counter {\\n        // This variable should never be directly accessed by users of the library: interactions must be restricted to\\n        // the library's function. As of Solidity v0.5.2, this cannot be enforced, though there is a proposal to add\\n        // this feature: see https://github.com/ethereum/solidity/issues/4637\\n        uint256 _value; // default: 0\\n    }\\n\\n    function current(Counter storage counter) internal view returns (uint256) {\\n        return counter._value;\\n    }\\n\\n    function increment(Counter storage counter) internal {\\n        unchecked {\\n            counter._value += 1;\\n        }\\n    }\\n\\n    function decrement(Counter storage counter) internal {\\n        uint256 value = counter._value;\\n        require(value > 0, \\\"Counter: decrement overflow\\\");\\n        unchecked {\\n            counter._value = value - 1;\\n        }\\n    }\\n\\n    function reset(Counter storage counter) internal {\\n        counter._value = 0;\\n    }\\n}\\n\",\"keccak256\":\"0xf0018c2440fbe238dd3a8732fa8e17a0f9dce84d31451dc8a32f6d62b349c9f1\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/math/SafeMath.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.6.0) (utils/math/SafeMath.sol)\\n\\npragma solidity ^0.8.0;\\n\\n// CAUTION\\n// This version of SafeMath should only be used with Solidity 0.8 or later,\\n// because it relies on the compiler's built in overflow checks.\\n\\n/**\\n * @dev Wrappers over Solidity's arithmetic operations.\\n *\\n * NOTE: `SafeMath` is generally not needed starting with Solidity 0.8, since the compiler\\n * now has built in overflow checking.\\n */\\nlibrary SafeMath {\\n    /**\\n     * @dev Returns the addition of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        unchecked {\\n            uint256 c = a + b;\\n            if (c < a) return (false, 0);\\n            return (true, c);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        unchecked {\\n            if (b > a) return (false, 0);\\n            return (true, a - b);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, with an overflow flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        unchecked {\\n            // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\\n            // benefit is lost if 'b' is also tested.\\n            // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522\\n            if (a == 0) return (true, 0);\\n            uint256 c = a * b;\\n            if (c / a != b) return (false, 0);\\n            return (true, c);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the division of two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        unchecked {\\n            if (b == 0) return (false, 0);\\n            return (true, a / b);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers, with a division by zero flag.\\n     *\\n     * _Available since v3.4._\\n     */\\n    function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {\\n        unchecked {\\n            if (b == 0) return (false, 0);\\n            return (true, a % b);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the addition of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `+` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Addition cannot overflow.\\n     */\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\n        return a + b;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting on\\n     * overflow (when the result is negative).\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\n        return a - b;\\n    }\\n\\n    /**\\n     * @dev Returns the multiplication of two unsigned integers, reverting on\\n     * overflow.\\n     *\\n     * Counterpart to Solidity's `*` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Multiplication cannot overflow.\\n     */\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\n        return a * b;\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * Counterpart to Solidity's `/` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\n        return a / b;\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting when dividing by zero.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\n        return a % b;\\n    }\\n\\n    /**\\n     * @dev Returns the subtraction of two unsigned integers, reverting with custom message on\\n     * overflow (when the result is negative).\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {trySub}.\\n     *\\n     * Counterpart to Solidity's `-` operator.\\n     *\\n     * Requirements:\\n     *\\n     * - Subtraction cannot overflow.\\n     */\\n    function sub(\\n        uint256 a,\\n        uint256 b,\\n        string memory errorMessage\\n    ) internal pure returns (uint256) {\\n        unchecked {\\n            require(b <= a, errorMessage);\\n            return a - b;\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the integer division of two unsigned integers, reverting with custom message on\\n     * division by zero. The result is rounded towards zero.\\n     *\\n     * Counterpart to Solidity's `/` operator. Note: this function uses a\\n     * `revert` opcode (which leaves remaining gas untouched) while Solidity\\n     * uses an invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function div(\\n        uint256 a,\\n        uint256 b,\\n        string memory errorMessage\\n    ) internal pure returns (uint256) {\\n        unchecked {\\n            require(b > 0, errorMessage);\\n            return a / b;\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the remainder of dividing two unsigned integers. (unsigned integer modulo),\\n     * reverting with custom message when dividing by zero.\\n     *\\n     * CAUTION: This function is deprecated because it requires allocating memory for the error\\n     * message unnecessarily. For custom revert reasons use {tryMod}.\\n     *\\n     * Counterpart to Solidity's `%` operator. This function uses a `revert`\\n     * opcode (which leaves remaining gas untouched) while Solidity uses an\\n     * invalid opcode to revert (consuming all remaining gas).\\n     *\\n     * Requirements:\\n     *\\n     * - The divisor cannot be zero.\\n     */\\n    function mod(\\n        uint256 a,\\n        uint256 b,\\n        string memory errorMessage\\n    ) internal pure returns (uint256) {\\n        unchecked {\\n            require(b > 0, errorMessage);\\n            return a % b;\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x0f633a0223d9a1dcccfcf38a64c9de0874dfcbfac0c6941ccf074d63a2ce0e1e\",\"license\":\"MIT\"},\"contracts/NomadicWorldCoin.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nimport \\\"@openzeppelin/contracts/utils/Counters.sol\\\";\\nimport \\\"@openzeppelin/contracts/utils/math/SafeMath.sol\\\";\\nimport { ByteHasher } from './helpers/ByteHasher.sol';\\nimport { IWorldID } from './interfaces/IWorldID.sol';\\n\\ncontract NomadicWorldCoin {\\n\\n    using ByteHasher for bytes;\\n\\n    ///////////////////////////////////////////////////////////////////////////////\\n    ///                                  ERRORS                                ///\\n    //////////////////////////////////////////////////////////////////////////////\\n\\n    /// @notice Thrown when attempting to reuse a nullifier\\n    error InvalidNullifier();\\n\\n    /// @dev The WorldID instance that will be used for verifying proofs\\n    IWorldID internal immutable worldId;\\n\\n    /// @dev The WorldID group ID (1)\\n    uint256 internal immutable groupId = 1;\\n\\n    /// @dev Whether a nullifier hash has been used already. Used to prevent double-signaling\\n    mapping(uint256 => bool) internal nullifierHashes;\\n    using SafeMath for uint256;\\n    using Counters for Counters.Counter;\\n\\n    struct ShortStay {\\n        uint256 id;\\n        string descriptionURI;\\n        address trustee;\\n        uint256 nPersons;\\n        uint256 slotsReserved;\\n        uint256 amountFunded;\\n        address[] members;\\n        uint256 totalPrice;\\n        uint256 pricePerPerson;\\n        uint256 deadline;\\n        bool isCreatorSlot; // true if creator of short stay is one of the persons staying (nPersons)\\n        bool isActive; // if stay is currently open for booking\\n        bool isFull; // if all member slots are filled or not\\n    }\\n\\n    mapping (uint256 => ShortStay) public stays ; \\n    address public owner;\\n    Counters.Counter public stayId;\\n\\n    event ProposeStay(uint256 _stayId, address _trustee);\\n    event JoinStay(uint256 _stayId, address _newMember);\\n    event StayIsFull(uint256 _stayId);\\n\\n    constructor(IWorldID _worldId) {\\n        worldId = _worldId;\\n        owner = msg.sender;\\n    }\\n\\n\\n    modifier onlyActiveShortStay(uint256 _stayId) {\\n        require(stays[_stayId].isActive && !stays[_stayId].isFull && stays[_stayId].deadline > block.timestamp, \\\"HackerHouse: Stay is full, inactive or deadline was reached\\\");\\n        _;\\n    }\\n\\n    function proposeShortStay(\\n        string memory _descriptionURI,\\n        uint256 _nPersons,\\n        uint256 _totalPrice,\\n        uint256 _timeAvailable,\\n        bool _isCreatorSlot,\\n        uint256 root,\\n        uint256 nullifierHash,\\n        uint256[8] calldata proof\\n    ) external returns (uint256) {\\n        require(_nPersons > 0, \\\"HackerHouse: At least one room required\\\");\\n        if (nullifierHashes[nullifierHash]) revert InvalidNullifier();\\n        uint256 _stayId = stayId.current(); \\n        worldId.verifyProof(\\n            root,\\n            groupId,\\n            abi.encodePacked(_descriptionURI,_nPersons,_totalPrice,_timeAvailable).hashToField(),\\n            nullifierHash,\\n            abi.encodePacked(address(this)).hashToField(),\\n            proof\\n        );\\n\\n        // finally, we record they've done this, so they can't do it again (proof of uniqueness)\\n        nullifierHashes[nullifierHash] = true;\\n        uint256 _slotsReserved = _isCreatorSlot ? 1 : 0;\\n        address[] memory _members = new address[](_nPersons);\\n\\n        if (_isCreatorSlot) {\\n            _members[0] = msg.sender;\\n        }\\n\\n        stays[_stayId] = ShortStay({\\n            id: _stayId,\\n            descriptionURI: _descriptionURI,\\n            trustee: msg.sender,\\n            nPersons: _nPersons,\\n            slotsReserved: _slotsReserved,\\n            amountFunded: 0,\\n            members: _members,\\n            totalPrice: _totalPrice,\\n            pricePerPerson: (_totalPrice / _nPersons ) + 1,\\n            deadline: block.timestamp + _timeAvailable,\\n            isCreatorSlot: _isCreatorSlot,\\n            isActive: true,\\n            isFull: false\\n        });\\n        stayId.increment();\\n        emit ProposeStay(_stayId, msg.sender);\\n        return _stayId;\\n    }\\n\\n    function joinShortStay(\\n        uint256 _stayId\\n    ) external payable onlyActiveShortStay(_stayId) {\\n        ShortStay storage _stay = stays[_stayId];\\n        require(msg.value >= _stay.pricePerPerson, \\\"HackerHouse: Insufficient value sent\\\");\\n        bool isMember = false;\\n        // make sure that the sender is not already a member of the stay\\n        uint256 i = 0;\\n        uint256 memLen = _stay.nPersons;\\n        for (i; i < memLen; i++) {\\n            if (_stay.members[i] == msg.sender) {\\n                isMember = true;\\n                break;\\n            }\\n        }\\n        require(!isMember, \\\"HackerHouse: You are already signed up\\\");\\n        _stay.members.push(msg.sender);\\n        _stay.slotsReserved++;\\n        _stay.amountFunded += _stay.pricePerPerson;\\n        emit JoinStay(_stayId, msg.sender);\\n\\n        if (_stay.slotsReserved >= _stay.nPersons) {\\n            _stay.isFull = true;\\n            emit StayIsFull(_stayId);\\n        }\\n    }\\n\\n    function getShortStays(uint256[] memory _stayIndexes) external returns(ShortStay[] memory) {\\n        ShortStay[] memory returnStays;\\n        uint256 stayLen = _stayIndexes.length;\\n        uint256 i = 0;\\n        for (i; i < stayLen; i++) {\\n            returnStays[i] = stays[_stayIndexes[i]];\\n        }\\n        return returnStays;\\n    }\\n\\n    function checkDeadlines() external {\\n        uint256 stayLen = stayId.current(); \\n        uint256 i = 0;\\n        for(i;i<stayLen;i++){\\n            checkSingleDeadline(i);\\n        }\\n    }\\n\\n    function checkSingleDeadline(uint256 id) internal {\\n        if(stays[id].deadline < block.timestamp){\\n            stays[id].isActive = false;\\n        }\\n    }\\n}\",\"keccak256\":\"0x0d03ced02880bfba034700a511631f125ac95cb4c8994dee85af0481ebadefc0\",\"license\":\"MIT\"},\"contracts/helpers/ByteHasher.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nlibrary ByteHasher {\\n    /// @dev Creates a keccak256 hash of a bytestring.\\n    /// @param value The bytestring to hash\\n    /// @return The hash of the specified value\\n    /// @dev `>> 8` makes sure that the result is included in our field\\n    function hashToField(bytes memory value) internal pure returns (uint256) {\\n        return uint256(keccak256(abi.encodePacked(value))) >> 8;\\n    }\\n}\",\"keccak256\":\"0xdf7abea628f202e09d500fd6e1d27c6e900a088f2a79ae4870463d13fc888d65\",\"license\":\"MIT\"},\"contracts/interfaces/IWorldID.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ninterface IWorldID {\\n    /// @notice Reverts if the zero-knowledge proof is invalid.\\n    /// @param root The of the Merkle tree\\n    /// @param groupId The id of the Semaphore group\\n    /// @param signalHash A keccak256 hash of the Semaphore signal\\n    /// @param nullifierHash The nullifier hash\\n    /// @param externalNullifierHash A keccak256 hash of the external nullifier\\n    /// @param proof The zero-knowledge proof\\n    /// @dev  Note that a double-signaling check is not included here, and should be carried by the caller.\\n    function verifyProof(\\n        uint256 root,\\n        uint256 groupId,\\n        uint256 signalHash,\\n        uint256 nullifierHash,\\n        uint256 externalNullifierHash,\\n        uint256[8] calldata proof\\n    ) external view;\\n}\",\"keccak256\":\"0x0e48b38618c0adf1de814097db7b6e99b549926948ea73214dda0539780f5fb0\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60c0604052600160a05234801561001557600080fd5b506040516113d83803806113d88339810160408190526100349161005d565b60601b6001600160601b03191660805260028054336001600160a01b031990911617905561008b565b60006020828403121561006e578081fd5b81516001600160a01b0381168114610084578182fd5b9392505050565b60805160601c60a0516113256100b360003960006108c60152600061089601526113256000f3fe6080604052600436106100705760003560e01c8063a47a97e41161004e578063a47a97e4146100ec578063c382e39a14610101578063c7943c6714610139578063cfc454c81461016657600080fd5b806361d529201461007557806368d066011461008a5780638da5cb5b146100b4575b600080fd5b610088610083366004610f3a565b610186565b005b34801561009657600080fd5b506003546100a19081565b6040519081526020015b60405180910390f35b3480156100c057600080fd5b506002546100d4906001600160a01b031681565b6040516001600160a01b0390911681526020016100ab565b3480156100f857600080fd5b5061008861048f565b34801561010d57600080fd5b5061012161011c366004610f3a565b6104c6565b6040516100ab9c9b9a9998979695949392919061111e565b34801561014557600080fd5b50610159610154366004610db2565b6105bd565b6040516100ab919061100c565b34801561017257600080fd5b506100a1610181366004610e5a565b6107f6565b6000818152600160205260409020600a01548190610100900460ff1680156101c657506000818152600160205260409020600a015462010000900460ff16155b80156101e2575060008181526001602052604090206009015442105b6102595760405162461bcd60e51b815260206004820152603b60248201527f4861636b6572486f7573653a20537461792069732066756c6c2c20696e61637460448201527f697665206f7220646561646c696e65207761732072656163686564000000000060648201526084015b60405180910390fd5b600082815260016020526040902060088101543410156102c75760405162461bcd60e51b8152602060048201526024808201527f4861636b6572486f7573653a20496e73756666696369656e742076616c7565206044820152631cd95b9d60e21b6064820152608401610250565b600381015460009081905b8082101561033d57336001600160a01b031684600601838154811061030757634e487b7160e01b600052603260045260246000fd5b6000918252602090912001546001600160a01b0316141561032b576001925061033d565b81610335816112a8565b9250506102d2565b821561039a5760405162461bcd60e51b815260206004820152602660248201527f4861636b6572486f7573653a20596f752061726520616c72656164792073696760448201526506e65642075760d41b6064820152608401610250565b6006840180546001810182556000918252602082200180546001600160a01b03191633179055600485018054916103d0836112a8565b919050555083600801548460050160008282546103ed9190611205565b9091555050604080518781523360208201527f460d21d4cbf85b35cb5c7f324f30ebd971ebbd70742a3aa7b2155624c6b36016910160405180910390a1836003015484600401541061048757600a8401805462ff00001916620100001790556040517fe1901de7acf5b4425e071d7895f1519f19ae4f4b6b51259d67718b2af22e0da29061047e9088815260200190565b60405180910390a15b505050505050565b600061049a60035490565b905060005b818110156104c2576104b081610c2b565b806104ba816112a8565b91505061049f565b5050565b6001602081905260009182526040909120805491810180546104e79061126d565b80601f01602080910402602001604051908101604052809291908181526020018280546105139061126d565b80156105605780601f1061053557610100808354040283529160200191610560565b820191906000526020600020905b81548152906001019060200180831161054357829003601f168201915b50505060028401546003850154600486015460058701546007880154600889015460098a0154600a909a015498996001600160a01b03909616989497509295509093909260ff80821691610100810482169162010000909104168c565b8051606090819060005b818110156107ed57600160008683815181106105f357634e487b7160e01b600052603260045260246000fd5b60200260200101518152602001908152602001600020604051806101a00160405290816000820154815260200160018201805461062f9061126d565b80601f016020809104026020016040519081016040528092919081815260200182805461065b9061126d565b80156106a85780601f1061067d576101008083540402835291602001916106a8565b820191906000526020600020905b81548152906001019060200180831161068b57829003601f168201915b505050505081526020016002820160009054906101000a90046001600160a01b03166001600160a01b03166001600160a01b031681526020016003820154815260200160048201548152602001600582015481526020016006820180548060200260200160405190810160405280929190818152602001828054801561075757602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610739575b5050509183525050600782015460208201526008820154604082015260098201546060820152600a9091015460ff8082161515608084015261010082048116151560a08401526201000090910416151560c09091015283518490839081106107cf57634e487b7160e01b600052603260045260246000fd5b602002602001018190525080806107e5906112a8565b9150506105c7565b50909392505050565b60008088116108575760405162461bcd60e51b815260206004820152602760248201527f4861636b6572486f7573653a204174206c65617374206f6e6520726f6f6d2072604482015266195c5d5a5c995960ca1b6064820152608401610250565b60008381526020819052604090205460ff161561088757604051632ec8265960e11b815260040160405180910390fd5b600061089260035490565b90507f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316633bc778e3867f00000000000000000000000000000000000000000000000000000000000000006109138e8e8e8e6040516020016108ff9493929190610fdd565b604051602081830303815290604052610c62565b6040516bffffffffffffffffffffffff193060601b166020820152899061093c906034016108ff565b896040518763ffffffff1660e01b815260040161095e96959493929190611198565b60006040518083038186803b15801561097657600080fd5b505afa15801561098a573d6000803e3d6000fd5b5050506000858152602081905260408120805460ff191660011790559050866109b45760006109b7565b60015b60ff16905060008a67ffffffffffffffff8111156109e557634e487b7160e01b600052604160045260246000fd5b604051908082528060200260200182016040528015610a0e578160200160208202803683370190505b5090508715610a5a573381600081518110610a3957634e487b7160e01b600052603260045260246000fd5b60200260200101906001600160a01b031690816001600160a01b0316815250505b604051806101a001604052808481526020018d8152602001336001600160a01b031681526020018c8152602001838152602001600081526020018281526020018b81526020018c8c610aac919061121d565b610ab7906001611205565b8152602001610ac68b42611205565b81528915156020808301919091526001604080840182905260006060909401849052878452818352909220835181558382015180519193610b0d9390850192910190610c97565b5060408201516002820180546001600160a01b0319166001600160a01b03909216919091179055606082015160038201556080820151600482015560a0820151600582015560c08201518051610b6d916006840191602090910190610d1b565b5060e082015160078201556101008083015160088301556101208301516009830155610140830151600a90920180546101608501516101809095015161ffff1990911693151561ff001916939093179315159091029290921762ff000019166201000091151591909102179055600380546001019055604080518481523360208201527fa322f9beee28d40f70deae6c1c8f9edde1e1275fea1ede699debb1edcaece00f910160405180910390a150909a9950505050505050505050565b600081815260016020526040902060090154421115610c5f576000818152600160205260409020600a01805461ff00191690555b50565b6000600882604051602001610c779190610fc1565b60408051601f198184030181529190528051602090910120901c92915050565b828054610ca39061126d565b90600052602060002090601f016020900481019282610cc55760008555610d0b565b82601f10610cde57805160ff1916838001178555610d0b565b82800160010185558215610d0b579182015b82811115610d0b578251825591602001919060010190610cf0565b50610d17929150610d70565b5090565b828054828255906000526020600020908101928215610d0b579160200282015b82811115610d0b57825182546001600160a01b0319166001600160a01b03909116178255602090920191600190910190610d3b565b5b80821115610d175760008155600101610d71565b806101008101831015610d9757600080fd5b92915050565b80358015158114610dad57600080fd5b919050565b60006020808385031215610dc4578182fd5b823567ffffffffffffffff80821115610ddb578384fd5b818501915085601f830112610dee578384fd5b813581811115610e0057610e006112d9565b8060051b9150610e118483016111d4565b8181528481019084860184860187018a1015610e2b578788fd5b8795505b83861015610e4d578035835260019590950194918601918601610e2f565b5098975050505050505050565b6000806000806000806000806101e0898b031215610e76578384fd5b883567ffffffffffffffff80821115610e8d578586fd5b818b0191508b601f830112610ea0578586fd5b8135602082821115610eb457610eb46112d9565b610ec6601f8301601f191682016111d4565b92508183528d81838601011115610edb578788fd5b818185018285013790820181018790529099508a01359750506040890135955060608901359450610f0e60808a01610d9d565b935060a0890135925060c08901359150610f2b8a60e08b01610d85565b90509295985092959890939650565b600060208284031215610f4b578081fd5b5035919050565b6000815180845260208085019450808401835b83811015610f8a5781516001600160a01b031687529582019590820190600101610f65565b509495945050505050565b60008151808452610fad81602086016020860161123d565b601f01601f19169290920160200192915050565b60008251610fd381846020870161123d565b9190910192915050565b60008551610fef818460208a0161123d565b919091019384525060208301919091526040820152606001919050565b60006020808301818452808551808352604092508286019150828160051b870101848801865b8381101561111057603f1989840301855281516101a08151855288820151818a87015261106182870182610f95565b9150508782015161107c898701826001600160a01b03169052565b50606082810151908601526080808301519086015260a0808301519086015260c080830151868303828801526110b28382610f52565b60e0858101519089015261010080860151908901526101208086015190890152610140808601511515908901526101608086015115159089015261018094850151151594909701939093525050509386019390860190600101611032565b509098975050505050505050565b60006101808e83528060208401526111388184018f610f95565b6001600160a01b039d909d16604084015250506060810199909952608089019790975260a088019590955260c087019390935260e08601919091526101008501521515610120840152151561014083015215156101609091015292915050565b60006101a0820190508782528660208301528560408301528460608301528360808301526101008360a084013760008152979650505050505050565b604051601f8201601f1916810167ffffffffffffffff811182821017156111fd576111fd6112d9565b604052919050565b60008219821115611218576112186112c3565b500190565b60008261123857634e487b7160e01b81526012600452602481fd5b500490565b60005b83811015611258578181015183820152602001611240565b83811115611267576000848401525b50505050565b600181811c9082168061128157607f821691505b602082108114156112a257634e487b7160e01b600052602260045260246000fd5b50919050565b60006000198214156112bc576112bc6112c3565b5060010190565b634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052604160045260246000fdfea2646970667358221220f94a8a7dcd0ccb1f5b4b86b8622278a4e0c2974bb8665145af4a421695ed62eb64736f6c63430008040033",
+  "deployedBytecode": "0x6080604052600436106100705760003560e01c8063a47a97e41161004e578063a47a97e4146100ec578063c382e39a14610101578063c7943c6714610139578063cfc454c81461016657600080fd5b806361d529201461007557806368d066011461008a5780638da5cb5b146100b4575b600080fd5b610088610083366004610f3a565b610186565b005b34801561009657600080fd5b506003546100a19081565b6040519081526020015b60405180910390f35b3480156100c057600080fd5b506002546100d4906001600160a01b031681565b6040516001600160a01b0390911681526020016100ab565b3480156100f857600080fd5b5061008861048f565b34801561010d57600080fd5b5061012161011c366004610f3a565b6104c6565b6040516100ab9c9b9a9998979695949392919061111e565b34801561014557600080fd5b50610159610154366004610db2565b6105bd565b6040516100ab919061100c565b34801561017257600080fd5b506100a1610181366004610e5a565b6107f6565b6000818152600160205260409020600a01548190610100900460ff1680156101c657506000818152600160205260409020600a015462010000900460ff16155b80156101e2575060008181526001602052604090206009015442105b6102595760405162461bcd60e51b815260206004820152603b60248201527f4861636b6572486f7573653a20537461792069732066756c6c2c20696e61637460448201527f697665206f7220646561646c696e65207761732072656163686564000000000060648201526084015b60405180910390fd5b600082815260016020526040902060088101543410156102c75760405162461bcd60e51b8152602060048201526024808201527f4861636b6572486f7573653a20496e73756666696369656e742076616c7565206044820152631cd95b9d60e21b6064820152608401610250565b600381015460009081905b8082101561033d57336001600160a01b031684600601838154811061030757634e487b7160e01b600052603260045260246000fd5b6000918252602090912001546001600160a01b0316141561032b576001925061033d565b81610335816112a8565b9250506102d2565b821561039a5760405162461bcd60e51b815260206004820152602660248201527f4861636b6572486f7573653a20596f752061726520616c72656164792073696760448201526506e65642075760d41b6064820152608401610250565b6006840180546001810182556000918252602082200180546001600160a01b03191633179055600485018054916103d0836112a8565b919050555083600801548460050160008282546103ed9190611205565b9091555050604080518781523360208201527f460d21d4cbf85b35cb5c7f324f30ebd971ebbd70742a3aa7b2155624c6b36016910160405180910390a1836003015484600401541061048757600a8401805462ff00001916620100001790556040517fe1901de7acf5b4425e071d7895f1519f19ae4f4b6b51259d67718b2af22e0da29061047e9088815260200190565b60405180910390a15b505050505050565b600061049a60035490565b905060005b818110156104c2576104b081610c2b565b806104ba816112a8565b91505061049f565b5050565b6001602081905260009182526040909120805491810180546104e79061126d565b80601f01602080910402602001604051908101604052809291908181526020018280546105139061126d565b80156105605780601f1061053557610100808354040283529160200191610560565b820191906000526020600020905b81548152906001019060200180831161054357829003601f168201915b50505060028401546003850154600486015460058701546007880154600889015460098a0154600a909a015498996001600160a01b03909616989497509295509093909260ff80821691610100810482169162010000909104168c565b8051606090819060005b818110156107ed57600160008683815181106105f357634e487b7160e01b600052603260045260246000fd5b60200260200101518152602001908152602001600020604051806101a00160405290816000820154815260200160018201805461062f9061126d565b80601f016020809104026020016040519081016040528092919081815260200182805461065b9061126d565b80156106a85780601f1061067d576101008083540402835291602001916106a8565b820191906000526020600020905b81548152906001019060200180831161068b57829003601f168201915b505050505081526020016002820160009054906101000a90046001600160a01b03166001600160a01b03166001600160a01b031681526020016003820154815260200160048201548152602001600582015481526020016006820180548060200260200160405190810160405280929190818152602001828054801561075757602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610739575b5050509183525050600782015460208201526008820154604082015260098201546060820152600a9091015460ff8082161515608084015261010082048116151560a08401526201000090910416151560c09091015283518490839081106107cf57634e487b7160e01b600052603260045260246000fd5b602002602001018190525080806107e5906112a8565b9150506105c7565b50909392505050565b60008088116108575760405162461bcd60e51b815260206004820152602760248201527f4861636b6572486f7573653a204174206c65617374206f6e6520726f6f6d2072604482015266195c5d5a5c995960ca1b6064820152608401610250565b60008381526020819052604090205460ff161561088757604051632ec8265960e11b815260040160405180910390fd5b600061089260035490565b90507f00000000000000000000000000000000000000000000000000000000000000006001600160a01b0316633bc778e3867f00000000000000000000000000000000000000000000000000000000000000006109138e8e8e8e6040516020016108ff9493929190610fdd565b604051602081830303815290604052610c62565b6040516bffffffffffffffffffffffff193060601b166020820152899061093c906034016108ff565b896040518763ffffffff1660e01b815260040161095e96959493929190611198565b60006040518083038186803b15801561097657600080fd5b505afa15801561098a573d6000803e3d6000fd5b5050506000858152602081905260408120805460ff191660011790559050866109b45760006109b7565b60015b60ff16905060008a67ffffffffffffffff8111156109e557634e487b7160e01b600052604160045260246000fd5b604051908082528060200260200182016040528015610a0e578160200160208202803683370190505b5090508715610a5a573381600081518110610a3957634e487b7160e01b600052603260045260246000fd5b60200260200101906001600160a01b031690816001600160a01b0316815250505b604051806101a001604052808481526020018d8152602001336001600160a01b031681526020018c8152602001838152602001600081526020018281526020018b81526020018c8c610aac919061121d565b610ab7906001611205565b8152602001610ac68b42611205565b81528915156020808301919091526001604080840182905260006060909401849052878452818352909220835181558382015180519193610b0d9390850192910190610c97565b5060408201516002820180546001600160a01b0319166001600160a01b03909216919091179055606082015160038201556080820151600482015560a0820151600582015560c08201518051610b6d916006840191602090910190610d1b565b5060e082015160078201556101008083015160088301556101208301516009830155610140830151600a90920180546101608501516101809095015161ffff1990911693151561ff001916939093179315159091029290921762ff000019166201000091151591909102179055600380546001019055604080518481523360208201527fa322f9beee28d40f70deae6c1c8f9edde1e1275fea1ede699debb1edcaece00f910160405180910390a150909a9950505050505050505050565b600081815260016020526040902060090154421115610c5f576000818152600160205260409020600a01805461ff00191690555b50565b6000600882604051602001610c779190610fc1565b60408051601f198184030181529190528051602090910120901c92915050565b828054610ca39061126d565b90600052602060002090601f016020900481019282610cc55760008555610d0b565b82601f10610cde57805160ff1916838001178555610d0b565b82800160010185558215610d0b579182015b82811115610d0b578251825591602001919060010190610cf0565b50610d17929150610d70565b5090565b828054828255906000526020600020908101928215610d0b579160200282015b82811115610d0b57825182546001600160a01b0319166001600160a01b03909116178255602090920191600190910190610d3b565b5b80821115610d175760008155600101610d71565b806101008101831015610d9757600080fd5b92915050565b80358015158114610dad57600080fd5b919050565b60006020808385031215610dc4578182fd5b823567ffffffffffffffff80821115610ddb578384fd5b818501915085601f830112610dee578384fd5b813581811115610e0057610e006112d9565b8060051b9150610e118483016111d4565b8181528481019084860184860187018a1015610e2b578788fd5b8795505b83861015610e4d578035835260019590950194918601918601610e2f565b5098975050505050505050565b6000806000806000806000806101e0898b031215610e76578384fd5b883567ffffffffffffffff80821115610e8d578586fd5b818b0191508b601f830112610ea0578586fd5b8135602082821115610eb457610eb46112d9565b610ec6601f8301601f191682016111d4565b92508183528d81838601011115610edb578788fd5b818185018285013790820181018790529099508a01359750506040890135955060608901359450610f0e60808a01610d9d565b935060a0890135925060c08901359150610f2b8a60e08b01610d85565b90509295985092959890939650565b600060208284031215610f4b578081fd5b5035919050565b6000815180845260208085019450808401835b83811015610f8a5781516001600160a01b031687529582019590820190600101610f65565b509495945050505050565b60008151808452610fad81602086016020860161123d565b601f01601f19169290920160200192915050565b60008251610fd381846020870161123d565b9190910192915050565b60008551610fef818460208a0161123d565b919091019384525060208301919091526040820152606001919050565b60006020808301818452808551808352604092508286019150828160051b870101848801865b8381101561111057603f1989840301855281516101a08151855288820151818a87015261106182870182610f95565b9150508782015161107c898701826001600160a01b03169052565b50606082810151908601526080808301519086015260a0808301519086015260c080830151868303828801526110b28382610f52565b60e0858101519089015261010080860151908901526101208086015190890152610140808601511515908901526101608086015115159089015261018094850151151594909701939093525050509386019390860190600101611032565b509098975050505050505050565b60006101808e83528060208401526111388184018f610f95565b6001600160a01b039d909d16604084015250506060810199909952608089019790975260a088019590955260c087019390935260e08601919091526101008501521515610120840152151561014083015215156101609091015292915050565b60006101a0820190508782528660208301528560408301528460608301528360808301526101008360a084013760008152979650505050505050565b604051601f8201601f1916810167ffffffffffffffff811182821017156111fd576111fd6112d9565b604052919050565b60008219821115611218576112186112c3565b500190565b60008261123857634e487b7160e01b81526012600452602481fd5b500490565b60005b83811015611258578181015183820152602001611240565b83811115611267576000848401525b50505050565b600181811c9082168061128157607f821691505b602082108114156112a257634e487b7160e01b600052602260045260246000fd5b50919050565b60006000198214156112bc576112bc6112c3565b5060010190565b634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052604160045260246000fdfea2646970667358221220f94a8a7dcd0ccb1f5b4b86b8622278a4e0c2974bb8665145af4a421695ed62eb64736f6c63430008040033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "stateVariables": {
+      "groupId": {
+        "details": "The WorldID group ID (1)"
+      },
+      "nullifierHashes": {
+        "details": "Whether a nullifier hash has been used already. Used to prevent double-signaling"
+      },
+      "worldId": {
+        "details": "The WorldID instance that will be used for verifying proofs"
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "errors": {
+      "InvalidNullifier()": [
+        {
+          "notice": "Thrown when attempting to reuse a nullifier"
+        }
+      ]
+    },
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 835,
+        "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+        "label": "nullifierHashes",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_uint256,t_bool)"
+      },
+      {
+        "astId": 875,
+        "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+        "label": "stays",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_uint256,t_struct(ShortStay)870_storage)"
+      },
+      {
+        "astId": 877,
+        "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+        "label": "owner",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_address"
+      },
+      {
+        "astId": 880,
+        "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+        "label": "stayId",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_struct(Counter)5_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_address)dyn_storage": {
+        "base": "t_address",
+        "encoding": "dynamic_array",
+        "label": "address[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_uint256,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_uint256,t_struct(ShortStay)870_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct NomadicWorldCoin.ShortStay)",
+        "numberOfBytes": "32",
+        "value": "t_struct(ShortStay)870_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Counter)5_storage": {
+        "encoding": "inplace",
+        "label": "struct Counters.Counter",
+        "members": [
+          {
+            "astId": 4,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "_value",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "32"
+      },
+      "t_struct(ShortStay)870_storage": {
+        "encoding": "inplace",
+        "label": "struct NomadicWorldCoin.ShortStay",
+        "members": [
+          {
+            "astId": 844,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "id",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 846,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "descriptionURI",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 848,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "trustee",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address"
+          },
+          {
+            "astId": 850,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "nPersons",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 852,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "slotsReserved",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 854,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "amountFunded",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 857,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "members",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_array(t_address)dyn_storage"
+          },
+          {
+            "astId": 859,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "totalPrice",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 861,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "pricePerPerson",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 863,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "deadline",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 865,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "isCreatorSlot",
+            "offset": 0,
+            "slot": "10",
+            "type": "t_bool"
+          },
+          {
+            "astId": 867,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "isActive",
+            "offset": 1,
+            "slot": "10",
+            "type": "t_bool"
+          },
+          {
+            "astId": 869,
+            "contract": "contracts/NomadicWorldCoin.sol:NomadicWorldCoin",
+            "label": "isFull",
+            "offset": 2,
+            "slot": "10",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "352"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

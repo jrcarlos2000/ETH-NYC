@@ -1,0 +1,129 @@
+.create-page{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+}
+.create-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10vw;
+}
+.label{
+    margin: 0 0 0 7vw;
+}
+.field-small{
+    width: 35vw !important;
+}
+.text-field{
+    width: 80vw;
+    height: 16vw;
+    border-radius: 20px;
+    border: 1px solid rgb(173, 173, 173);
+    padding-left: 3vw;
+    margin: 2vw 0 2vw 5vw;
+    font-size: 5vw;
+    background-color: rgb(199, 199, 199);
+}
+.create-btn{
+    margin: 7vw 0 10vw 5vw;
+    width: 90vw;
+    height: 18vw;
+    border-radius: 30px;
+    font-size: 8vw;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: white;
+    background-color: black;
+    border: none;
+}
+  .error-text{
+      margin-left: 7vw;
+      color: red;
+      width: 80vw;
+  }
+  .field-error{
+      border: solid 1px red;
+  }
+  .field-correct{
+      border: solid 1px rgb(0, 255, 187);
+  }
+
+@media screen and (min-width: 1200px) {
+    .create-form {
+        display: flex;
+        flex-wrap: wrap; 
+        width: 40vw;
+        height: 78vh;
+        margin: 0 auto;
+        margin-top: 1vh;
+        align-items: center;
+        background-color: rgb(29, 29, 29);
+        border-radius: 30px;
+        margin-top: 2vw;
+        padding-top: 4vh;
+      }
+    .field-small{
+        width: 14vw !important;
+        margin-right: 1vw !important;
+    }
+    .form-first-column { 
+          grid-area: form-first-column; 
+          display: flex;
+          flex-wrap: wrap;
+    }
+    .field-container{
+        margin-top: -1.8vh;
+    }
+    .form-second-column {
+        grid-area: form-second-column; 
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    .label{
+        margin: 0vw 0 0 3vw;
+    }
+    .text-field{
+        width: 33vw;
+        height: 7vh;
+        padding-left: 1.5vw;
+        margin: 2vh 2vw 1vw 2.5vw;
+        font-size: 1.5vw;
+        background-color: white;
+        border: none;
+        outline: #FF3E60;
+    }
+    .create-btn{
+        width: 20vw;
+        height: 5vw;
+        font-size: 1.5vw;
+        cursor: pointer;
+        background-image: linear-gradient(200deg, #FF3E60 40%, #6f0c34);
+        transition: all 0.7s ease;
+        margin: 0vw 0 4vh 17.2vw;
+    }
+    .create-btn:hover{
+        transform: scale(1.1);
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.307);
+      }
+    #link-field{
+        margin-top: -3vh;
+    }
+    #tags-field{
+        margin-top: -3vh;
+    }
+    #housemates-field{
+        margin-top: -3vh;
+    }
+    #checkbox{
+        height: 2vw;
+        margin-top: 2vh;
+        width: 2vw !important;
+        margin-left: 3vw;
+        cursor: pointer;
+    }
+    #checkbox-field{
+        margin-top: -7vh;
+    }
+}
