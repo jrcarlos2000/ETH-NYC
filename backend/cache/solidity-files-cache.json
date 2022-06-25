@@ -307,8 +307,8 @@
       ]
     },
     "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/HackerHouseDAO.sol": {
-      "lastModificationDate": 1656189898193,
-      "contentHash": "0f5d47fb3433bb88d2e40f5afc44bfb6",
+      "lastModificationDate": 1656195287996,
+      "contentHash": "c63843b78d028ad94af439b5b6e2c196",
       "sourceName": "contracts/HackerHouseDAO.sol",
       "solcConfig": {
         "version": "0.8.4",
