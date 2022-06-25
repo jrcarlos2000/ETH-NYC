@@ -3,13 +3,13 @@ body{
 }
 .feed{
     width: 75vw;
-    height: 75.5vh;
+    height: 80.5vh;
     display: flex;
     flex-wrap: wrap;
     overflow-y: scroll;
     padding-bottom: 7vw;
     padding-top: 15vw;
-    margin-top: -14vw;
+    margin-top: -20vh;
     -webkit-mask-image: linear-gradient(to top,black 70%,transparent 74%);
     mask-image: linear-gradient(to top,black 70%,transparent 20%);
 }

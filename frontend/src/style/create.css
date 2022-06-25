@@ -56,11 +56,10 @@
         width: 40vw;
         height: 78vh;
         margin: 0 auto;
-        margin-top: 1vh;
         align-items: center;
         background-color: rgb(29, 29, 29);
         border-radius: 30px;
-        margin-top: 2vw;
+        margin-top: 12vh;
         padding-top: 4vh;
       }
     .field-small{
@@ -125,5 +124,17 @@
     }
     #checkbox-field{
         margin-top: -7vh;
+    }
+    .hackerhouse-field{
+        margin-top: 1vh;
+    }
+    .textarea{
+        height: 11vh;
+        width: 31vw;
+        padding: 1vh 2vw 0 1.5vw;
+        font-size: 1.2vw;
+    }
+    #shortstay-form{
+        margin-top: 7vh;
     }
 }
