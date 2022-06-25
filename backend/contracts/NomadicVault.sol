@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "./HackerHouseDAO.sol";
 
 contract NomadicVault {
     using SafeMath for uint256;
@@ -24,20 +25,37 @@ contract NomadicVault {
         bool isFull; // if all member slots are filled or not
     }
 
-    mapping (uint256 => ShortStay) public stays ; 
+    struct HackerHouse {
+        uint256 id;
+        address addr;
+        bool isActive;
+        address[] coreTeam;
+        string name;
+        string descriptionURI;
+    }
+
+    mapping (uint256 => ShortStay) public stays;
+    mapping (uint256 => HackerHouse) public hhouses;
+
     address public owner;
+    address public hhTemplate;
+    address[] public hhAddresses;
     Counters.Counter public stayId;
+    Counters.Counter public daoId;
 
     event ProposeStay(uint256 _stayId, address _trustee);
     event JoinStay(uint256 _stayId, address _newMember);
     event StayIsFull(uint256 _stayId);
+    event DAOProposed(uint256 _daoId);
+    event HHouseDeployed(uint256 _daoId, address _daoAddress, string _daoName);
 
-    constructor() {
+    constructor(address _hhTemplate) {
         owner = msg.sender;
+        hhTemplate = _hhTemplate;
     }
 
     modifier onlyActiveShortStay(uint256 _stayId) {
-        require(stays[_stayId].isActive && !stays[_stayId].isFull && stays[_stayId].deadline > block.timestamp, "HackerHouse: Stay is full, inactive or deadline was reached");
+        require(stays[_stayId].isActive && !stays[_stayId].isFull && stays[_stayId].deadline > block.timestamp, "Stay is full, inactive or deadline was reached");
         _;
     }
 
@@ -48,7 +66,7 @@ contract NomadicVault {
         uint256 _timeAvailable,
         bool _isCreatorSlot
     ) external returns (uint256) {
-        require(_nPersons > 0, "HackerHouse: At least one room required");
+        require(_nPersons > 0, "At least one room required");
         uint256 _stayId = stayId.current(); 
         uint256 _slotsReserved = _isCreatorSlot ? 1 : 0;
         address[] memory _members = new address[](_nPersons);
@@ -81,7 +99,7 @@ contract NomadicVault {
         uint256 _stayId
     ) external payable onlyActiveShortStay(_stayId) {
         ShortStay storage _stay = stays[_stayId];
-        require(msg.value >= _stay.pricePerPerson, "HackerHouse: Insufficient value sent");
+        require(msg.value >= _stay.pricePerPerson, "Insufficient value sent");
         bool isMember = false;
         // make sure that the sender is not already a member of the stay
         uint256 i = 0;
@@ -92,7 +110,7 @@ contract NomadicVault {
                 break;
             }
         }
-        require(!isMember, "HackerHouse: You are already signed up");
+        require(!isMember, "You are already signed up");
         _stay.members.push(msg.sender);
         _stay.slotsReserved++;
         _stay.amountFunded += _stay.pricePerPerson;
@@ -127,6 +145,54 @@ contract NomadicVault {
     function checkSingleDeadline(uint256 id) internal {
         if(stays[id].deadline < block.timestamp){
             stays[id].isActive = false;
+        }
+    }
+
+    function proposeDao(string memory _name, string memory _descriptionURI, uint256 _membershipCost) external {
+        uint256 _daoId = daoId.current();
+        address[] memory _coreTeam;
+        _coreTeam[0] = address(msg.sender);
+
+        hhouses[_daoId] = HackerHouse({
+            id: _daoId,
+            addr: address(0),
+            isActive: false,
+            coreTeam: _coreTeam,
+            name: _name,
+            descriptionURI: _descriptionURI
+        });
+        emit DAOProposed(_daoId);
+
+        daoId.increment();
+    }
+
+    function joinCoreTeam(uint256 _daoId) external {
+        require(!hhouses[_daoId].isActive, "dao is already active");
+        hhouses[_daoId].coreTeam.push(msg.sender);
+        if (hhouses[_daoId].coreTeam.length == 5) {
+            hhouses[_daoId].isActive = true;
+            _deployHHouse(_daoId);
+        }
+    }
+
+    function _deployHHouse(uint256 _daoId) internal {
+        HackerHouseDAO hhDao = HackerHouseDAO(_createClone(hhTemplate));
+
+        hhDao.initialize(address(this), _daoId, hhouses[_daoId].coreTeam, hhouses[_daoId].name, hhouses[_daoId].descriptionURI);
+        hhouses[_daoId].addr = address(hhDao);
+        hhAddresses.push(address(hhDao));
+
+        emit HHouseDeployed(_daoId, address(hhDao), hhouses[_daoId].name);
+    }
+
+    function _createClone(address target) internal returns (address result) {
+        bytes20 targetBytes = bytes20(target);
+        assembly {
+            let clone := mload(0x40)
+            mstore(clone, 0x3d602d80600a3d3981f3363d3d373d3d3d363d73000000000000000000000000)
+            mstore(add(clone, 0x14), targetBytes)
+            mstore(add(clone, 0x28), 0x5af43d82803e903d91602b57fd5bf30000000000000000000000000000000000)
+            result := create(0, clone, 0x37)
         }
     }
 }
