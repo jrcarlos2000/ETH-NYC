@@ -22,13 +22,13 @@ const HackerhouseFeed = (props) => {
     })
 
     useEffect(() => {
-        fetchStayList();
+        getFormingDAOs();
     }, [signer]);
-    const fetchStayList = async () => {
+    const getFormingDAOs = async () => {
         if (!signer) {
             return;
         }
-        const result = await contract.getShortStays([1]);
+        const result = await contract.getFormingDAOs();
         console.log("result - ", result);
     };
 

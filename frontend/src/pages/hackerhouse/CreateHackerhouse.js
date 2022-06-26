@@ -3,6 +3,7 @@ import { useSigner, useContract, useNetwork } from 'wagmi'
 import { CONTRACT_NAMES, NOMADICVAULT } from '../../utils/config';
 import { contractData } from '../../utils/config';
 import { Link } from "react-router-dom";
+import { uploadDataToIPFS } from '../../utils/core';
 import "../../style/create.css"
   
 const CreateHackerhouse = (props) => {
@@ -28,6 +29,15 @@ const CreateHackerhouse = (props) => {
     const onSubmit = async (event) => {
         event.preventDefault();
         console.log("submit")
+        const metadata = {
+            values,
+            mission,
+            codeOfConduct
+        }
+        const cid = await uploadDataToIPFS(metadata);
+
+        await contract.proposeDAO(name, cid, membershipFee);
+        alert("transaction was successful")
     }
 
     const handleName = (event) => {

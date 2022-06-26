@@ -37,7 +37,7 @@ export const contractData = {
     80001: { // mumbai
         [NOMADICVAULT]: {
             address: "0x90B60a419C78776c6687C507b2089DD65Dcb66F9",
-            abi: NomadicVault,
+            abi: NomadicVault.abi,
             rpc: "https://matic-mumbai.chainstacklabs.com/"
         },
 

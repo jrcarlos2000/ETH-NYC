@@ -69,3 +69,21 @@ export function isAddress(value) {
 
 //     return new Contract(address, ABI, getProviderOrSigner(library, account));
 //   }
+
+export const useCovalentForTxLogs = async (txhash) => {
+  const APIKEY = "ckey_3762fff3b80245008a13f8872d4";
+
+  // Set the Covalent API
+  const covalentAPI = "https://api.covalenthq.com/v1/";
+  const APIEndpoint = `${80001}/transaction_v2/${'0x3d6126e8e28f04a02fe69fd707f7f09c397fcc17d59182f9d8a87228e1b8ea03'}`;
+
+  // Covalent API request setup
+  const url = new URL(`${covalentAPI}${APIEndpoint}/`);
+  url.search = new URLSearchParams({
+    key: APIKEY
+  });
+
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data.data.items[0].log_events);
+};

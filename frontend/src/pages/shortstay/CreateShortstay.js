@@ -6,7 +6,7 @@ import { contractData } from "../../utils/config";
 import { defaultAbiCoder as abi } from "@ethersproject/abi";
 import { WorldIDComponent } from "../../WorldIDComponent";
 import { Link } from "react-router-dom";
-import { uploadDataToIPFS } from "../../utils/core";
+import { uploadDataToIPFS, useCovalentForTxLogs } from "../../utils/core";
 const CreateShortstay = (props) => {
   const { activeChain } = useNetwork();
   const [city, setCity] = useState("");
@@ -88,7 +88,7 @@ const CreateShortstay = (props) => {
     console.log('resWait: ', resWait);
   }
 
-  const onSubmit = async (event) => {
+  const useOnSubmit = async (event) => {
     event.preventDefault();
     if(activeChain.id == 0){
         console.log('trying with worldcoin id');
@@ -133,7 +133,7 @@ const CreateShortstay = (props) => {
       <Link to="/"><h1 className="logo">NOMADIC</h1></Link>
       <Link to="/profile"><div className="profile-btn"></div></Link>
       <div className="form-container">
-      <form onSubmit={onSubmit} className="form" id="shortstay-form">
+      <form onSubmit={useOnSubmit} className="form" id="shortstay-form">
         <div className="field-container">
           <label className="label">Where to?</label>
           <div>
