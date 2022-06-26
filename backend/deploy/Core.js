@@ -9,9 +9,11 @@ const {
   log,
 } = require("../utils/deploy");
 
-const deployVault = async () => {
+const deployCore = async () => {
   const { deployerAddr, governorAddr } = await getNamedAccounts();
-  const dNomadicVault = await deployWithConfirmation("NomadicVault");
+
+  const dSampleDAO = await deployWithConfirmation("HackerHouseDAO");
+  const dNomadicVault = await deployWithConfirmation("NomadicVault",[dSampleDAO.address]);
 };
 
 const deployUserRegistry = async () => {
@@ -35,7 +37,7 @@ const deployNomadicWorldCoin= async () => {
 }
 
 const main = async () => {
-  await deployVault();
+  await deployCore();
   await deployNomadicWorldCoin();
 };
 
