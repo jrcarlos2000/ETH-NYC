@@ -51,7 +51,7 @@ const CreateHackerhouse = (props) => {
             <div className="background-pic"></div>
             <Link to="/"><h1 className="logo">NOMADIC</h1></Link>
             <Link to="/profile"><div className="profile-btn"></div></Link>
-            <form onSubmit={onSubmit} className="create-form">
+            <form onSubmit={onSubmit} className="hackerhouse-form">
                     <div className="field-container">
                         <label className="label hackerhouse-label">Hackerhouse Name</label>
                         <div>

@@ -51,7 +51,7 @@ import { Connect } from '../Components/Connect';
         return(
             <div className="main-page">
                 <div id="world-id-container"></div>
-                <div className="background-pic"></div>
+
                 <Link to="/"><h1 className="logo">NOMADIC</h1></Link>
                 <Link to="/profile"><div className="profile-btn"></div></Link>
                 <div className="slogan-container">
