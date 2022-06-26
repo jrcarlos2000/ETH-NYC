@@ -45,24 +45,24 @@ const mumbaiChain = {
 console.log("chain: ", chain);
 
 const { provider, chains } = configureChains(
-  [chain.mainnet, mumbaiChain],
-  // use this for localhost dev
-  // [chain.mainnet, mumbaiChain, chain.localhost],
+  // [chain.mainnet, mumbaiChain],
+  // use this below  for localhost dev
+  [chain.mainnet, chain.localhost],
   [
     alchemyProvider({ alchemyId }),
     infuraProvider({ infuraId }),
-    jsonRpcProvider({
-      rpc: (chain) => {
-        if (chain.id !== mumbaiChain.id) return null
-        return { http: chain.rpcUrls.default }
-      },
-    }),
-    // use this for localhost
     // jsonRpcProvider({
-    //   rpc: (chain) => ({
-    //     http: `https://${chain.id}.example.com`,
-    //   }),
+    //   rpc: (chain) => {
+    //     if (chain.id !== mumbaiChain.id) return null
+    //     return { http: chain.rpcUrls.default }
+    //   },
     // }),
+    // use this below for localhost
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://${chain.id}.example.com`,
+      }),
+    }),
   ],
 )
 

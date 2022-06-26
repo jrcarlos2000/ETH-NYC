@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../../style/feed.css"
 import testData from "../../testData/hackerhouses";
 import { useSigner, useContract, useProvider, useNetwork } from 'wagmi'
@@ -10,6 +10,8 @@ const HackerhouseFeed = (props) => {
     const { data: signer } = useSigner()
     const provider = useProvider();
     const { activeChain } = useNetwork();
+    const [formingDAOs, setFormingDAOs] = useState([]);
+    const [activeDAOs, setActiveDAOs] = useState([]);
     const contractName = CONTRACT_NAMES[NOMADICVAULT];
     const contractAddress = contractData[activeChain.id][contractName].address;
     const contractAbi = contractData[activeChain.id][contractName].abi;
@@ -28,42 +30,53 @@ const HackerhouseFeed = (props) => {
         if (!signer) {
             return;
         }
-        const result = await contract.getFormingDAOs();
-        console.log("result - ", result);
+        const _formingDAOs = await contract.getFormingDAOs();
+        console.log("formingDAOs - ", _formingDAOs);
+        setFormingDAOs(_formingDAOs);
+    };
+    const getActiveDAOs = async () => {
+        if (!signer) {
+            return;
+        }
+        const _activeDAOs = await contract.getActiveDAOs();
+        console.log("_activeDAOs - ", _activeDAOs);
+        setActiveDAOs(_activeDAOs);
     };
 
-    const renderOffers = () => {
-    const offer = testData.map((hackerhouse) => {
-        return(
-            <div className="stay-container" key={hackerhouse.id}>
-                <div className="stay-banner"></div>
-                <div className="stay-info">
-                    <div className="offer-row1">
-                        <h3 className="main-offer-name" id="feed-city-header">{hackerhouse.name}</h3>
-                    </div>
-                    <p className="hackerhouse-feed-mission">
-                        {hackerhouse.mission}
-                    </p>
-                    <div className="offer-row2">
-                        {hackerhouse.values.map((value) => {
-                            return(
-                                <div className="tag">{value}</div>
-                            )
-                        })}
-                    </div>
-                    <div className="offer-row3" id="row3-feed">
-                        <p className="chip-in-txt">Chip in for: <b>${hackerhouse.fee}</b></p>
-                        <Link to={`/hackerhouse/${hackerhouse.id}`}><button className="button join-btn join-feed">VIEW</button></Link>
+    const renderOffers = (type) => {
+        const hhouseData = type === 'active' ? activeDAOs : formingDAOs;
+        const ActionButtonText = type === 'active' ? 'Apply' : 'Core Team'
+        const offer = hhouseData.map((hackerhouse) => {
+            return(
+                <div className="stay-container" key={hackerhouse.id}>
+                    <div className="stay-banner"></div>
+                    <div className="stay-info">
+                        <div className="offer-row1">
+                            <h3 className="main-offer-name" id="feed-city-header">{hackerhouse.name}</h3>
+                        </div>
+                        <p className="hackerhouse-feed-mission">
+                            {hackerhouse.mission}
+                        </p>
+                        <div className="offer-row2">
+                            {hackerhouse.values.map((value) => {
+                                return(
+                                    <div className="tag">{value}</div>
+                                )
+                            })}
+                        </div>
+                        <div className="offer-row3" id="row3-feed">
+                            <p className="chip-in-txt">Chip in for: <b>${hackerhouse.fee}</b></p>
+                            <Link to={`/hackerhouse/${hackerhouse.id}`}><button className="button join-btn join-feed">{ActionButtonText}</button></Link>
+                        </div>
                     </div>
                 </div>
-            </div>
             )
         });
 
         return(
             <div className="feed">
                 <div className="top-dim"></div>
-                    {offer}
+                {offer}
             </div>
         )
     }
@@ -72,7 +85,14 @@ const HackerhouseFeed = (props) => {
             <div className="background-pic"></div>
             <Link to="/"><h1 className="logo">NOMADIC</h1></Link>
             <Link to="/profile"><div className="profile-btn"></div></Link>
-            {renderOffers()}
+            <div className="offer-row1">
+                <h3 className="main-offer-name" id="feed-city-header">Join a Nomad DAO</h3>
+            </div>
+            {renderOffers('active')}
+            <div className="offer-row1">
+                <h3 className="main-offer-name" id="feed-city-header">Join as Core Member</h3>
+            </div>
+            {renderOffers('forming')}
             <form className="search-container">
                 <div className="input-container">
                     <label className="input-label">Name</label>

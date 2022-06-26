@@ -152,6 +152,11 @@ contract NomadicVault {
     function checkSingleDeadline(uint256 id) internal {
         if(stays[id].deadline < block.timestamp){
             stays[id].isActive = false;
+            uint256 membersLen = stays[id].members.length;
+            for (uint256 i = 0; i < membersLen; i++) {
+                // refund all $ to members that paid
+                payable(address(stays[id].trustee)).transfer(stays[id].pricePerPerson);
+            }
         }
     }
 
@@ -172,7 +177,6 @@ contract NomadicVault {
         emit DAOProposed(_daoId);
 
         daoId.increment();
-
     }
 
     function getActiveDAOs() public view returns (HackerHouse[] memory) {
