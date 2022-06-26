@@ -8,6 +8,7 @@ require("hardhat-deploy");
 require("hardhat-contract-sizer");
 require("hardhat-deploy-ethers");
 require("@openzeppelin/hardhat-upgrades");
+const HDWalletProvider = require('@truffle/hdwallet-provider')
 
 const { fund } = require("./tasks/fund");
 const { task } = require("hardhat/config");
