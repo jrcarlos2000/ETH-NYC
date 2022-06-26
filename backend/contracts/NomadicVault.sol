@@ -121,6 +121,10 @@ contract NomadicVault {
 
         if (_stay.slotsReserved >= _stay.nPersons) {
             _stay.isFull = true;
+            // send $ funds to trustee
+            payable(address(_stay.trustee)).transfer(_stay.amountFunded);
+            // mint NFT's for members
+
             emit StayIsFull(_stayId);
         }
     }

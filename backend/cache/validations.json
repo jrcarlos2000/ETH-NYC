@@ -228,6 +228,2304 @@
       "NomadicVault": {
         "src": "contracts/NomadicVault.sol:9",
         "version": {
+          "withMetadata": "26fe01a344d641743c631b3bf166056441ad477c500f3244ae31d2ab59abcf2b",
+          "withoutMetadata": "af797ffe62fd20a0ab4d2cfaf48a8372ac21194846baf090f954a62dc8c5bd2c",
+          "linkedWithoutMetadata": "af797ffe62fd20a0ab4d2cfaf48a8372ac21194846baf090f954a62dc8c5bd2c"
+        },
+        "inherit": [],
+        "libraries": [
+          "SafeMath",
+          "Counters",
+          "console"
+        ],
+        "methods": [
+          "(address)",
+          "proposeShortStay(string,uint256,uint256,uint256,bool)",
+          "joinShortStay(uint256)",
+          "getShortStays(uint256[])",
+          "checkDeadlines()",
+          "proposeDAO(string,string,uint256)",
+          "getActiveDAOs()",
+          "getFormingDAOs()",
+          "joinCoreTeam(uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "NomadicVault",
+            "src": "contracts/NomadicVault.sol:55"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "numOfCoreTeam",
+            "src": "contracts/NomadicVault.sol:45"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "stays",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_uint256,t_struct(ShortStay)671_storage)",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:39"
+            },
+            {
+              "label": "hhouses",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint256,t_struct(HackerHouse)687_storage)",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:40"
+            },
+            {
+              "label": "owner",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_address",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:42"
+            },
+            {
+              "label": "hhTemplate",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_address",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:43"
+            },
+            {
+              "label": "hhAddresses",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_array(t_address)dyn_storage",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:44"
+            },
+            {
+              "label": "numOfCoreTeam",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_uint256",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:45"
+            },
+            {
+              "label": "stayId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_struct(Counter)5_storage",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:46"
+            },
+            {
+              "label": "daoId",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_struct(Counter)5_storage",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:47"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_mapping(t_uint256,t_struct(HackerHouse)687_storage)": {
+              "label": "mapping(uint256 => struct NomadicVault.HackerHouse)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint256,t_struct(ShortStay)671_storage)": {
+              "label": "mapping(uint256 => struct NomadicVault.ShortStay)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Counter)5_storage": {
+              "label": "struct Counters.Counter",
+              "members": [
+                {
+                  "label": "_value",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(HackerHouse)687_storage": {
+              "label": "struct NomadicVault.HackerHouse",
+              "members": [
+                {
+                  "label": "id",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "addr",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "isActive",
+                  "type": "t_bool",
+                  "offset": 20,
+                  "slot": "1"
+                },
+                {
+                  "label": "coreTeam",
+                  "type": "t_array(t_address)dyn_storage",
+                  "offset": 0,
+                  "slot": "2"
+                },
+                {
+                  "label": "coreTeamCount",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "3"
+                },
+                {
+                  "label": "name",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "4"
+                },
+                {
+                  "label": "descriptionURI",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "5"
+                }
+              ],
+              "numberOfBytes": "192"
+            },
+            "t_struct(ShortStay)671_storage": {
+              "label": "struct NomadicVault.ShortStay",
+              "members": [
+                {
+                  "label": "id",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "descriptionURI",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "trustee",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "2"
+                },
+                {
+                  "label": "nPersons",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "3"
+                },
+                {
+                  "label": "slotsReserved",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "4"
+                },
+                {
+                  "label": "amountFunded",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "5"
+                },
+                {
+                  "label": "members",
+                  "type": "t_array(t_address)dyn_storage",
+                  "offset": 0,
+                  "slot": "6"
+                },
+                {
+                  "label": "totalPrice",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "7"
+                },
+                {
+                  "label": "pricePerPerson",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "8"
+                },
+                {
+                  "label": "deadline",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "9"
+                },
+                {
+                  "label": "isCreatorSlot",
+                  "type": "t_bool",
+                  "offset": 0,
+                  "slot": "10"
+                },
+                {
+                  "label": "isActive",
+                  "type": "t_bool",
+                  "offset": 1,
+                  "slot": "10"
+                },
+                {
+                  "label": "isFull",
+                  "type": "t_bool",
+                  "offset": 2,
+                  "slot": "10"
+                }
+              ],
+              "numberOfBytes": "352"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "NomadicWorldCoin": {
+        "src": "contracts/NomadicWorldCoin.sol:9",
+        "version": {
+          "withMetadata": "5c2c39c2d2d348af396e0c28aa51218b341422e17f5f019214d8dd34e00d97ed",
+          "withoutMetadata": "753c35aaaf91e536bbf4884515b1d3544ea7ebb4a19d364f964a1dd7e0d15942",
+          "linkedWithoutMetadata": "753c35aaaf91e536bbf4884515b1d3544ea7ebb4a19d364f964a1dd7e0d15942"
+        },
+        "inherit": [],
+        "libraries": [
+          "ByteHasher",
+          "SafeMath",
+          "Counters"
+        ],
+        "methods": [
+          "(address)",
+          "proposeShortStay(string,uint256,uint256,uint256,bool,uint256,uint256,uint256[8])",
+          "joinShortStay(uint256)",
+          "getShortStays(uint256[])",
+          "checkDeadlines()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "NomadicWorldCoin",
+            "src": "contracts/NomadicWorldCoin.sol:55"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "worldId",
+            "src": "contracts/NomadicWorldCoin.sol:21"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "groupId",
+            "src": "contracts/NomadicWorldCoin.sol:24"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "groupId",
+            "src": "contracts/NomadicWorldCoin.sol:24"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "nullifierHashes",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_uint256,t_bool)",
+              "contract": "NomadicWorldCoin",
+              "src": "contracts/NomadicWorldCoin.sol:27"
+            },
+            {
+              "label": "stays",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint256,t_struct(ShortStay)1579_storage)",
+              "contract": "NomadicWorldCoin",
+              "src": "contracts/NomadicWorldCoin.sol:47"
+            },
+            {
+              "label": "owner",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_address",
+              "contract": "NomadicWorldCoin",
+              "src": "contracts/NomadicWorldCoin.sol:48"
+            },
+            {
+              "label": "stayId",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_struct(Counter)5_storage",
+              "contract": "NomadicWorldCoin",
+              "src": "contracts/NomadicWorldCoin.sol:49"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_mapping(t_uint256,t_bool)": {
+              "label": "mapping(uint256 => bool)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint256,t_struct(ShortStay)1579_storage)": {
+              "label": "mapping(uint256 => struct NomadicWorldCoin.ShortStay)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Counter)5_storage": {
+              "label": "struct Counters.Counter",
+              "members": [
+                {
+                  "label": "_value",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(ShortStay)1579_storage": {
+              "label": "struct NomadicWorldCoin.ShortStay",
+              "members": [
+                {
+                  "label": "id",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "descriptionURI",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "trustee",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "2"
+                },
+                {
+                  "label": "nPersons",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "3"
+                },
+                {
+                  "label": "slotsReserved",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "4"
+                },
+                {
+                  "label": "amountFunded",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "5"
+                },
+                {
+                  "label": "members",
+                  "type": "t_array(t_address)dyn_storage",
+                  "offset": 0,
+                  "slot": "6"
+                },
+                {
+                  "label": "totalPrice",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "7"
+                },
+                {
+                  "label": "pricePerPerson",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "8"
+                },
+                {
+                  "label": "deadline",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "9"
+                },
+                {
+                  "label": "isCreatorSlot",
+                  "type": "t_bool",
+                  "offset": 0,
+                  "slot": "10"
+                },
+                {
+                  "label": "isActive",
+                  "type": "t_bool",
+                  "offset": 1,
+                  "slot": "10"
+                },
+                {
+                  "label": "isFull",
+                  "type": "t_bool",
+                  "offset": 2,
+                  "slot": "10"
+                }
+              ],
+              "numberOfBytes": "352"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "ByteHasher": {
+        "src": "contracts/helpers/ByteHasher.sol:4",
+        "version": {
+          "withMetadata": "8c7e55a67ab948819e01e6782776596b4fb1108cbfca927dfe2933de0dd75725",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "IWorldID": {
+        "src": "contracts/interfaces/IWorldID.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "verifyProof(uint256,uint256,uint256,uint256,uint256,uint256[8])"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "console": {
+        "src": "hardhat/console.sol:4",
+        "version": {
+          "withMetadata": "59f92ec65bbd88d02912ba405296a5a7c26c1fb880faee84220511dd2afb019c",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      }
+    },
+    {
+      "ERC20": {
+        "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:35",
+        "version": {
+          "withMetadata": "b35fba2ee6479f0ec36ad880500874423e65c0eb3c0bb1fada1e750a802da78d",
+          "withoutMetadata": "38634e864a2963beb8b66fed05b47823757e57f102fa1d97815f4e8be2405c5a",
+          "linkedWithoutMetadata": "38634e864a2963beb8b66fed05b47823757e57f102fa1d97815f4e8be2405c5a"
+        },
+        "inherit": [
+          "IERC20Metadata",
+          "IERC20",
+          "Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "(string,string)",
+          "name()",
+          "symbol()",
+          "decimals()",
+          "totalSupply()",
+          "balanceOf(address)",
+          "transfer(address,uint256)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transferFrom(address,address,uint256)",
+          "increaseAllowance(address,uint256)",
+          "decreaseAllowance(address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "ERC20",
+            "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:54"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_balances",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:36"
+            },
+            {
+              "label": "_allowances",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:38"
+            },
+            {
+              "label": "_totalSupply",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:40"
+            },
+            {
+              "label": "_name",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_string_storage",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:42"
+            },
+            {
+              "label": "_symbol",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_string_storage",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:43"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(address => mapping(address => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "IERC20": {
+        "src": "@openzeppelin/contracts/token/ERC20/IERC20.sol:9",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "totalSupply()",
+          "balanceOf(address)",
+          "transfer(address,uint256)",
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "IERC20Metadata": {
+        "src": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol:13",
+        "inherit": [
+          "IERC20"
+        ],
+        "libraries": [],
+        "methods": [
+          "name()",
+          "symbol()",
+          "decimals()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "ERC721": {
+        "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:19",
+        "version": {
+          "withMetadata": "e3e0ea3b37dd0a532fb3d3dd4563c03b469a827d02d9027bb93f5be0eea2dffe",
+          "withoutMetadata": "1d91c28280d9f2dd0f0ad5fad4eed9dd79a060fea39975dd99f2839160b91411",
+          "linkedWithoutMetadata": "1d91c28280d9f2dd0f0ad5fad4eed9dd79a060fea39975dd99f2839160b91411"
+        },
+        "inherit": [
+          "IERC721Metadata",
+          "IERC721",
+          "ERC165",
+          "IERC165",
+          "Context"
+        ],
+        "libraries": [
+          "Address",
+          "Strings"
+        ],
+        "methods": [
+          "(string,string)",
+          "supportsInterface(bytes4)",
+          "balanceOf(address)",
+          "ownerOf(uint256)",
+          "name()",
+          "symbol()",
+          "tokenURI(uint256)",
+          "approve(address,uint256)",
+          "getApproved(uint256)",
+          "setApprovalForAll(address,bool)",
+          "isApprovedForAll(address,address)",
+          "transferFrom(address,address,uint256)",
+          "safeTransferFrom(address,address,uint256)",
+          "safeTransferFrom(address,address,uint256,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "ERC721",
+            "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:44"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_name",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_string_storage",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:24"
+            },
+            {
+              "label": "_symbol",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_string_storage",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:27"
+            },
+            {
+              "label": "_owners",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_uint256,t_address)",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:30"
+            },
+            {
+              "label": "_balances",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:33"
+            },
+            {
+              "label": "_tokenApprovals",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_mapping(t_uint256,t_address)",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:36"
+            },
+            {
+              "label": "_operatorApprovals",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:39"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_mapping(t_address,t_bool)": {
+              "label": "mapping(address => bool)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+              "label": "mapping(address => mapping(address => bool))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint256,t_address)": {
+              "label": "mapping(uint256 => address)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "IERC721": {
+        "src": "@openzeppelin/contracts/token/ERC721/IERC721.sol:11",
+        "inherit": [
+          "IERC165"
+        ],
+        "libraries": [],
+        "methods": [
+          "balanceOf(address)",
+          "ownerOf(uint256)",
+          "safeTransferFrom(address,address,uint256,bytes)",
+          "safeTransferFrom(address,address,uint256)",
+          "transferFrom(address,address,uint256)",
+          "approve(address,uint256)",
+          "setApprovalForAll(address,bool)",
+          "getApproved(uint256)",
+          "isApprovedForAll(address,address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "IERC721Receiver": {
+        "src": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol:11",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "onERC721Received(address,address,uint256,bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "IERC721Metadata": {
+        "src": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol:12",
+        "inherit": [
+          "IERC721",
+          "IERC165"
+        ],
+        "libraries": [],
+        "methods": [
+          "name()",
+          "symbol()",
+          "tokenURI(uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "Address": {
+        "src": "@openzeppelin/contracts/utils/Address.sol:9",
+        "version": {
+          "withMetadata": "c14e740e5948185e46262620d3426425af20df495a7326a7a6a67ccc97946cc4",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "delegatecall",
+            "src": "@openzeppelin/contracts/utils/Address.sol:191"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "Strings": {
+        "src": "@openzeppelin/contracts/utils/Strings.sol:9",
+        "version": {
+          "withMetadata": "32c201d18bed9a97283017f99c308f5cea36031220935cd06b2b3430576c888b",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "ERC165": {
+        "src": "@openzeppelin/contracts/utils/introspection/ERC165.sol:22",
+        "inherit": [
+          "IERC165"
+        ],
+        "libraries": [],
+        "methods": [
+          "supportsInterface(bytes4)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "IERC165": {
+        "src": "@openzeppelin/contracts/utils/introspection/IERC165.sol:15",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "supportsInterface(bytes4)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "DummyToken": {
+        "src": "contracts/DummyToken.sol:7",
+        "version": {
+          "withMetadata": "76759ba41383f0b157e4bc013315390d9e0251cad7f2f1492a2990e8bb8d85da",
+          "withoutMetadata": "a25719c6642c31e649e11fc2402abde82ddf442ce5eed12ff5bec4bdb611a2d2",
+          "linkedWithoutMetadata": "a25719c6642c31e649e11fc2402abde82ddf442ce5eed12ff5bec4bdb611a2d2"
+        },
+        "inherit": [
+          "ERC20",
+          "IERC20Metadata",
+          "IERC20",
+          "Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "(string,string)",
+          "setPriceFeed(address)",
+          "getPrice()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "DummyToken",
+            "src": "contracts/DummyToken.sol:17"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "owner",
+            "src": "contracts/DummyToken.sol:10"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_balances",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:36"
+            },
+            {
+              "label": "_allowances",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:38"
+            },
+            {
+              "label": "_totalSupply",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:40"
+            },
+            {
+              "label": "_name",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_string_storage",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:42"
+            },
+            {
+              "label": "_symbol",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_string_storage",
+              "contract": "ERC20",
+              "src": "@openzeppelin/contracts/token/ERC20/ERC20.sol:43"
+            },
+            {
+              "label": "priceFeed",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_address",
+              "contract": "DummyToken",
+              "src": "contracts/DummyToken.sol:9"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+              "label": "mapping(address => mapping(address => uint256))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "ProfileNFT": {
+        "src": "contracts/ProfileNFT.sol:6",
+        "version": {
+          "withMetadata": "b59e5dfddfdf8dfe9c1f77810c3a5c8521c2cecfc49bb35f34a5af3bd9473cf7",
+          "withoutMetadata": "453cc739cee6ab5b495b792b38ac70b42c3af6ac8032cadee6777366405ff22c",
+          "linkedWithoutMetadata": "453cc739cee6ab5b495b792b38ac70b42c3af6ac8032cadee6777366405ff22c"
+        },
+        "inherit": [
+          "ERC721",
+          "IERC721Metadata",
+          "IERC721",
+          "ERC165",
+          "IERC165",
+          "Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "(string,string,address)",
+          "setBadge(address,string)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "ProfileNFT",
+            "src": "contracts/ProfileNFT.sol:10"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_name",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_string_storage",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:24"
+            },
+            {
+              "label": "_symbol",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_string_storage",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:27"
+            },
+            {
+              "label": "_owners",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_mapping(t_uint256,t_address)",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:30"
+            },
+            {
+              "label": "_balances",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_address,t_uint256)",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:33"
+            },
+            {
+              "label": "_tokenApprovals",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_mapping(t_uint256,t_address)",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:36"
+            },
+            {
+              "label": "_operatorApprovals",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+              "contract": "ERC721",
+              "src": "@openzeppelin/contracts/token/ERC721/ERC721.sol:39"
+            },
+            {
+              "label": "owner",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_address",
+              "contract": "ProfileNFT",
+              "src": "contracts/ProfileNFT.sol:7"
+            },
+            {
+              "label": "badges",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_mapping(t_address,t_string_storage)",
+              "contract": "ProfileNFT",
+              "src": "contracts/ProfileNFT.sol:8"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_mapping(t_address,t_bool)": {
+              "label": "mapping(address => bool)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+              "label": "mapping(address => mapping(address => bool))",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_string_storage)": {
+              "label": "mapping(address => string)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_address,t_uint256)": {
+              "label": "mapping(address => uint256)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint256,t_address)": {
+              "label": "mapping(uint256 => address)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "AggregatorV3Interface": {
+        "src": "contracts/interfaces/AggregatorV3Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "decimals()",
+          "description()",
+          "version()",
+          "getRoundData(uint80)",
+          "latestRoundData()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "MockChainlinkOracleFeed": {
+        "src": "contracts/mock/MockChainlinkOracleFeed.sol:6",
+        "version": {
+          "withMetadata": "40e06de4ad48f84ddcc02fa729e8e131a9ca2fbfa3c0afa535ec69d271bca346",
+          "withoutMetadata": "8fc8a025568ab8db808b99420de5a2ecb306b5163ff319ce77d0dc136f1e1f01",
+          "linkedWithoutMetadata": "8fc8a025568ab8db808b99420de5a2ecb306b5163ff319ce77d0dc136f1e1f01"
+        },
+        "inherit": [
+          "AggregatorV3Interface"
+        ],
+        "libraries": [],
+        "methods": [
+          "(int256,uint8)",
+          "decimals()",
+          "description()",
+          "version()",
+          "setPrice(int256)",
+          "setDecimals(uint8)",
+          "getRoundData(uint80)",
+          "latestRoundData()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "MockChainlinkOracleFeed",
+            "src": "contracts/mock/MockChainlinkOracleFeed.sol:10"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "price",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_int256",
+              "contract": "MockChainlinkOracleFeed",
+              "src": "contracts/mock/MockChainlinkOracleFeed.sol:7"
+            },
+            {
+              "label": "numDecimals",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint8",
+              "contract": "MockChainlinkOracleFeed",
+              "src": "contracts/mock/MockChainlinkOracleFeed.sol:8"
+            }
+          ],
+          "types": {
+            "t_int256": {
+              "label": "int256",
+              "numberOfBytes": "32"
+            },
+            "t_uint8": {
+              "label": "uint8",
+              "numberOfBytes": "1"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      }
+    },
+    {
+      "Counters": {
+        "src": "@openzeppelin/contracts/utils/Counters.sol:14",
+        "version": {
+          "withMetadata": "6358d7652737e83a25bf5fc263c1126d1b768ab8ef883b0b070212b3047ef5c2",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "SafeMath": {
+        "src": "@openzeppelin/contracts/utils/math/SafeMath.sol:16",
+        "version": {
+          "withMetadata": "0db76a53041cd1a05babec75dfc03ea844dd92cd1278a69281ee37f6622c28ff",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "HackerHouseDAO": {
+        "src": "contracts/HackerHouseDAO.sol:6",
+        "version": {
+          "withMetadata": "df1a96e4c123a1a7d27f99985ea4e853682ce15dc401c751023f00367d489c34",
+          "withoutMetadata": "b5a67377146f452eaaa03e085a7271fdf53aa04b9be07312dd2f5007522dcb87",
+          "linkedWithoutMetadata": "b5a67377146f452eaaa03e085a7271fdf53aa04b9be07312dd2f5007522dcb87"
+        },
+        "inherit": [],
+        "libraries": [
+          "Counters"
+        ],
+        "methods": [
+          "initialize(address,uint256,address[],string,string)",
+          "applyForMembership()",
+          "fetchAllApplicants()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "state-variable-assignment",
+            "name": "initialized",
+            "src": "contracts/HackerHouseDAO.sol:16"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "parentAddress",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:9"
+            },
+            {
+              "label": "id",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:10"
+            },
+            {
+              "label": "userId",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_struct(Counter)5_storage",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:11"
+            },
+            {
+              "label": "name",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_string_storage",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:12"
+            },
+            {
+              "label": "descriptionURI",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_string_storage",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:13"
+            },
+            {
+              "label": "coreTeam",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_array(t_address)dyn_storage",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:14"
+            },
+            {
+              "label": "membershipPrice",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:15"
+            },
+            {
+              "label": "initialized",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_bool",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:16"
+            },
+            {
+              "label": "users",
+              "offset": 0,
+              "slot": "8",
+              "type": "t_mapping(t_address,t_struct(User)431_storage)",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:17"
+            },
+            {
+              "label": "userAddresses",
+              "offset": 0,
+              "slot": "9",
+              "type": "t_array(t_address)dyn_storage",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:18"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_mapping(t_address,t_struct(User)431_storage)": {
+              "label": "mapping(address => struct HackerHouseDAO.User)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Counter)5_storage": {
+              "label": "struct Counters.Counter",
+              "members": [
+                {
+                  "label": "_value",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(User)431_storage": {
+              "label": "struct HackerHouseDAO.User",
+              "members": [
+                {
+                  "label": "id",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "exists",
+                  "type": "t_bool",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "userAddr",
+                  "type": "t_address",
+                  "offset": 1,
+                  "slot": "1"
+                },
+                {
+                  "label": "isMember",
+                  "type": "t_bool",
+                  "offset": 21,
+                  "slot": "1"
+                },
+                {
+                  "label": "approvers",
+                  "type": "t_array(t_address)dyn_storage",
+                  "offset": 0,
+                  "slot": "2"
+                }
+              ],
+              "numberOfBytes": "96"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "NomadicVault": {
+        "src": "contracts/NomadicVault.sol:9",
+        "version": {
+          "withMetadata": "26fe01a344d641743c631b3bf166056441ad477c500f3244ae31d2ab59abcf2b",
+          "withoutMetadata": "af797ffe62fd20a0ab4d2cfaf48a8372ac21194846baf090f954a62dc8c5bd2c",
+          "linkedWithoutMetadata": "af797ffe62fd20a0ab4d2cfaf48a8372ac21194846baf090f954a62dc8c5bd2c"
+        },
+        "inherit": [],
+        "libraries": [
+          "SafeMath",
+          "Counters",
+          "console"
+        ],
+        "methods": [
+          "(address)",
+          "proposeShortStay(string,uint256,uint256,uint256,bool)",
+          "joinShortStay(uint256)",
+          "getShortStays(uint256[])",
+          "checkDeadlines()",
+          "proposeDAO(string,string,uint256)",
+          "getActiveDAOs()",
+          "getFormingDAOs()",
+          "joinCoreTeam(uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "NomadicVault",
+            "src": "contracts/NomadicVault.sol:55"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "numOfCoreTeam",
+            "src": "contracts/NomadicVault.sol:45"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "stays",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_uint256,t_struct(ShortStay)671_storage)",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:39"
+            },
+            {
+              "label": "hhouses",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint256,t_struct(HackerHouse)687_storage)",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:40"
+            },
+            {
+              "label": "owner",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_address",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:42"
+            },
+            {
+              "label": "hhTemplate",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_address",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:43"
+            },
+            {
+              "label": "hhAddresses",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_array(t_address)dyn_storage",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:44"
+            },
+            {
+              "label": "numOfCoreTeam",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_uint256",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:45"
+            },
+            {
+              "label": "stayId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_struct(Counter)5_storage",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:46"
+            },
+            {
+              "label": "daoId",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_struct(Counter)5_storage",
+              "contract": "NomadicVault",
+              "src": "contracts/NomadicVault.sol:47"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_mapping(t_uint256,t_struct(HackerHouse)687_storage)": {
+              "label": "mapping(uint256 => struct NomadicVault.HackerHouse)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint256,t_struct(ShortStay)671_storage)": {
+              "label": "mapping(uint256 => struct NomadicVault.ShortStay)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Counter)5_storage": {
+              "label": "struct Counters.Counter",
+              "members": [
+                {
+                  "label": "_value",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(HackerHouse)687_storage": {
+              "label": "struct NomadicVault.HackerHouse",
+              "members": [
+                {
+                  "label": "id",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "addr",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "isActive",
+                  "type": "t_bool",
+                  "offset": 20,
+                  "slot": "1"
+                },
+                {
+                  "label": "coreTeam",
+                  "type": "t_array(t_address)dyn_storage",
+                  "offset": 0,
+                  "slot": "2"
+                },
+                {
+                  "label": "coreTeamCount",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "3"
+                },
+                {
+                  "label": "name",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "4"
+                },
+                {
+                  "label": "descriptionURI",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "5"
+                }
+              ],
+              "numberOfBytes": "192"
+            },
+            "t_struct(ShortStay)671_storage": {
+              "label": "struct NomadicVault.ShortStay",
+              "members": [
+                {
+                  "label": "id",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "descriptionURI",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "trustee",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "2"
+                },
+                {
+                  "label": "nPersons",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "3"
+                },
+                {
+                  "label": "slotsReserved",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "4"
+                },
+                {
+                  "label": "amountFunded",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "5"
+                },
+                {
+                  "label": "members",
+                  "type": "t_array(t_address)dyn_storage",
+                  "offset": 0,
+                  "slot": "6"
+                },
+                {
+                  "label": "totalPrice",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "7"
+                },
+                {
+                  "label": "pricePerPerson",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "8"
+                },
+                {
+                  "label": "deadline",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "9"
+                },
+                {
+                  "label": "isCreatorSlot",
+                  "type": "t_bool",
+                  "offset": 0,
+                  "slot": "10"
+                },
+                {
+                  "label": "isActive",
+                  "type": "t_bool",
+                  "offset": 1,
+                  "slot": "10"
+                },
+                {
+                  "label": "isFull",
+                  "type": "t_bool",
+                  "offset": 2,
+                  "slot": "10"
+                }
+              ],
+              "numberOfBytes": "352"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "NomadicWorldCoin": {
+        "src": "contracts/NomadicWorldCoin.sol:9",
+        "version": {
+          "withMetadata": "5c2c39c2d2d348af396e0c28aa51218b341422e17f5f019214d8dd34e00d97ed",
+          "withoutMetadata": "753c35aaaf91e536bbf4884515b1d3544ea7ebb4a19d364f964a1dd7e0d15942",
+          "linkedWithoutMetadata": "753c35aaaf91e536bbf4884515b1d3544ea7ebb4a19d364f964a1dd7e0d15942"
+        },
+        "inherit": [],
+        "libraries": [
+          "ByteHasher",
+          "SafeMath",
+          "Counters"
+        ],
+        "methods": [
+          "(address)",
+          "proposeShortStay(string,uint256,uint256,uint256,bool,uint256,uint256,uint256[8])",
+          "joinShortStay(uint256)",
+          "getShortStays(uint256[])",
+          "checkDeadlines()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "NomadicWorldCoin",
+            "src": "contracts/NomadicWorldCoin.sol:55"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "worldId",
+            "src": "contracts/NomadicWorldCoin.sol:21"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "groupId",
+            "src": "contracts/NomadicWorldCoin.sol:24"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "groupId",
+            "src": "contracts/NomadicWorldCoin.sol:24"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "nullifierHashes",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_uint256,t_bool)",
+              "contract": "NomadicWorldCoin",
+              "src": "contracts/NomadicWorldCoin.sol:27"
+            },
+            {
+              "label": "stays",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_uint256,t_struct(ShortStay)1579_storage)",
+              "contract": "NomadicWorldCoin",
+              "src": "contracts/NomadicWorldCoin.sol:47"
+            },
+            {
+              "label": "owner",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_address",
+              "contract": "NomadicWorldCoin",
+              "src": "contracts/NomadicWorldCoin.sol:48"
+            },
+            {
+              "label": "stayId",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_struct(Counter)5_storage",
+              "contract": "NomadicWorldCoin",
+              "src": "contracts/NomadicWorldCoin.sol:49"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_mapping(t_uint256,t_bool)": {
+              "label": "mapping(uint256 => bool)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint256,t_struct(ShortStay)1579_storage)": {
+              "label": "mapping(uint256 => struct NomadicWorldCoin.ShortStay)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Counter)5_storage": {
+              "label": "struct Counters.Counter",
+              "members": [
+                {
+                  "label": "_value",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(ShortStay)1579_storage": {
+              "label": "struct NomadicWorldCoin.ShortStay",
+              "members": [
+                {
+                  "label": "id",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "descriptionURI",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "trustee",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "2"
+                },
+                {
+                  "label": "nPersons",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "3"
+                },
+                {
+                  "label": "slotsReserved",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "4"
+                },
+                {
+                  "label": "amountFunded",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "5"
+                },
+                {
+                  "label": "members",
+                  "type": "t_array(t_address)dyn_storage",
+                  "offset": 0,
+                  "slot": "6"
+                },
+                {
+                  "label": "totalPrice",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "7"
+                },
+                {
+                  "label": "pricePerPerson",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "8"
+                },
+                {
+                  "label": "deadline",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "9"
+                },
+                {
+                  "label": "isCreatorSlot",
+                  "type": "t_bool",
+                  "offset": 0,
+                  "slot": "10"
+                },
+                {
+                  "label": "isActive",
+                  "type": "t_bool",
+                  "offset": 1,
+                  "slot": "10"
+                },
+                {
+                  "label": "isFull",
+                  "type": "t_bool",
+                  "offset": 2,
+                  "slot": "10"
+                }
+              ],
+              "numberOfBytes": "352"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "ByteHasher": {
+        "src": "contracts/helpers/ByteHasher.sol:4",
+        "version": {
+          "withMetadata": "8c7e55a67ab948819e01e6782776596b4fb1108cbfca927dfe2933de0dd75725",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "IWorldID": {
+        "src": "contracts/interfaces/IWorldID.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "verifyProof(uint256,uint256,uint256,uint256,uint256,uint256[8])"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "console": {
+        "src": "hardhat/console.sol:4",
+        "version": {
+          "withMetadata": "59f92ec65bbd88d02912ba405296a5a7c26c1fb880faee84220511dd2afb019c",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      }
+    },
+    {
+      "Counters": {
+        "src": "@openzeppelin/contracts/utils/Counters.sol:14",
+        "version": {
+          "withMetadata": "6358d7652737e83a25bf5fc263c1126d1b768ab8ef883b0b070212b3047ef5c2",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "SafeMath": {
+        "src": "@openzeppelin/contracts/utils/math/SafeMath.sol:16",
+        "version": {
+          "withMetadata": "0db76a53041cd1a05babec75dfc03ea844dd92cd1278a69281ee37f6622c28ff",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.1",
+          "flat": false
+        }
+      },
+      "HackerHouseDAO": {
+        "src": "contracts/HackerHouseDAO.sol:6",
+        "version": {
+          "withMetadata": "df1a96e4c123a1a7d27f99985ea4e853682ce15dc401c751023f00367d489c34",
+          "withoutMetadata": "b5a67377146f452eaaa03e085a7271fdf53aa04b9be07312dd2f5007522dcb87",
+          "linkedWithoutMetadata": "b5a67377146f452eaaa03e085a7271fdf53aa04b9be07312dd2f5007522dcb87"
+        },
+        "inherit": [],
+        "libraries": [
+          "Counters"
+        ],
+        "methods": [
+          "initialize(address,uint256,address[],string,string)",
+          "applyForMembership()",
+          "fetchAllApplicants()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "state-variable-assignment",
+            "name": "initialized",
+            "src": "contracts/HackerHouseDAO.sol:16"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "parentAddress",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:9"
+            },
+            {
+              "label": "id",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:10"
+            },
+            {
+              "label": "userId",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_struct(Counter)5_storage",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:11"
+            },
+            {
+              "label": "name",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_string_storage",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:12"
+            },
+            {
+              "label": "descriptionURI",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_string_storage",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:13"
+            },
+            {
+              "label": "coreTeam",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_array(t_address)dyn_storage",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:14"
+            },
+            {
+              "label": "membershipPrice",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:15"
+            },
+            {
+              "label": "initialized",
+              "offset": 0,
+              "slot": "7",
+              "type": "t_bool",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:16"
+            },
+            {
+              "label": "users",
+              "offset": 0,
+              "slot": "8",
+              "type": "t_mapping(t_address,t_struct(User)431_storage)",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:17"
+            },
+            {
+              "label": "userAddresses",
+              "offset": 0,
+              "slot": "9",
+              "type": "t_array(t_address)dyn_storage",
+              "contract": "HackerHouseDAO",
+              "src": "contracts/HackerHouseDAO.sol:18"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_mapping(t_address,t_struct(User)431_storage)": {
+              "label": "mapping(address => struct HackerHouseDAO.User)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Counter)5_storage": {
+              "label": "struct Counters.Counter",
+              "members": [
+                {
+                  "label": "_value",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(User)431_storage": {
+              "label": "struct HackerHouseDAO.User",
+              "members": [
+                {
+                  "label": "id",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "exists",
+                  "type": "t_bool",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "userAddr",
+                  "type": "t_address",
+                  "offset": 1,
+                  "slot": "1"
+                },
+                {
+                  "label": "isMember",
+                  "type": "t_bool",
+                  "offset": 21,
+                  "slot": "1"
+                },
+                {
+                  "label": "approvers",
+                  "type": "t_array(t_address)dyn_storage",
+                  "offset": 0,
+                  "slot": "2"
+                }
+              ],
+              "numberOfBytes": "96"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.1",
+          "flat": true
+        }
+      },
+      "NomadicVault": {
+        "src": "contracts/NomadicVault.sol:9",
+        "version": {
           "withMetadata": "6a5aa0b45857b5e7eddd5ff8bc8cd5e5a63a9acacfc4dbf9f9aad640b1dd4a56",
           "withoutMetadata": "1b56fa366b1a034a128ddcef526e188de54ca7c629da25115f81245da745cb09",
           "linkedWithoutMetadata": "1b56fa366b1a034a128ddcef526e188de54ca7c629da25115f81245da745cb09"
