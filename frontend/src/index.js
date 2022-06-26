@@ -22,7 +22,10 @@ import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import "@rainbow-me/rainbowkit/styles.css";
 import { infuraProvider } from 'wagmi/providers/infura'
 import { RPC_URLS } from './connectors';
+import { Buffer } from 'buffer';
 
+// @ts-ignore
+window.Buffer = Buffer;
 const infuraId = process.env.INFURA_ID
 const alchemyId = process.env.ALCHEMY_ID
 
@@ -45,24 +48,24 @@ const mumbaiChain = {
 console.log("chain: ", chain);
 
 const { provider, chains } = configureChains(
-  [chain.mainnet, mumbaiChain],
+  // [chain.mainnet, mumbaiChain],
   // use this below  for localhost dev
-  // [chain.mainnet, chain.localhost],
+  [chain.mainnet, chain.localhost],
   [
     alchemyProvider({ alchemyId }),
     infuraProvider({ infuraId }),
-    jsonRpcProvider({
-      rpc: (chain) => {
-        if (chain.id !== mumbaiChain.id) return null
-        return { http: chain.rpcUrls.default }
-      },
-    }),
-    // use this below for localhost
     // jsonRpcProvider({
-    //   rpc: (chain) => ({
-    //     http: `https://${chain.id}.example.com`,
-    //   }),
+    //   rpc: (chain) => {
+    //     if (chain.id !== mumbaiChain.id) return null
+    //     return { http: chain.rpcUrls.default }
+    //   },
     // }),
+    // use this below for localhost
+    jsonRpcProvider({
+      rpc: (chain) => ({
+        http: `https://${chain.id}.example.com`,
+      }),
+    }),
   ],
 )
 
