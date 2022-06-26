@@ -190,6 +190,7 @@ a{
       z-index: -1;
       padding: 2vw 0 0 0 ;
       bottom: 0;
+      padding-left: 15vw;
     }
     .main-offer-dim{
       width: 24vw;
@@ -255,10 +256,10 @@ a{
         color: rgb(255, 255, 255);
       }
       .offer-row3 { 
-        grid-area: offer-row3; 
         display: flex;
         padding-top: 1.5vw;
         z-index: 1;
+        flex-direction: column;
         padding-top: 6vh;
       }
       .chip-in-txt{

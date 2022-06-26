@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../../style/feed.css"
 import testData from "../../testData/feed";
 import { useSigner, useContract, useProvider, useNetwork } from 'wagmi'
 import { CONTRACT_NAMES, NOMADICVAULT } from '../../utils/config';
 import { contractData } from '../../utils/config';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const ShortstayFeed = (props) => {
     const { data: signer } = useSigner()
@@ -13,6 +14,7 @@ const ShortstayFeed = (props) => {
     const contractName = CONTRACT_NAMES[NOMADICVAULT];
     const contractAddress = contractData[activeChain.id][contractName].address;
     const contractAbi = contractData[activeChain.id][contractName].abi;
+    const [feedData, setFeedData] = useState();
     console.log('contractAddress: ', contractAddress);
     console.log("signer: ", signer);
     const contract = useContract({
@@ -24,41 +26,82 @@ const ShortstayFeed = (props) => {
     useEffect(() => {
         fetchStayList();
     }, [signer]);
+
     const fetchStayList = async () => {
-        if (!signer) {
+        if (!signer || feedData) {
             return;
         }
-        const result = await contract.getShortStays([1]);
+        let result = await contract.getShortStays([0, 1, 2, 3, 4, 5]);
         console.log("result - ", result);
+        result = await Promise.all(result.map(async (item) => {
+            const descriptionURI = item.descriptionURI;
+            let descData = {
+                city: "n/a",
+                link: "n/a",
+                tags: "n/a"
+            }
+            if (descriptionURI) {
+                try {
+                    descData = (await axios.get(descriptionURI)).data;
+                } catch (e) {
+                    console.error(e);
+                }
+            }
+
+            return {
+                ...descData,
+                ...item,
+            }
+        }));
+        setFeedData(result);
     };
 
+    const joinShortStay = () => {
+
+    }
+
     const renderOffers = () => {
-    const offer = testData.map((offer) => {
-        let pricePerPerson = offer.totalPrice/offer.nPersons;
-        return(
-            <div className="stay-container" key={offer.id}>
-                <div className="stay-banner"></div>
-                <div className="stay-info">
-                    <div className="offer-row1">
-                        <h3 className="main-offer-name" id="feed-city-header">{offer.city}</h3>
-                        <p className="offer-ppl" id="feed-ppl"><b>{offer.slotsReserved}/{offer.nPersons}</b></p>
-                    </div>
-                    <div className="offer-row2">
-                        {offer.tags.map((tag) => {
-                            return(
-                                <div className="tag">{tag}</div>
-                            )
-                        })}
-                    </div>
-                    <div className="offer-row3" id="row3-feed">
-                        <p className="chip-in-txt">Chip in for: <b>${pricePerPerson}</b></p>
-                        <button className="button join-btn join-feed">VIEW</button>
+        if (!feedData) return <div></div>;
+        const offer = feedData.map((offer) => {
+            console.log('offer - ', offer);
+
+            const shortStayId = offer.id.toNumber();
+            const { city, link, tags } = offer;
+            const trusteeAddress = offer.trustee;
+            const isCreatorSlot = offer.isCreatorSlot;
+            const nPersons = offer.nPersons.toNumber();
+            const slotsReserved = offer.slotsReserved.toNumber();
+            const amountFunded = offer.amountFunded.toNumber();
+            const members = offer.members;
+            const totalPrice = offer.totalPrice.toNumber();
+            const pricePerPerson = offer.pricePerPerson.toNumber();
+            
+            return(
+                <div className="stay-container" key={shortStayId}>
+                    <div className="stay-banner"></div>
+                    <div className="stay-info">
+                        <div className="offer-row1">
+                            <h3 className="main-offer-name" id="feed-city-header">{city}</h3>
+                            <p className="offer-ppl" id="feed-ppl"><b>{slotsReserved}/{nPersons}</b></p>
+                        </div>
+                        <div className="offer-row2">
+                            {tags.split(', ').map((tag) => {
+                                return(
+                                    <div className="tag">{tag}</div>
+                                )
+                            })}
+                        </div>
+                        <div className="offer-row3" id="row3-feed">
+                            <p className="chip-in-txt">Trustee: <b>{trusteeAddress}</b></p>
+                            <p className="chip-in-txt">Chip in for: <b>${pricePerPerson}</b></p>
+                            <p className="chip-in-txt">Amount Funded: <b>${amountFunded}</b></p>
+                            <p className="chip-in-txt">Members: <b>{[members.slice(0, members - 1), isCreatorSlot ? trusteeAddress : ''].join(', ')}</b></p>
+                            <button className="button join-btn" onClick={() => joinShortStay(shortStayId)}>Join</button>
+                        </div>
                     </div>
                 </div>
-            </div>
             )
         });
-
         return(
             <div className="feed">
                 <div className="top-dim"></div>

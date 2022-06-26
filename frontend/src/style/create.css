@@ -50,18 +50,34 @@
   }
 
 @media screen and (min-width: 1200px) {
-    .create-form {
-        display: flex;
-        flex-wrap: wrap; 
-        width: 40vw;
-        height: 78vh;
+    .form-container {
+        display: grid; 
+        width: 65vw;
+        grid-template-columns: 40vw 25vw; 
+        grid-template-rows: 1fr; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+          "form image-preview"; 
         margin: 0 auto;
-        align-items: center;
         background-color: rgb(29, 29, 29);
         border-radius: 30px;
-        margin-top: 12vh;
-        padding-top: 4vh;
+        margin-top: 4vh;
       }
+      .form {
+        grid-area: form;
+        display: flex;
+        flex-wrap: wrap; 
+        height: 78vh;
+        align-items: center;
+        border-radius: 30px;
+      }
+      .image-preview{
+        margin-top: 10vh;
+        margin-left: 2vw;
+        max-width: 25vw;
+        width: 25vw;
+        grid-area: image-preview;
+    }
     .field-small{
         width: 14vw !important;
         margin-right: 1vw !important;
@@ -87,7 +103,7 @@
         width: 33vw;
         height: 7vh;
         padding-left: 1.5vw;
-        margin: 2vh 2vw 1vw 2.5vw;
+        margin: 1vh 2vw 1vw 2.5vw;
         font-size: 1.5vw;
         background-color: white;
         border: none;
@@ -125,9 +141,6 @@
     #checkbox-field{
         margin-top: -7vh;
     }
-    .hackerhouse-field{
-        margin-top: 1vh;
-    }
     .textarea{
         height: 11vh;
         width: 31vw;
@@ -136,5 +149,13 @@
     }
     #shortstay-form{
         margin-top: 7vh;
+    }
+    .file-input{
+        margin: 1vh 30vw 0 3vw;
+        cursor: pointer;
+    }
+    .remove-btn{
+        padding: 1vh 1vw 1vh 1vw;
+        margin-top: 2vh;
     }
 }
