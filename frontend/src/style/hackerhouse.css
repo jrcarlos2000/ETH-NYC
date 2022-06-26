@@ -67,11 +67,30 @@ body{
 .cohorts{
     display: flex;
     width: 100%;
-    justify-content: center;
     margin-top: 3vh;
+    overflow-x: scroll;
 }
 .tab-content{
     height: 39vh;
     width: 100%;
-    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.members{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 3vw;
+    margin-top: 3vh;
+    font-weight: 500;
+    -webkit-mask-image: linear-gradient(to top,black 90%,transparent 78%);
+    mask-image: linear-gradient(to top,black 70%,transparent 20%);
+}
+.member-container{
+    width: 100%;
+    text-align: center;
+}
+.member-address{
+    margin-top: 3vh;
+    margin-left: 5vw;
 }

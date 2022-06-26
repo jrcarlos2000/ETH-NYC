@@ -190,6 +190,7 @@ a{
       z-index: -1;
       padding: 2vw 0 0 0 ;
       bottom: 0;
+      padding-left: 15vw;
     }
     .main-offer-dim{
       width: 24vw;

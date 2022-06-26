@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../style/hackerhouse.css"
-import testData from "../../testData/featured";
+import testCohorts from "../../testData/featured";
+import testMembers from "../../testData/members";
   
 const Hackerhouse = (props) => {
 
@@ -37,7 +38,7 @@ const Hackerhouse = (props) => {
     }
 
     const renderCohorts = () => {
-        const offer = testData.map((offer) => {
+        const offer = testCohorts.map((offer) => {
             let pricePerPerson = offer.totalPrice/offer.nPersons;
             return(
                 <div className="main-offer" key={offer.id}>
@@ -63,6 +64,20 @@ const Hackerhouse = (props) => {
     return(
         <div className="cohorts">
             {offer}
+        </div>
+    )
+    }
+    const renderMembers = () => {
+        const member = testMembers.map((member) => {
+            return(
+                <div className="member-container">
+                    <p className="member-address">{member}</p>
+                </div>
+            )
+    });
+    return(
+        <div className="members">
+            {member}
         </div>
     )
     }
@@ -94,7 +109,7 @@ const Hackerhouse = (props) => {
             {cohortsTab ? 
                 <div className="tab-content">{renderCohorts()}</div> :
             membersTab ? 
-                <div>Members</div> :
+                <div className="tab-content">{renderMembers()}</div> :
             applicantsTab ? 
                 <div>Applicants</div> : 
             ''}
