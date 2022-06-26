@@ -39,17 +39,15 @@ import { Connect } from '../Components/Connect';
                             <button className="button join-btn">JOIN</button>
                         </div>
                 </div>
+                )
+            });
+            return(
+                <div className="featured-offers desktop">
+                    <h2 className="upcoming-header">UPCOMING</h2>
+                    {offer}
+                </div>
             )
-        });
-
-        return(
-            <div className="featured-offers desktop">
-            <h2 className="upcoming-header">UPCOMING</h2>
-            
-            {offer}
-        </div>
-        )
-    }
+        }
         return(
             <div className="main-page">
                 <div id="world-id-container"></div>
