@@ -66,16 +66,26 @@ const CreateShortstay = (props) => {
     const timeAvailable = 123;
     const isCreatorSlot = creatorSpot;
 
-    await uploadDataToIPFS();
+    const metadata = {
+      city,
+      tags,
+      descriptionURI,
+      link
+    }
+
+    const cid = await uploadDataToIPFS(metadata);
+    console.log('cid in sc', cid);
     
     const result = await contract.proposeShortStay(
-        descriptionURI,
+        cid,
         nPersons,
         totalPrice,
         timeAvailable,
         isCreatorSlot
     );
-    await result.wait();
+    console.log('result: ', result);
+    const resWait = await result.wait();
+    console.log('resWait: ', resWait);
   }
 
   const onSubmit = async (event) => {
@@ -86,7 +96,7 @@ const CreateShortstay = (props) => {
     }else {
         await onSubmitNormal();
     }
-}
+  }
 
   const handleCity = (event) => {
     setCity(event.target.value);
@@ -223,16 +233,16 @@ const CreateShortstay = (props) => {
               }}
             />
           </div>
-        <input type="submit" className="create-btn" placeholder="CREATE" />
+        <input type="submit" className="create-btn create-btn-shortstay" value="CREATE" />
       </form>
       <div className="image-preview">
-        {selectedImage && (
+        {selectedImage ? selectedImage && (
           <div>
           <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
           <br />
           <button className="button remove-btn" onClick={()=>setSelectedImage(null)}>Remove</button>
-          </div>
-        )}
+          </div> ): 
+          <div className="image-replacement"></div>}
       </div>
       </div>
     </div>

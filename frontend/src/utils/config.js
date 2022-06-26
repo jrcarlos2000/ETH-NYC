@@ -1,11 +1,14 @@
 import NomadicVault from '../artifacts/contracts/NomadicVault.sol/NomadicVault.json';
-import NomadicWorldCoin from '../artifacts/artifacts/contracts/NomadicWorldCoin.sol/NomadicWorldCoin.json';
+import NomadicWorldCoin from '../artifacts/contracts/NomadicWorldCoin.sol/NomadicWorldCoin.json';
+import HackerHouseDAO from '../artifacts/contracts/HackerHouseDAO.sol/HackerHouseDAO.json';
 
 export const NOMADICVAULT = 'NomadicVault';
+export const HACKER_HOUSE_DAO = 'HackerHouseDAO';
 export const NOMADICWORLDCOIN = 'NomadicWorldCoin';
 export const CONTRACT_NAMES = {
     [NOMADICVAULT]: 'NomadicVault',
-    [NOMADICWORLDCOIN]: 'NomadicWorldCoin'
+    [NOMADICWORLDCOIN]: 'NomadicWorldCoin',
+    [HACKER_HOUSE_DAO]: HACKER_HOUSE_DAO
 };
 
 export const contractData = {
@@ -45,10 +48,14 @@ export const contractData = {
         // }
 
     },
-    31337: { // localhost
+    1337: { // localhost
         [NOMADICVAULT]: {
-            address: "",
+            address: "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
             abi: NomadicVault.abi,
+        },
+        [HACKER_HOUSE_DAO]: {
+            address: "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
+            abi: HackerHouseDAO.abi,
         }
     },
 }
