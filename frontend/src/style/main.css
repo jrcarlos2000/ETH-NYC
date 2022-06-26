@@ -43,6 +43,7 @@ a{
   top: 0;
 }
 .logo{
+  position: absolute;
   color: white;
   font-size: 7vw;
   margin: 5vw 0 0 5vw;
@@ -150,7 +151,7 @@ a{
       font-size: 1.2vw;
     }
     .main-btns{
-      margin-top: 30vh;
+      margin-top: 38vh;
       height: 30vw;
       flex-wrap: nowrap;
       padding: 0;

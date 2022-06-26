@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import "../style/feed.css"
-import testData from "../testData/feed";
+import "../../style/feed.css"
+import testData from "../../testData/feed";
 import { useSigner, useContract, useProvider, useNetwork } from 'wagmi'
-import { CONTRACT_NAMES, NOMADICVAULT } from '../utils/config';
-import { contractData } from '../utils/config';
+import { CONTRACT_NAMES, NOMADICVAULT } from '../../utils/config';
+import { contractData } from '../../utils/config';
 import { Link } from "react-router-dom";
 
-const Feed = (props) => {
+const ShortstayFeed = (props) => {
     const { data: signer } = useSigner()
     const provider = useProvider();
     const { activeChain } = useNetwork();
@@ -69,7 +69,7 @@ const Feed = (props) => {
     return(
         <div className="feed-page">
             <div className="background-pic"></div>
-            <h1 className="page-header" id="feed-header">NYC SHORT STAYS</h1>
+            <Link to="/"><h1 className="logo">NOMADIC</h1></Link>
             <Link to="/profile"><div className="profile-btn"></div></Link>
             {renderOffers()}
             <form className="search-container">
@@ -91,4 +91,4 @@ const Feed = (props) => {
     )
 }
 
-export default Feed;
+export default ShortstayFeed;

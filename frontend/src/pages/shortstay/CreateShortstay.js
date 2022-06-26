@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import "../style/createOffer.css";
+import "../../style/create.css";
 import { useSigner, useContract, useNetwork, useAccount } from "wagmi";
-import { CONTRACT_NAMES, NOMADICVAULT } from "../utils/config";
-import { contractData } from "../utils/config";
+import { CONTRACT_NAMES, NOMADICVAULT } from "../../utils/config";
+import { contractData } from "../../utils/config";
 import { defaultAbiCoder as abi } from "@ethersproject/abi";
-import { WorldIDComponent } from "../WorldIDComponent";
+import { WorldIDComponent } from "../../WorldIDComponent";
+import { Link } from "react-router-dom";
 
-const CreateOffer = (props) => {
+const CreateShortstay = (props) => {
   const { activeChain } = useNetwork();
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
@@ -43,13 +44,17 @@ const CreateOffer = (props) => {
     const isCreatorSlot = creatorSpot;
     
     const result = await contract.proposeShortStay(
-        'testing',10,10000,12000,false,
-        worldIDProof.merkle_root,
-      worldIDProof.nullifier_hash,
-      abi.decode(["uint256[8]"], worldIDProof.proof)[0],
-      { gasLimit: 10000000 },
+      descriptionURI,
+      nPersons,
+      totalPrice,
+      timeAvailable,
+      isCreatorSlot,
+      worldIDProof.merkle_root,
+    worldIDProof.nullifier_hash,
+    abi.decode(["uint256[8]"], worldIDProof.proof)[0],
+    { gasLimit: 10000000 },
 
-    );
+  );
     await result.wait();
   }
 
@@ -72,7 +77,7 @@ const CreateOffer = (props) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    if(activeChain.id == 80001){
+    if(activeChain.id == 0){
         console.log('trying with worldcoin id');
         await onSubmitWorldCoin(); 
     }else {
@@ -112,8 +117,9 @@ const CreateOffer = (props) => {
         />
       )}
       <div className="background-pic"></div>
-      <h1 className="page-header">CREATE OFFER</h1>
-      <form onSubmit={onSubmit} className="create-form">
+      <Link to="/"><h1 className="logo">NOMADIC</h1></Link>
+      <Link to="/profile"><div className="profile-btn"></div></Link>
+      <form onSubmit={onSubmit} className="create-form" id="shortstay-form">
         <div className="field-container">
           <label className="label">Where to?</label>
           <div>
@@ -207,4 +213,4 @@ const CreateOffer = (props) => {
   );
 };
 
-export default CreateOffer;
+export default CreateShortstay;

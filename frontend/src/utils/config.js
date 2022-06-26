@@ -32,17 +32,17 @@ export const contractData = {
         }
     },
     80001: { // mumbai
-        // [NOMADICVAULT]: {
-        //     address: "0x90B60a419C78776c6687C507b2089DD65Dcb66F9",
-        //     abi: NomadicVault,
-        //     rpc: "https://matic-mumbai.chainstacklabs.com/"
-        // },
-
         [NOMADICVAULT]: {
-            address: "0x15f339CC948D544c75685C806FFf69a8612888c0",
-            abi: NomadicWorldCoin.abi,
+            address: "0x90B60a419C78776c6687C507b2089DD65Dcb66F9",
+            abi: NomadicVault,
             rpc: "https://matic-mumbai.chainstacklabs.com/"
-        }
+        },
+
+        // [NOMADICVAULT]: {
+        //     address: "0x15f339CC948D544c75685C806FFf69a8612888c0",
+        //     abi: NomadicWorldCoin.abi,
+        //     rpc: "https://matic-mumbai.chainstacklabs.com/"
+        // }
 
     },
     31337: { // localhost
