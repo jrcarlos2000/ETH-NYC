@@ -105,9 +105,10 @@
         padding-left: 1.5vw;
         margin: 1vh 2vw 1vw 2.5vw;
         font-size: 1.5vw;
-        background-color: white;
+        background-color: rgb(40, 40, 40);
         border: none;
         outline: #FF3E60;
+        color: white;
     }
     .create-btn{
         width: 20vw;
@@ -157,5 +158,14 @@
     .remove-btn{
         padding: 1vh 1vw 1vh 1vw;
         margin-top: 2vh;
+    }
+    .create-btn-shortstay{
+        margin-left: 22.5vw;
+        margin-right: 0;
+    }
+    .image-replacement{
+        width: 20vw;
+        height: 20vw;
+        background-color: #343434;
     }
 }

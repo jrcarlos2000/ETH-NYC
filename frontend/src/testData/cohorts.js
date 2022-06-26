@@ -31,5 +31,16 @@ export default  [
         "link": "https://something.com",
         "NFTImage": "https://asdfgs"
 
+    },
+    {
+        "id": 4,
+        "city": "Mardid",
+        "totalPrice": 5000,
+        "slotsReserved": 2,
+        "nPersons": 5,
+        "tags": ["web3", "NFT NYC"],
+        "link": "https://something.com",
+        "NFTImage": "https://asdfgs"
+
     }
 ]

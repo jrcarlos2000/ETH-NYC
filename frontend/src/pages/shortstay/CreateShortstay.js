@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import "../../style/create.css";
 import { useSigner, useContract, useNetwork, useAccount } from "wagmi";
 import { CONTRACT_NAMES, NOMADICVAULT } from "../../utils/config";
@@ -6,7 +6,7 @@ import { contractData } from "../../utils/config";
 import { defaultAbiCoder as abi } from "@ethersproject/abi";
 import { WorldIDComponent } from "../../WorldIDComponent";
 import { Link } from "react-router-dom";
-import { uploadDataToIPFS, useCovalentForTxLogs } from "../../utils/core";
+import { uploadDataToIPFS, getCovalentForTxLogs } from "../../utils/core";
 const CreateShortstay = (props) => {
   const { activeChain } = useNetwork();
   const [city, setCity] = useState("");
@@ -19,6 +19,18 @@ const CreateShortstay = (props) => {
   const [deadline, setDeadline] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const { data: signer } = useSigner();
+  const [isDisplayed, setIsDisplayed] = useState(false);
+  const [currID, setCurrID] = useState(null);
+
+  useEffect(() => {
+    setIsDisplayed(true)
+    setInterval(() => {
+      setIsDisplayed(false);
+    }, 20000);
+  }, [currID]);
+
+  const IDRef = useRef();
+  IDRef.current = currID;
 
   const contractName = CONTRACT_NAMES[NOMADICVAULT];
   const { data: userData } = useAccount();
@@ -86,6 +98,10 @@ const CreateShortstay = (props) => {
     console.log('result: ', result);
     const resWait = await result.wait();
     console.log('resWait: ', resWait);
+
+    const logs = await getCovalentForTxLogs(resWait.transactionHash);
+    setCurrID(logs[0].block_signed_at);
+
   }
 
   const useOnSubmit = async (event) => {
@@ -122,6 +138,7 @@ const CreateShortstay = (props) => {
 
   return (
     <div className="create-page">
+      {isDisplayed && currID && (<div>transaction mined succesfully at {currID}</div>)}
       {userData && (
         <WorldIDComponent
           signal={userData.address}
@@ -233,16 +250,16 @@ const CreateShortstay = (props) => {
               }}
             />
           </div>
-        <input type="submit" className="create-btn" placeholder="CREATE" />
+        <input type="submit" className="create-btn create-btn-shortstay" value="CREATE" />
       </form>
       <div className="image-preview">
-        {selectedImage && (
+        {selectedImage ? selectedImage && (
           <div>
           <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
           <br />
           <button className="button remove-btn" onClick={()=>setSelectedImage(null)}>Remove</button>
-          </div>
-        )}
+          </div> ): 
+          <div className="image-replacement"></div>}
       </div>
       </div>
     </div>
