@@ -393,8 +393,8 @@
       ]
     },
     "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/NomadicVault.sol": {
-      "lastModificationDate": 1656189974404,
-      "contentHash": "65a0e1cd7a3092ea84854e8eb5ab7422",
+      "lastModificationDate": 1656203456065,
+      "contentHash": "9f069834498009fd1fafb3acf3c984ba",
       "sourceName": "contracts/NomadicVault.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -429,7 +429,8 @@
       "imports": [
         "@openzeppelin/contracts/utils/Counters.sol",
         "@openzeppelin/contracts/utils/math/SafeMath.sol",
-        "./HackerHouseDAO.sol"
+        "./HackerHouseDAO.sol",
+        "hardhat/console.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -824,6 +825,48 @@
       ],
       "artifacts": [
         "UserRegistry"
+      ]
+    },
+    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1656188974768,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
       ]
     }
   }
