@@ -67,6 +67,16 @@ module.exports = {
       // ],
       
     },
+    // deploy
+    optimism: {
+      url: `${process.env.OPTIMISM_PROVIDER_URL}`,
+      accounts: [
+        process.env.DEPLOYER_PRIVATE_KEY || privateKeys[2],
+        process.env.GOVERNOR_PRIVATE_KEY || privateKeys[1],
+      ],
+      gasPrice: 0,
+      chainId: 9000000,
+    },
     mainnet : {
       url : `${process.env.MAINNET_PROVIDER_URL}`,
       accounts: [
