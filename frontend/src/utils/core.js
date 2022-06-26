@@ -70,14 +70,14 @@ export function isAddress(value) {
 //     return new Contract(address, ABI, getProviderOrSigner(library, account));
 //   }
 
-export const useCovalentForTxLogs = async (txhash) => {
+export async function getCovalentForTxLogs (txhash) {
   const APIKEY = "ckey_3762fff3b80245008a13f8872d4";
-
+  console.log(txhash);
   // Set the Covalent API
   const covalentAPI = "https://api.covalenthq.com/v1/";
-  const APIEndpoint = `${80001}/transaction_v2/${'0x3d6126e8e28f04a02fe69fd707f7f09c397fcc17d59182f9d8a87228e1b8ea03'}`;
+  const APIEndpoint = `${80001}/transaction_v2/${txhash}`;
 
-  // Covalent API request setup
+  // Covalent API request setup, gives you a list of logs
   const url = new URL(`${covalentAPI}${APIEndpoint}/`);
   url.search = new URLSearchParams({
     key: APIKEY
@@ -86,4 +86,6 @@ export const useCovalentForTxLogs = async (txhash) => {
   const res = await fetch(url);
   const data = await res.json();
   console.log(data.data.items[0].log_events);
+
+  return data.data.items[0].log_events;
 };
