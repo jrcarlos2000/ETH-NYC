@@ -3,7 +3,7 @@ body{
 }
 .hackerhouse-banner{
     width: 100%;
-    height: 30vh;
+    height: 25vh;
     background-image: url("../images/hackerhouse-banner.png");
     background-size: cover;
     background-position: center;
@@ -13,13 +13,84 @@ body{
 }
 
 .hackerhouse-name{
-    margin: 2.5vw 0 0 2.5vw;
+    margin: 5vh 0 0 2.5vw;
     color: white;
     font-size: 3vw;
 }
+.hackerhouse-btn{
+    position: absolute;
+    right: 2.5vw;
+    top: 32vh;
+    padding: 3vh 3vw 3vh 3vw;
+    font-size: 2vw;
+    min-width: 18vw;
+}
 .hackerhouse-mission{
-    margin: 1.5vw 0 0 2.5vw;
+    margin: 1vw 0 0 2.5vw;
     font-size: 1.4vw;
-    max-width: 42vw;
+    max-width: 65vw;
     color: rgba(255, 255, 255, 0.7);
+}
+.values{
+    grid-area: offer-row2; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    z-index: 1;
+    margin: 3vh 0 0 2.5vw;
+}
+.line{
+    border-top: 1px solid #FF3E60;
+    box-shadow: 10px 0px 20px #FF3E60;
+}
+.tabs-btns{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    margin: 0vh 0 0 0;
+}
+.tab-btn{
+    width: 20vw;
+    height: 8vh;
+    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+    font-size: 1.4vw;
+    background-color: rgb(30, 30, 30);
+    border: none;
+    color: #FF3E60;
+    cursor: pointer;
+}
+.tab-selected{
+    background-color: #FF3E60;
+    color: black;
+}
+.cohorts{
+    display: flex;
+    width: 100%;
+    margin-top: 3vh;
+    overflow-x: scroll;
+}
+.tab-content{
+    height: 39vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+.members{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 3vw;
+    margin-top: 3vh;
+    font-weight: 500;
+    -webkit-mask-image: linear-gradient(to top,black 90%,transparent 78%);
+    mask-image: linear-gradient(to top,black 70%,transparent 20%);
+}
+.member-container{
+    width: 100%;
+    text-align: center;
+}
+.member-address{
+    margin-top: 3vh;
+    margin-left: 5vw;
 }

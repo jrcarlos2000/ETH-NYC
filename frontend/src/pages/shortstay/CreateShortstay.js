@@ -17,6 +17,7 @@ const CreateShortstay = (props) => {
   const [tags, setTags] = useState([]);
   const [creatorSpot, setCreatorSpot] = useState(false);
   const [deadline, setDeadline] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
   const { data: signer } = useSigner();
 
   const contractName = CONTRACT_NAMES[NOMADICVAULT];
@@ -131,7 +132,8 @@ const CreateShortstay = (props) => {
       <div className="background-pic"></div>
       <Link to="/"><h1 className="logo">NOMADIC</h1></Link>
       <Link to="/profile"><div className="profile-btn"></div></Link>
-      <form onSubmit={onSubmit} className="create-form" id="shortstay-form">
+      <div className="form-container">
+      <form onSubmit={onSubmit} className="form" id="shortstay-form">
         <div className="field-container">
           <label className="label">Where to?</label>
           <div>
@@ -219,8 +221,30 @@ const CreateShortstay = (props) => {
             </div>
           </div>
         </div>
+          <div className="field-container">
+            <label className="label">Choose an image</label>
+            <input
+              type="file"
+              name="Image"
+              className="file-input"
+              onChange={(event) => {
+                console.log(event.target.files[0]);
+                setSelectedImage(event.target.files[0]);
+              }}
+            />
+          </div>
         <input type="submit" className="create-btn" placeholder="CREATE" />
       </form>
+      <div className="image-preview">
+        {selectedImage && (
+          <div>
+          <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
+          <br />
+          <button className="button remove-btn" onClick={()=>setSelectedImage(null)}>Remove</button>
+          </div>
+        )}
+      </div>
+      </div>
     </div>
   );
 };

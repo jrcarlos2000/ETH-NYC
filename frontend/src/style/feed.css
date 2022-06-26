@@ -114,11 +114,13 @@ body{
 }
 .join-btn{
     height: 3vw;
-    margin-left: 9vw;
 }
 #feed-ppl{
     margin-left: 9vw;
 }
 #feed-city-header{
     font-size: 2vw;
+}
+.join-feed{
+    margin-left: 10vw;
 }
