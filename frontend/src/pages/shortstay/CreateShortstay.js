@@ -110,7 +110,7 @@ const CreateShortstay = (props) => {
 
   const useOnSubmit = async (event) => {
     event.preventDefault();
-    if(activeChain.id == 0){
+    if(activeChain.id == 80001){
         console.log('trying with worldcoin id');
         await onSubmitWorldCoin(); 
     }else {

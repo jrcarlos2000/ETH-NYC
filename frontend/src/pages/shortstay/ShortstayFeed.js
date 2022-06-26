@@ -76,6 +76,8 @@ const ShortstayFeed = (props) => {
             const totalPrice = offer.totalPrice.toNumber();
             const pricePerPerson = offer.pricePerPerson.toNumber();
             
+            // ens reverse lookup
+            const trusteeAddressOrENS = await provider.lookupAddress(trusteeAddress);
             return(
                 <div className="stay-container" key={shortStayId}>
                     <div className="stay-banner"></div>
@@ -95,7 +97,7 @@ const ShortstayFeed = (props) => {
                             <p className="chip-in-txt">Trustee: <b>{trusteeAddress}</b></p>
                             <p className="chip-in-txt">Chip in for: <b>${pricePerPerson}</b></p>
                             <p className="chip-in-txt">Amount Funded: <b>${amountFunded}</b></p>
-                            <p className="chip-in-txt">Members: <b>{[members.slice(0, members - 1), isCreatorSlot ? trusteeAddress : ''].join(', ')}</b></p>
+                            <p className="chip-in-txt">Members: <b>{[members.slice(0, members - 1), isCreatorSlot ? trusteeAddressOrENS : ''].join(', ')}</b></p>
                             <button className="button join-btn" onClick={() => joinShortStay(shortStayId)}>Join</button>
                         </div>
                     </div>
