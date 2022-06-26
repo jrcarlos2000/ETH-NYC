@@ -6,6 +6,9 @@ import { CONTRACT_NAMES, NOMADICVAULT } from '../../utils/config';
 import { contractData } from '../../utils/config';
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import { ENS } from '@ensdomains/ensjs'
+import { ethers } from 'ethers'
+const ENSInstance = new ENS()
 
 const ShortstayFeed = (props) => {
     const { data: signer } = useSigner()
@@ -77,7 +80,14 @@ const ShortstayFeed = (props) => {
             const pricePerPerson = offer.pricePerPerson.toNumber();
             
             // ens reverse lookup
-            const trusteeAddressOrENS = await provider.lookupAddress(trusteeAddress);
+            // const trusteeAddressOrENS = await provider.lookupAddress(trusteeAddress);
+
+            /* Profile fetching from an address */
+            const profile = await ENSInstance.getProfile(
+                trusteeAddress,
+            )
+
+  
             return(
                 <div className="stay-container" key={shortStayId}>
                     <div className="stay-banner"></div>
