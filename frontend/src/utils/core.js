@@ -9,24 +9,16 @@ export async function publishToIPFS(metadata) {
     token:
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDkxREVEZjVCMmI3REU3NDA1RjM4YjkwMjNhYzAxNTdFMTU3MGE1NjkiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1MDcyMTAwODQyMiwibmFtZSI6ImFtc3RlcmRhbSJ9.Sn1JCXO3xWD5tLdsCsWVRzbNyJFE1fOSQjTYzaKfEPU",
   });
-  let sampleDict = {
-    name: "carlos",
-    title: " asasdasd ",
-    options: {
-      carlos: "assss",
-      emerson: "assss",
-    },
-  };
-
-  sampleDict = JSON.stringify(sampleDict);
+  
+  let sampleDict = JSON.stringify(metadata);
   const someData = new Blob([sampleDict]);
   console.log("printing metadata: ", someData);
   const cid = await ipfs.storeBlob(someData);
   console.log(cid);
   return `https://ipfs.io/ipfs/${cid}`;
 }
-export async function uploadDataToIPFS() {
-  await publishToIPFS();
+export async function uploadDataToIPFS(metadata) {
+  return await publishToIPFS(metadata);
 }
 
 export const performTx = async (

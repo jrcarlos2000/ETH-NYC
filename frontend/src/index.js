@@ -45,7 +45,7 @@ const mumbaiChain = {
 console.log("chain: ", chain);
 
 const { provider, chains } = configureChains(
-  [chain.localhost],
+  [chain.mainnet, chain.localhost],
   [
     // alchemyProvider({ alchemyId }),
     // infuraProvider({ infuraId }),

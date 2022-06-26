@@ -257,10 +257,10 @@ a{
         color: rgb(255, 255, 255);
       }
       .offer-row3 { 
-        grid-area: offer-row3; 
         display: flex;
         padding-top: 1.5vw;
         z-index: 1;
+        flex-direction: column;
       }
       .chip-in-txt{
         font-size: 1.1vw;

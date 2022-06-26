@@ -65,10 +65,18 @@ const CreateShortstay = (props) => {
     const timeAvailable = 123;
     const isCreatorSlot = creatorSpot;
 
-    await uploadDataToIPFS();
+    const metadata = {
+      city,
+      tags,
+      descriptionURI,
+      link
+    }
+
+    const cid = await uploadDataToIPFS(metadata);
+    console.log('cid in sc', cid);
     
     const result = await contract.proposeShortStay(
-        descriptionURI,
+        cid,
         nPersons,
         totalPrice,
         timeAvailable,
@@ -87,7 +95,7 @@ const CreateShortstay = (props) => {
     }else {
         await onSubmitNormal();
     }
-}
+  }
 
   const handleCity = (event) => {
     setCity(event.target.value);
