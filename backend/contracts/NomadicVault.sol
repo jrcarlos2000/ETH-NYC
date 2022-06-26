@@ -34,6 +34,7 @@ contract NomadicVault {
         uint256 coreTeamCount;
         string name;
         string descriptionURI;
+        uint256 membershipCost;
     }
 
     mapping (uint256 => ShortStay) public stays;
@@ -172,7 +173,8 @@ contract NomadicVault {
             coreTeam: _coreTeam,
             coreTeamCount: 1,
             name: _name,
-            descriptionURI: _descriptionURI
+            descriptionURI: _descriptionURI,
+            membershipCost: _membershipCost
         });
         emit DAOProposed(_daoId);
 
@@ -237,6 +239,10 @@ contract NomadicVault {
         console.log("deployed %s", address(hhDao));
 
         emit HHouseDeployed(_daoId, address(hhDao), hhouses[_daoId].name);
+    }
+
+    function getHackerHouseById(uint256 _hhId) public view returns(HackerHouse memory) {
+        return hhouses[_hhId];
     }
 
     function _createClone(address target) internal returns (address result) {

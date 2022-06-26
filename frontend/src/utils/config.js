@@ -35,17 +35,17 @@ export const contractData = {
         }
     },
     80001: { // mumbai
-        [NOMADICVAULT]: {
-            address: "0x90B60a419C78776c6687C507b2089DD65Dcb66F9",
-            abi: NomadicVault.abi,
-            rpc: "https://matic-mumbai.chainstacklabs.com/"
-        },
-
         // [NOMADICVAULT]: {
-        //     address: "0x15f339CC948D544c75685C806FFf69a8612888c0",
-        //     abi: NomadicWorldCoin.abi,
+        //     address: "0x90B60a419C78776c6687C507b2089DD65Dcb66F9",
+        //     abi: NomadicVault.abi,
         //     rpc: "https://matic-mumbai.chainstacklabs.com/"
-        // }
+        // },
+
+        [NOMADICVAULT]: {
+            address: "0x15f339CC948D544c75685C806FFf69a8612888c0",
+            abi: NomadicWorldCoin.abi,
+            rpc: "https://matic-mumbai.chainstacklabs.com/"
+        }
 
     },
     1337: { // localhost
@@ -54,7 +54,7 @@ export const contractData = {
             abi: NomadicVault.abi,
         },
         [HACKER_HOUSE_DAO]: {
-            address: "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
+            address: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
             abi: HackerHouseDAO.abi,
         }
     },

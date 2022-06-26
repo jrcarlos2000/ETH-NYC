@@ -98,6 +98,7 @@ body{
     grid-template-areas: 
       "stay-banner stay-info"; 
       overflow: hidden;
+    height: 360px;
 }
 .stay-info{
     padding: 1vw 1.5vw 1.5vw 2vw;
@@ -114,6 +115,7 @@ body{
 }
 .join-btn{
     height: 3vw;
+    margin-top: 20px;
 }
 #feed-ppl{
     margin-left: 9vw;
@@ -123,4 +125,7 @@ body{
 }
 .join-feed{
     margin-left: 10vw;
+}
+.feed-wrapper {
+    padding: 120px 40px;
 }

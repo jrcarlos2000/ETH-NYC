@@ -787,8 +787,8 @@
       ]
     },
     "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/NomadicVault.sol": {
-      "lastModificationDate": 1656233485288,
-      "contentHash": "e2101424417660b1a35ff4525a2cc5f2",
+      "lastModificationDate": 1656242553574,
+      "contentHash": "495d3602b9b22fbee89ff444105133b4",
       "sourceName": "contracts/NomadicVault.sol",
       "solcConfig": {
         "version": "0.8.4",

@@ -1,15 +1,68 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../style/hackerhouse.css"
 import testCohorts from "../../testData/cohorts";
 import testMembers from "../../testData/members";
+import { useParams } from "react-router-dom";
+import { contractData, NOMADICVAULT, CONTRACT_NAMES } from "../../utils/config";
+import { useContract, useNetwork, useSigner, useProvider } from 'wagmi';
+import axios from "axios";
   
 const Hackerhouse = (props) => {
+    let { id: hackerHouseId } = useParams();
+    console.log("id: ", hackerHouseId);
+    const { activeChain } = useNetwork();
+    const { data: signer } = useSigner()
+    const provider = useProvider();
 
     const [coreComplete, setCoreComplete] = useState('')
     const [cohortsTab, setCohortsTab] = useState(true);
     const [membersTab, setMembersTab] = useState(false);
     const [applicantsTab, setApplicantsTab] = useState(false);
+    const [name, setName] = useState("Nomad DAO");
+    const [mission, setMission] = useState("Mission");
+    const [values, setValues] = useState("Values");
+    const [membershipCost, setMembershipCost] = useState(100);
+    const [coreTeam, setCoreTeam] = useState([]);
+    const [coreTeamCount, setCoreTeamCount] = useState(0);
+
+    const contractName = CONTRACT_NAMES[NOMADICVAULT];
+    const contractAddress = contractData[activeChain.id][contractName].address;
+    const contractAbi = contractData[activeChain.id][contractName].abi;
+
+    console.log(contractAddress, contractAbi, activeChain.id, contractName);
+
+    useEffect(() => {
+        fetchHouseData();
+    });
+
+    const contract = useContract({
+        addressOrName: contractAddress,
+        contractInterface: contractAbi,
+        signerOrProvider: signer,
+    })
+
+    const fetchHouseData = async () => {
+        const hhData = await contract.getHackerHouseById(hackerHouseId);
+        console.log("hhData: ", hhData);
+        setName(hhData.name);
+        const metadata = (await axios.get(hhData.descriptionURI)).data;
+
+        setMission(metadata.mission);
+        setValues(metadata.values);
+        setMembershipCost(hhData.membershipCost);
+        setCoreTeam(hhData.coreTeam);
+        setCoreTeamCount(hhData.coreTeamCount);
+        // dr: "0x0000000000000000000000000000000000000000"
+        // coreTeam: (5) ['0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65', '0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000']
+        // coreTeamCount: BigNumber {_hex: '0x01', _isBigNumber: true}
+        // descriptionURI: "https://ipfs.io/ipfs/bafkreibvqq562bqzd2quggblfrej6xuyqrnbnvqcrht3qvf5i4e42fzfxm"
+        // id: BigNumber {_hex: '0x00', _isBigNumber: true}
+        // isActive: false
+        // membershipCost: BigNumber {_hex: '0x64', _isBigNumber: true}
+        // name: "HackerHouse1"
+        
+    }
 
     const selectCohortsTab = () => {
         setCohortsTab(true);
@@ -59,13 +112,13 @@ const Hackerhouse = (props) => {
                             <button className="button join-btn">JOIN</button>
                     </div>
             </div>
+            )
+        });
+        return(
+            <div className="cohorts">
+                {offer}
+            </div>
         )
-    });
-    return(
-        <div className="cohorts">
-            {offer}
-        </div>
-    )
     }
     const renderMembers = () => {
         const member = testMembers.map((member) => {
@@ -74,12 +127,12 @@ const Hackerhouse = (props) => {
                     <p className="member-address">{member}</p>
                 </div>
             )
-    });
-    return(
-        <div className="members">
-            {member}
-        </div>
-    )
+        });
+        return(
+            <div className="members">
+                {member}
+            </div>
+        )
     }
     const renderApplicants = () => {
         const member = testMembers.map((applicant) => {
@@ -102,18 +155,21 @@ const Hackerhouse = (props) => {
             <Link to="/"><h1 className="logo">NOMADIC</h1></Link>
 
             <div className="hackerhouse-banner"></div>
-            <h1 className="hackerhouse-name">NOMAD DAO</h1>
-            {coreComplete ? <button onClick={joinDAO} className="button hackerhouse-btn">APPLY</button> : <button onClick={joinCoreTeam} className="button hackerhouse-btn">JOIN CORE TEAM</button>}
+            <h1 className="hackerhouse-name">{name}</h1>
+             {coreComplete ? <button onClick={joinDAO} className="button hackerhouse-btn">APPLY</button> : <button onClick={joinCoreTeam} className="button hackerhouse-btn">JOIN CORE TEAM</button>}
             <p className="hackerhouse-mission">
-                Some mission here pretty long mission up to 150 characters I think. 
-                Yeah I think it's long enough or not lets add more text to check how it looks like
+                {mission}
             </p>
             <div className="values">
-                <div className="tag">WEB3</div>
+                {values && values.split(', ').map((val) => {
+                    return (
+                      <div className="tag">{val}</div>
+                    )
+                })}
+                {/* <div className="tag">WEB3</div>
                 <div className="tag">DEVELOPMENT</div>
                 <div className="tag">NETWORKING</div>
-                <div className="tag">WORKSHOPS</div>
-
+                <div className="tag">WORKSHOPS</div> */}
             </div>
             <div className="tabs-btns">
                 {cohortsTab ? <button className="tab-btn tab-selected" onClick={selectCohortsTab}>COHORTS</button> : <button onClick={selectCohortsTab} className="tab-btn">COHORTS</button>}

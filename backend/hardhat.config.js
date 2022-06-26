@@ -61,10 +61,10 @@ module.exports = {
       chainId: 1337,
       timeout: 6000000,
 
-      accounts: [
-        process.env.DEPLOYER_PRIVATE_KEY || privateKeys[2],
-        process.env.GOVERNOR_PRIVATE_KEY || privateKeys[1],
-      ],
+      // accounts: [
+      //   process.env.DEPLOYER_PRIVATE_KEY || privateKeys[2],
+      //   process.env.GOVERNOR_PRIVATE_KEY || privateKeys[1],
+      // ],
       
     },
     mainnet : {

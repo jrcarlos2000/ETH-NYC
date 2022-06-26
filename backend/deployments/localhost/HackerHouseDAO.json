@@ -1,0 +1,846 @@
+{
+  "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_cohortId",
+          "type": "uint256"
+        }
+      ],
+      "name": "CohortIsFull",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_cohortId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_member",
+          "type": "address"
+        }
+      ],
+      "name": "JoinCohort",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_cohortId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_trustee",
+          "type": "address"
+        }
+      ],
+      "name": "ProposeCohort",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "applyForMembership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_applicants",
+          "type": "address[]"
+        }
+      ],
+      "name": "approveApplicants",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "cohortId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "cohorts",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "descriptionURI",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "trustee",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "nPersons",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "slotsReserved",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amountFunded",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "pricePerPerson",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isCreatorSlot",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isActive",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isFull",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "coreTeam",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "descriptionURI",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "fetchAllApplicants",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            },
+            {
+              "internalType": "address",
+              "name": "userAddr",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "isMember",
+              "type": "bool"
+            },
+            {
+              "internalType": "address[]",
+              "name": "approvers",
+              "type": "address[]"
+            }
+          ],
+          "internalType": "struct HackerHouseDAO.User[]",
+          "name": "applicantsArr",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getCohorts",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "descriptionURI",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "trustee",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nPersons",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "slotsReserved",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amountFunded",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address[]",
+              "name": "members",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pricePerPerson",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "isCreatorSlot",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "isActive",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "isFull",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct HackerHouseDAO.Cohort[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_parentAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_coreTeam",
+          "type": "address[]"
+        },
+        {
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_descriptionURI",
+          "type": "string"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "initialized",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_cohortId",
+          "type": "uint256"
+        }
+      ],
+      "name": "joinCohort",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "membershipPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "parentAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_descriptionURI",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nPersons",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_totalPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_timeAvailable",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "_isCreatorSlot",
+          "type": "bool"
+        }
+      ],
+      "name": "proposeCohort",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "userId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "users",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        },
+        {
+          "internalType": "address",
+          "name": "userAddr",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "isMember",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xcd7f456aca7798c59ba691c144f7968e13e081c993ea1011fde71975ff81a8b1",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "transactionIndex": 0,
+    "gasUsed": "1682421",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xe6a416ddff51ba00775139fdf5d76fcac3c717dd23d63ba3b5b104cde6aa0228",
+    "transactionHash": "0xcd7f456aca7798c59ba691c144f7968e13e081c993ea1011fde71975ff81a8b1",
+    "logs": [],
+    "blockNumber": 1,
+    "cumulativeGasUsed": "1682421",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "2e9bc33b67b2a9dfd5c40c4ac9f64ecc",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_cohortId\",\"type\":\"uint256\"}],\"name\":\"CohortIsFull\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_cohortId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_member\",\"type\":\"address\"}],\"name\":\"JoinCohort\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_cohortId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_trustee\",\"type\":\"address\"}],\"name\":\"ProposeCohort\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"applyForMembership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_applicants\",\"type\":\"address[]\"}],\"name\":\"approveApplicants\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cohortId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"cohorts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"descriptionURI\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"trustee\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"nPersons\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"slotsReserved\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountFunded\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pricePerPerson\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isCreatorSlot\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isFull\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"coreTeam\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"descriptionURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fetchAllApplicants\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"},{\"internalType\":\"address\",\"name\":\"userAddr\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isMember\",\"type\":\"bool\"},{\"internalType\":\"address[]\",\"name\":\"approvers\",\"type\":\"address[]\"}],\"internalType\":\"struct HackerHouseDAO.User[]\",\"name\":\"applicantsArr\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCohorts\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"descriptionURI\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"trustee\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"nPersons\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"slotsReserved\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountFunded\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"members\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"totalPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pricePerPerson\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isCreatorSlot\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isActive\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"isFull\",\"type\":\"bool\"}],\"internalType\":\"struct HackerHouseDAO.Cohort[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_parentAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"_coreTeam\",\"type\":\"address[]\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_descriptionURI\",\"type\":\"string\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_cohortId\",\"type\":\"uint256\"}],\"name\":\"joinCohort\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"membershipPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"parentAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_descriptionURI\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_nPersons\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_totalPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_timeAvailable\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"_isCreatorSlot\",\"type\":\"bool\"}],\"name\":\"proposeCohort\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"userId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"users\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"},{\"internalType\":\"address\",\"name\":\"userAddr\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isMember\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/HackerHouseDAO.sol\":\"HackerHouseDAO\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/utils/Counters.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/Counters.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @title Counters\\n * @author Matt Condon (@shrugs)\\n * @dev Provides counters that can only be incremented, decremented or reset. This can be used e.g. to track the number\\n * of elements in a mapping, issuing ERC721 ids, or counting request ids.\\n *\\n * Include with `using Counters for Counters.Counter;`\\n */\\nlibrary Counters {\\n    struct Counter {\\n        // This variable should never be directly accessed by users of the library: interactions must be restricted to\\n        // the library's function. As of Solidity v0.5.2, this cannot be enforced, though there is a proposal to add\\n        // this feature: see https://github.com/ethereum/solidity/issues/4637\\n        uint256 _value; // default: 0\\n    }\\n\\n    function current(Counter storage counter) internal view returns (uint256) {\\n        return counter._value;\\n    }\\n\\n    function increment(Counter storage counter) internal {\\n        unchecked {\\n            counter._value += 1;\\n        }\\n    }\\n\\n    function decrement(Counter storage counter) internal {\\n        uint256 value = counter._value;\\n        require(value > 0, \\\"Counter: decrement overflow\\\");\\n        unchecked {\\n            counter._value = value - 1;\\n        }\\n    }\\n\\n    function reset(Counter storage counter) internal {\\n        counter._value = 0;\\n    }\\n}\\n\",\"keccak256\":\"0xf0018c2440fbe238dd3a8732fa8e17a0f9dce84d31451dc8a32f6d62b349c9f1\",\"license\":\"MIT\"},\"contracts/HackerHouseDAO.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nimport \\\"@openzeppelin/contracts/utils/Counters.sol\\\";\\n\\ncontract HackerHouseDAO {\\n    using Counters for Counters.Counter;\\n\\n    address public parentAddress;\\n    uint256 id;\\n    Counters.Counter public userId;\\n    Counters.Counter public cohortId;\\n    string public name;\\n    string public descriptionURI;\\n    address[] public coreTeam;\\n    uint256 public membershipPrice;\\n    bool public initialized = false;\\n    mapping (address => User) public users;\\n    address[] userAddresses;\\n\\n    event ProposeCohort(uint256 _cohortId, address _trustee);\\n    event JoinCohort(uint256 _cohortId, address _member);\\n    event CohortIsFull(uint256 _cohortId);\\n\\n    struct Cohort {\\n        uint256 id;\\n        string descriptionURI;\\n        address trustee;\\n        uint256 nPersons;\\n        uint256 slotsReserved;\\n        uint256 amountFunded;\\n        address[] members;\\n        uint256 totalPrice;\\n        uint256 pricePerPerson;\\n        uint256 deadline;\\n        bool isCreatorSlot; // true if creator of short stay is one of the persons staying (nPersons)\\n        bool isActive; // if stay is currently open for booking\\n        bool isFull; // if all member slots are filled or not\\n    }\\n\\n    struct User {\\n        uint256 id;\\n        bool exists;\\n        address userAddr;\\n        bool isMember;\\n        address[] approvers;\\n    }\\n\\n    mapping(uint256 => Cohort) public cohorts;\\n\\n    modifier onlyCoreTeam() {\\n        bool isCoreTeam = false;\\n        for (uint256 i = 0; i < coreTeam.length; i++) {\\n            if (msg.sender == coreTeam[i]) {\\n                isCoreTeam = true;\\n            }\\n        }\\n        require(isCoreTeam, \\\"Only core team\\\");\\n        _;\\n    }\\n\\n    modifier onlyMemberActiveCohort(uint256 _cohortId) {\\n        require(users[msg.sender].isMember, \\\"Restricted to members\\\");\\n        require(\\n            cohorts[_cohortId].isActive\\n                && !cohorts[_cohortId].isFull\\n                && cohorts[_cohortId].deadline > block.timestamp,\\n            \\\"Cohort is full, inactive or deadline was reached\\\"\\n        );\\n        _;\\n    }\\n\\n    function initialize(\\n        address _parentAddress,\\n        uint256 _id,\\n        address[] memory _coreTeam,\\n        string memory _name,\\n        string memory _descriptionURI\\n    ) external {\\n        require(initialized == false, \\\"Already initialized\\\");\\n        initialized = true;\\n        parentAddress = _parentAddress;\\n        id = _id;\\n        coreTeam = _coreTeam;\\n        name = _name;\\n        descriptionURI = _descriptionURI;\\n    }\\n\\n    function applyForMembership() external {\\n        require(!users[msg.sender].isMember, \\\"already a member or applicants\\\");\\n        uint256 _memId = userId.current();\\n        address[] memory _approvers;\\n        User memory _user = User({\\n            id: _memId,\\n            exists: true,\\n            userAddr: address(msg.sender),\\n            isMember: false,\\n            approvers: _approvers\\n        });\\n        users[msg.sender] = _user;\\n        userAddresses.push(msg.sender);\\n        userId.increment();\\n    }\\n\\n    function fetchAllApplicants() public view returns (User[] memory applicantsArr) {\\n        uint256 usersLen = userAddresses.length;\\n        uint256 applicantsCount = 0;\\n        uint256 currentIndex = 0;\\n\\n        for (uint256 i = 0; i < usersLen; i++) {\\n            if (!users[userAddresses[i]].isMember) {\\n                applicantsCount++;\\n            }\\n        }\\n        User[] memory applicantsArr = new User[](applicantsCount);\\n        for (uint256 i = 0; i < usersLen; i++) {\\n            if (!users[userAddresses[i]].isMember) {\\n                applicantsArr[currentIndex] = (users[userAddresses[i]]);\\n                currentIndex++;\\n            }\\n        }\\n    }\\n\\n    function approveApplicants(address[] memory _applicants) external onlyCoreTeam() {\\n        uint256 appsLen = _applicants.length;\\n        for (uint256 i = 0; i < appsLen; i++) {\\n            User storage _user = users[_applicants[i]];\\n            uint256 approversLen = _user.approvers.length;\\n            for (uint256 i = 0; i < approversLen; i++) {\\n                require(_user.approvers[i] != msg.sender, \\\"sender already approved applicant\\\");\\n            }\\n        }\\n        for (uint256 i = 0; i < appsLen; i++) {\\n            User storage _user = users[_applicants[i]];\\n            _user.approvers.push(msg.sender);\\n        }\\n    }\\n\\n    function proposeCohort(\\n        string memory _descriptionURI,\\n        uint256 _nPersons,\\n        uint256 _totalPrice,\\n        uint256 _timeAvailable,\\n        bool _isCreatorSlot\\n    ) external returns (uint256) {\\n        require(_nPersons > 0, \\\"At least one room required\\\");\\n        uint256 _cohortId = cohortId.current(); \\n        uint256 _slotsReserved = _isCreatorSlot ? 1 : 0;\\n        address[] memory _members = new address[](_nPersons);\\n\\n        if (_isCreatorSlot) {\\n            _members[0] = msg.sender;\\n        }\\n\\n        cohorts[_cohortId] = Cohort({\\n            id: _cohortId,\\n            descriptionURI: _descriptionURI,\\n            trustee: msg.sender,\\n            nPersons: _nPersons,\\n            slotsReserved: _slotsReserved,\\n            amountFunded: 0,\\n            members: _members,\\n            totalPrice: _totalPrice,\\n            pricePerPerson: (_totalPrice / _nPersons ) + 1,\\n            deadline: block.timestamp + _timeAvailable,\\n            isCreatorSlot: _isCreatorSlot,\\n            isActive: true,\\n            isFull: false\\n        });\\n        cohortId.increment();\\n        emit ProposeCohort(_cohortId, msg.sender);\\n        return _cohortId;\\n    }\\n\\n    function joinCohort(\\n        uint256 _cohortId\\n    ) external payable onlyMemberActiveCohort(_cohortId) {\\n        Cohort storage _cohort = cohorts[_cohortId];\\n        require(msg.value >= _cohort.pricePerPerson, \\\"Insufficient value sent\\\");\\n        bool isMember = false;\\n        // check sender is not already a member of cohort\\n        uint256 i = 0;\\n        uint256 memLen = _cohort.nPersons;\\n        for (i; i < memLen; i++) {\\n            if (_cohort.members[i] == msg.sender) {\\n                isMember = true;\\n                break;\\n            }\\n        }\\n        require(!isMember, \\\"You are already signed up!\\\");\\n        _cohort.members.push(msg.sender);\\n        _cohort.slotsReserved++;\\n        _cohort.amountFunded+= _cohort.pricePerPerson;\\n        emit JoinCohort(_cohortId, msg.sender);\\n\\n        if (_cohort.slotsReserved >= _cohort.nPersons) {\\n            _cohort.isFull = true;\\n            // send $ funds to trustee\\n            payable(address(_cohort.trustee)).transfer(_cohort.amountFunded);\\n            // todo: Add badge to soulbound NFT\\n\\n            emit CohortIsFull(_cohortId);\\n        }\\n    }\\n\\n    function getCohorts() external returns(Cohort[] memory) {\\n        Cohort[] memory cohortsArr = new Cohort[](cohortId.current());\\n        for (uint256 i = 0; i < cohortId.current(); i++) {\\n            cohortsArr[i] = cohorts[i];\\n        }\\n        return cohortsArr;\\n    }\\n}\",\"keccak256\":\"0x6009dba77672e5d8c27e59f7ba52510e0f3bbc00841af37837d6958f5acb3f7d\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60806040526008805460ff1916905534801561001a57600080fd5b50611d708061002a6000396000f3fe6080604052600436106100fd5760003560e01c8063691ca14c1161009557806399ef1fe01161006457806399ef1fe0146102a1578063a78cb7e9146102c3578063a87430ba146102e5578063d4b140ef14610368578063f1d2f93c1461037b57600080fd5b8063691ca14c1461021d57806374ed78d01461023457806378ef562a1461026c578063846198561461028c57600080fd5b8063158ef93e116100d1578063158ef93e146101a7578063516346b7146101d157806358975919146101f15780635e1ee52a1461020857600080fd5b8062821de31461010257806306fdde031461013f5780630de3226b1461016157806314a88d6114610185575b600080fd5b34801561010e57600080fd5b50600054610122906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b34801561014b57600080fd5b5061015461039b565b6040516101369190611bc8565b34801561016d57600080fd5b5061017760075481565b604051908152602001610136565b34801561019157600080fd5b506101a56101a0366004611832565b610429565b005b3480156101b357600080fd5b506008546101c19060ff1681565b6040519015158152602001610136565b3480156101dd57600080fd5b506101a56101ec3660046118d1565b6104e9565b3480156101fd57600080fd5b506002546101779081565b34801561021457600080fd5b506101a5610753565b34801561022957600080fd5b506003546101779081565b34801561024057600080fd5b5061025461024f36600461197d565b6108d1565b6040516101369c9b9a99989796959493929190611bdb565b34801561027857600080fd5b5061017761028736600461190c565b6109c9565b34801561029857600080fd5b50610154610caa565b3480156102ad57600080fd5b506102b6610cb7565b6040516101369190611b35565b3480156102cf57600080fd5b506102d8610f87565b6040516101369190611a23565b3480156102f157600080fd5b50610337610300366004611811565b6009602052600090815260409020805460019091015460ff808216916001600160a01b0361010082041691600160a81b9091041684565b604051610136949392919093845291151560208401526001600160a01b031660408301521515606082015260800190565b6101a561037636600461197d565b611272565b34801561038757600080fd5b5061012261039636600461197d565b6115e8565b600480546103a890611cbe565b80601f01602080910402602001604051908101604052809291908181526020018280546103d490611cbe565b80156104215780601f106103f657610100808354040283529160200191610421565b820191906000526020600020905b81548152906001019060200180831161040457829003601f168201915b505050505081565b60085460ff16156104775760405162461bcd60e51b8152602060048201526013602482015272105b1c9958591e481a5b9a5d1a585b1a5e9959606a1b60448201526064015b60405180910390fd5b60088054600160ff199091168117909155600080546001600160a01b0319166001600160a01b03881617905584905582516104b9906006906020860190611612565b5081516104cd906004906020850190611677565b5080516104e1906005906020840190611677565b505050505050565b6000805b60065481101561054b576006818154811061051857634e487b7160e01b600052603260045260246000fd5b6000918252602090912001546001600160a01b031633141561053957600191505b8061054381611cf3565b9150506104ed565b508061058a5760405162461bcd60e51b815260206004820152600e60248201526d4f6e6c7920636f7265207465616d60901b604482015260640161046e565b815160005b818110156106c0576000600960008684815181106105bd57634e487b7160e01b600052603260045260246000fd5b60200260200101516001600160a01b03166001600160a01b03168152602001908152602001600020905060008160020180549050905060005b818110156106aa57336001600160a01b031683600201828154811061062b57634e487b7160e01b600052603260045260246000fd5b6000918252602090912001546001600160a01b031614156106985760405162461bcd60e51b815260206004820152602160248201527f73656e64657220616c726561647920617070726f766564206170706c6963616e6044820152601d60fa1b606482015260840161046e565b806106a281611cf3565b9150506105f6565b50505080806106b890611cf3565b91505061058f565b5060005b8181101561074d576000600960008684815181106106f257634e487b7160e01b600052603260045260246000fd5b6020908102919091018101516001600160a01b0316825281810192909252604001600090812060020180546001810182559082529190200180546001600160a01b03191633179055508061074581611cf3565b9150506106c4565b50505050565b33600090815260096020526040902060010154600160a81b900460ff16156107bd5760405162461bcd60e51b815260206004820152601e60248201527f616c72656164792061206d656d626572206f72206170706c6963616e74730000604482015260640161046e565b60006107c860025490565b6040805160a0810182528281526001602080830182815233848601818152600060608781018281526080890182815294835260098752989091208751815593519584018054925198511515600160a81b0260ff60a81b196001600160a01b039a909a1661010002610100600160a81b0319981515989098166001600160a81b031990941693909317969096179790971617909355915180519596509394929384936108799260028501920190611612565b5050600a80546001810182556000919091527fc65a7bb8d6351c1cf70c95a316cc6a92839c986682d98bc35f958f4883f9d2a80180546001600160a01b03191633179055506108cc600280546001019055565b505050565b600b60205260009081526040902080546001820180549192916108f390611cbe565b80601f016020809104026020016040519081016040528092919081815260200182805461091f90611cbe565b801561096c5780601f106109415761010080835404028352916020019161096c565b820191906000526020600020905b81548152906001019060200180831161094f57829003601f168201915b50505060028401546003850154600486015460058701546007880154600889015460098a0154600a909a015498996001600160a01b03909616989497509295509093909260ff80821691610100810482169162010000909104168c565b6000808511610a1a5760405162461bcd60e51b815260206004820152601a60248201527f4174206c65617374206f6e6520726f6f6d207265717569726564000000000000604482015260640161046e565b6000610a2560035490565b9050600083610a35576000610a38565b60015b60ff16905060008767ffffffffffffffff811115610a6657634e487b7160e01b600052604160045260246000fd5b604051908082528060200260200182016040528015610a8f578160200160208202803683370190505b5090508415610adb573381600081518110610aba57634e487b7160e01b600052603260045260246000fd5b60200260200101906001600160a01b031690816001600160a01b0316815250505b604051806101a001604052808481526020018a8152602001336001600160a01b03168152602001898152602001838152602001600081526020018281526020018881526020018989610b2d9190611c9e565b610b38906001611c86565b8152602001610b478842611c86565b81528615156020808301919091526001604080840182905260006060909401849052878452600b8352909220835181558382015180519193610b8f9390850192910190611677565b5060408201516002820180546001600160a01b0319166001600160a01b03909216919091179055606082015160038201556080820151600482015560a0820151600582015560c08201518051610bef916006840191602090910190611612565b5060e082015160078201556101008083015160088301556101208301516009830155610140830151600a90920180546101608501516101809095015161ffff1990911693151561ff001916939093179315159091029290921762ff000019166201000091151591909102179055600380546001019055604080518481523360208201527f5bcc6ea09e2770d7f4ac7b2b80846a7855ca9825ffd7f16441007c8b1f0383b2910160405180910390a15090979650505050505050565b600580546103a890611cbe565b600a54606090600080805b83811015610d465760096000600a8381548110610cef57634e487b7160e01b600052603260045260246000fd5b60009182526020808320909101546001600160a01b0316835282019290925260400190206001015460ff600160a81b90910416610d345782610d3081611cf3565b9350505b80610d3e81611cf3565b915050610cc2565b5060008267ffffffffffffffff811115610d7057634e487b7160e01b600052604160045260246000fd5b604051908082528060200260200182016040528015610de057816020015b610dcd6040518060a001604052806000815260200160001515815260200160006001600160a01b03168152602001600015158152602001606081525090565b815260200190600190039081610d8e5790505b50905060005b84811015610f7f5760096000600a8381548110610e1357634e487b7160e01b600052603260045260246000fd5b60009182526020808320909101546001600160a01b0316835282019290925260400190206001015460ff600160a81b90910416610f6d5760096000600a8381548110610e6f57634e487b7160e01b600052603260045260246000fd5b60009182526020808320909101546001600160a01b039081168452838201949094526040928301909120825160a08101845281548152600182015460ff808216151583860152610100820490961682860152600160a81b90049094161515606085015260028101805484518185028101850190955280855291936080860193909290830182828015610f2a57602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610f0c575b505050505081525050828481518110610f5357634e487b7160e01b600052603260045260246000fd5b60200260200101819052508280610f6990611cf3565b9350505b80610f7781611cf3565b915050610de6565b505050505090565b60606000610f9460035490565b67ffffffffffffffff811115610fba57634e487b7160e01b600052604160045260246000fd5b60405190808252806020026020018201604052801561106557816020015b611052604051806101a00160405280600081526020016060815260200160006001600160a01b03168152602001600081526020016000815260200160008152602001606081526020016000815260200160008152602001600081526020016000151581526020016000151581526020016000151581525090565b815260200190600190039081610fd85790505b50905060005b60035481101561126c57600b6000828152602001908152602001600020604051806101a0016040529081600082015481526020016001820180546110ae90611cbe565b80601f01602080910402602001604051908101604052809291908181526020018280546110da90611cbe565b80156111275780601f106110fc57610100808354040283529160200191611127565b820191906000526020600020905b81548152906001019060200180831161110a57829003601f168201915b505050505081526020016002820160009054906101000a90046001600160a01b03166001600160a01b03166001600160a01b03168152602001600382015481526020016004820154815260200160058201548152602001600682018054806020026020016040519081016040528092919081815260200182805480156111d657602002820191906000526020600020905b81546001600160a01b031681526001909101906020018083116111b8575b5050509183525050600782015460208201526008820154604082015260098201546060820152600a9091015460ff8082161515608084015261010082048116151560a08401526201000090910416151560c090910152825183908390811061124e57634e487b7160e01b600052603260045260246000fd5b6020026020010181905250808061126490611cf3565b91505061106b565b50919050565b336000908152600960205260409020600101548190600160a81b900460ff166112d55760405162461bcd60e51b81526020600482015260156024820152745265737472696374656420746f206d656d6265727360581b604482015260640161046e565b6000818152600b60205260409020600a0154610100900460ff16801561131357506000818152600b60205260409020600a015462010000900460ff16155b801561132f57506000818152600b602052604090206009015442105b6113945760405162461bcd60e51b815260206004820152603060248201527f436f686f72742069732066756c6c2c20696e616374697665206f72206465616460448201526f1b1a5b99481dd85cc81c995858da195960821b606482015260840161046e565b6000828152600b6020526040902060088101543410156113f65760405162461bcd60e51b815260206004820152601760248201527f496e73756666696369656e742076616c75652073656e74000000000000000000604482015260640161046e565b600381015460009081905b8082101561146c57336001600160a01b031684600601838154811061143657634e487b7160e01b600052603260045260246000fd5b6000918252602090912001546001600160a01b0316141561145a576001925061146c565b8161146481611cf3565b925050611401565b82156114ba5760405162461bcd60e51b815260206004820152601a60248201527f596f752061726520616c7265616479207369676e656420757021000000000000604482015260640161046e565b6006840180546001810182556000918252602082200180546001600160a01b03191633179055600485018054916114f083611cf3565b9190505550836008015484600501600082825461150d9190611c86565b9091555050604080518781523360208201527fcc55d82d6fadaf6e8568ba29d82e8eea5068e0ca29bfd23448e94c477cfd848f910160405180910390a183600301548460040154106104e157600a8401805462ff0000191662010000179055600284015460058501546040516001600160a01b039092169181156108fc0291906000818181858888f193505050501580156115ac573d6000803e3d6000fd5b506040518681527f6c562d519a961e2e41e6c572c7ac55f1b1d9724331eefcdd1531341d27f942509060200160405180910390a1505050505050565b600681815481106115f857600080fd5b6000918252602090912001546001600160a01b0316905081565b828054828255906000526020600020908101928215611667579160200282015b8281111561166757825182546001600160a01b0319166001600160a01b03909116178255602090920191600190910190611632565b506116739291506116eb565b5090565b82805461168390611cbe565b90600052602060002090601f0160209004810192826116a55760008555611667565b82601f106116be57805160ff1916838001178555611667565b82800160010185558215611667579182015b828111156116675782518255916020019190600101906116d0565b5b8082111561167357600081556001016116ec565b80356001600160a01b038116811461171757600080fd5b919050565b600082601f83011261172c578081fd5b8135602067ffffffffffffffff82111561174857611748611d24565b8160051b611757828201611c55565b838152828101908684018388018501891015611771578687fd5b8693505b8584101561179a5761178681611700565b835260019390930192918401918401611775565b50979650505050505050565b600082601f8301126117b6578081fd5b813567ffffffffffffffff8111156117d0576117d0611d24565b6117e3601f8201601f1916602001611c55565b8181528460208386010111156117f7578283fd5b816020850160208301379081016020019190915292915050565b600060208284031215611822578081fd5b61182b82611700565b9392505050565b600080600080600060a08688031215611849578081fd5b61185286611700565b945060208601359350604086013567ffffffffffffffff80821115611875578283fd5b61188189838a0161171c565b94506060880135915080821115611896578283fd5b6118a289838a016117a6565b935060808801359150808211156118b7578283fd5b506118c4888289016117a6565b9150509295509295909350565b6000602082840312156118e2578081fd5b813567ffffffffffffffff8111156118f8578182fd5b6119048482850161171c565b949350505050565b600080600080600060a08688031215611923578081fd5b853567ffffffffffffffff811115611939578182fd5b611945888289016117a6565b9550506020860135935060408601359250606086013591506080860135801515811461196f578182fd5b809150509295509295909350565b60006020828403121561198e578081fd5b5035919050565b6000815180845260208085019450808401835b838110156119cd5781516001600160a01b0316875295820195908201906001016119a8565b509495945050505050565b60008151808452815b818110156119fd576020818501810151868301820152016119e1565b81811115611a0e5782602083870101525b50601f01601f19169290920160200192915050565b60006020808301818452808551808352604092508286019150828160051b870101848801865b83811015611b2757603f1989840301855281516101a08151855288820151818a870152611a78828701826119d8565b91505087820151611a93898701826001600160a01b03169052565b50606082810151908601526080808301519086015260a0808301519086015260c08083015186830382880152611ac98382611995565b60e0858101519089015261010080860151908901526101208086015190890152610140808601511515908901526101608086015115159089015261018094850151151594909701939093525050509386019390860190600101611a49565b509098975050505050505050565b60006020808301818452808551808352604092508286019150828160051b870101848801865b83811015611b2757888303603f1901855281518051845287810151151588850152868101516001600160a01b03168785015260608082015115159085015260809081015160a091850182905290611bb481860183611995565b968901969450505090860190600101611b5b565b60208152600061182b60208301846119d8565b60006101808e8352806020840152611bf58184018f6119d8565b6001600160a01b039d909d16604084015250506060810199909952608089019790975260a088019590955260c087019390935260e08601919091526101008501521515610120840152151561014083015215156101609091015292915050565b604051601f8201601f1916810167ffffffffffffffff81118282101715611c7e57611c7e611d24565b604052919050565b60008219821115611c9957611c99611d0e565b500190565b600082611cb957634e487b7160e01b81526012600452602481fd5b500490565b600181811c90821680611cd257607f821691505b6020821081141561126c57634e487b7160e01b600052602260045260246000fd5b6000600019821415611d0757611d07611d0e565b5060010190565b634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052604160045260246000fdfea26469706673582212200bc95c326f64a6d1859afa467f9acca37e6be5b7a22070ce277085e5735a25d264736f6c63430008040033",
+  "deployedBytecode": "0x6080604052600436106100fd5760003560e01c8063691ca14c1161009557806399ef1fe01161006457806399ef1fe0146102a1578063a78cb7e9146102c3578063a87430ba146102e5578063d4b140ef14610368578063f1d2f93c1461037b57600080fd5b8063691ca14c1461021d57806374ed78d01461023457806378ef562a1461026c578063846198561461028c57600080fd5b8063158ef93e116100d1578063158ef93e146101a7578063516346b7146101d157806358975919146101f15780635e1ee52a1461020857600080fd5b8062821de31461010257806306fdde031461013f5780630de3226b1461016157806314a88d6114610185575b600080fd5b34801561010e57600080fd5b50600054610122906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b34801561014b57600080fd5b5061015461039b565b6040516101369190611bc8565b34801561016d57600080fd5b5061017760075481565b604051908152602001610136565b34801561019157600080fd5b506101a56101a0366004611832565b610429565b005b3480156101b357600080fd5b506008546101c19060ff1681565b6040519015158152602001610136565b3480156101dd57600080fd5b506101a56101ec3660046118d1565b6104e9565b3480156101fd57600080fd5b506002546101779081565b34801561021457600080fd5b506101a5610753565b34801561022957600080fd5b506003546101779081565b34801561024057600080fd5b5061025461024f36600461197d565b6108d1565b6040516101369c9b9a99989796959493929190611bdb565b34801561027857600080fd5b5061017761028736600461190c565b6109c9565b34801561029857600080fd5b50610154610caa565b3480156102ad57600080fd5b506102b6610cb7565b6040516101369190611b35565b3480156102cf57600080fd5b506102d8610f87565b6040516101369190611a23565b3480156102f157600080fd5b50610337610300366004611811565b6009602052600090815260409020805460019091015460ff808216916001600160a01b0361010082041691600160a81b9091041684565b604051610136949392919093845291151560208401526001600160a01b031660408301521515606082015260800190565b6101a561037636600461197d565b611272565b34801561038757600080fd5b5061012261039636600461197d565b6115e8565b600480546103a890611cbe565b80601f01602080910402602001604051908101604052809291908181526020018280546103d490611cbe565b80156104215780601f106103f657610100808354040283529160200191610421565b820191906000526020600020905b81548152906001019060200180831161040457829003601f168201915b505050505081565b60085460ff16156104775760405162461bcd60e51b8152602060048201526013602482015272105b1c9958591e481a5b9a5d1a585b1a5e9959606a1b60448201526064015b60405180910390fd5b60088054600160ff199091168117909155600080546001600160a01b0319166001600160a01b03881617905584905582516104b9906006906020860190611612565b5081516104cd906004906020850190611677565b5080516104e1906005906020840190611677565b505050505050565b6000805b60065481101561054b576006818154811061051857634e487b7160e01b600052603260045260246000fd5b6000918252602090912001546001600160a01b031633141561053957600191505b8061054381611cf3565b9150506104ed565b508061058a5760405162461bcd60e51b815260206004820152600e60248201526d4f6e6c7920636f7265207465616d60901b604482015260640161046e565b815160005b818110156106c0576000600960008684815181106105bd57634e487b7160e01b600052603260045260246000fd5b60200260200101516001600160a01b03166001600160a01b03168152602001908152602001600020905060008160020180549050905060005b818110156106aa57336001600160a01b031683600201828154811061062b57634e487b7160e01b600052603260045260246000fd5b6000918252602090912001546001600160a01b031614156106985760405162461bcd60e51b815260206004820152602160248201527f73656e64657220616c726561647920617070726f766564206170706c6963616e6044820152601d60fa1b606482015260840161046e565b806106a281611cf3565b9150506105f6565b50505080806106b890611cf3565b91505061058f565b5060005b8181101561074d576000600960008684815181106106f257634e487b7160e01b600052603260045260246000fd5b6020908102919091018101516001600160a01b0316825281810192909252604001600090812060020180546001810182559082529190200180546001600160a01b03191633179055508061074581611cf3565b9150506106c4565b50505050565b33600090815260096020526040902060010154600160a81b900460ff16156107bd5760405162461bcd60e51b815260206004820152601e60248201527f616c72656164792061206d656d626572206f72206170706c6963616e74730000604482015260640161046e565b60006107c860025490565b6040805160a0810182528281526001602080830182815233848601818152600060608781018281526080890182815294835260098752989091208751815593519584018054925198511515600160a81b0260ff60a81b196001600160a01b039a909a1661010002610100600160a81b0319981515989098166001600160a81b031990941693909317969096179790971617909355915180519596509394929384936108799260028501920190611612565b5050600a80546001810182556000919091527fc65a7bb8d6351c1cf70c95a316cc6a92839c986682d98bc35f958f4883f9d2a80180546001600160a01b03191633179055506108cc600280546001019055565b505050565b600b60205260009081526040902080546001820180549192916108f390611cbe565b80601f016020809104026020016040519081016040528092919081815260200182805461091f90611cbe565b801561096c5780601f106109415761010080835404028352916020019161096c565b820191906000526020600020905b81548152906001019060200180831161094f57829003601f168201915b50505060028401546003850154600486015460058701546007880154600889015460098a0154600a909a015498996001600160a01b03909616989497509295509093909260ff80821691610100810482169162010000909104168c565b6000808511610a1a5760405162461bcd60e51b815260206004820152601a60248201527f4174206c65617374206f6e6520726f6f6d207265717569726564000000000000604482015260640161046e565b6000610a2560035490565b9050600083610a35576000610a38565b60015b60ff16905060008767ffffffffffffffff811115610a6657634e487b7160e01b600052604160045260246000fd5b604051908082528060200260200182016040528015610a8f578160200160208202803683370190505b5090508415610adb573381600081518110610aba57634e487b7160e01b600052603260045260246000fd5b60200260200101906001600160a01b031690816001600160a01b0316815250505b604051806101a001604052808481526020018a8152602001336001600160a01b03168152602001898152602001838152602001600081526020018281526020018881526020018989610b2d9190611c9e565b610b38906001611c86565b8152602001610b478842611c86565b81528615156020808301919091526001604080840182905260006060909401849052878452600b8352909220835181558382015180519193610b8f9390850192910190611677565b5060408201516002820180546001600160a01b0319166001600160a01b03909216919091179055606082015160038201556080820151600482015560a0820151600582015560c08201518051610bef916006840191602090910190611612565b5060e082015160078201556101008083015160088301556101208301516009830155610140830151600a90920180546101608501516101809095015161ffff1990911693151561ff001916939093179315159091029290921762ff000019166201000091151591909102179055600380546001019055604080518481523360208201527f5bcc6ea09e2770d7f4ac7b2b80846a7855ca9825ffd7f16441007c8b1f0383b2910160405180910390a15090979650505050505050565b600580546103a890611cbe565b600a54606090600080805b83811015610d465760096000600a8381548110610cef57634e487b7160e01b600052603260045260246000fd5b60009182526020808320909101546001600160a01b0316835282019290925260400190206001015460ff600160a81b90910416610d345782610d3081611cf3565b9350505b80610d3e81611cf3565b915050610cc2565b5060008267ffffffffffffffff811115610d7057634e487b7160e01b600052604160045260246000fd5b604051908082528060200260200182016040528015610de057816020015b610dcd6040518060a001604052806000815260200160001515815260200160006001600160a01b03168152602001600015158152602001606081525090565b815260200190600190039081610d8e5790505b50905060005b84811015610f7f5760096000600a8381548110610e1357634e487b7160e01b600052603260045260246000fd5b60009182526020808320909101546001600160a01b0316835282019290925260400190206001015460ff600160a81b90910416610f6d5760096000600a8381548110610e6f57634e487b7160e01b600052603260045260246000fd5b60009182526020808320909101546001600160a01b039081168452838201949094526040928301909120825160a08101845281548152600182015460ff808216151583860152610100820490961682860152600160a81b90049094161515606085015260028101805484518185028101850190955280855291936080860193909290830182828015610f2a57602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610f0c575b505050505081525050828481518110610f5357634e487b7160e01b600052603260045260246000fd5b60200260200101819052508280610f6990611cf3565b9350505b80610f7781611cf3565b915050610de6565b505050505090565b60606000610f9460035490565b67ffffffffffffffff811115610fba57634e487b7160e01b600052604160045260246000fd5b60405190808252806020026020018201604052801561106557816020015b611052604051806101a00160405280600081526020016060815260200160006001600160a01b03168152602001600081526020016000815260200160008152602001606081526020016000815260200160008152602001600081526020016000151581526020016000151581526020016000151581525090565b815260200190600190039081610fd85790505b50905060005b60035481101561126c57600b6000828152602001908152602001600020604051806101a0016040529081600082015481526020016001820180546110ae90611cbe565b80601f01602080910402602001604051908101604052809291908181526020018280546110da90611cbe565b80156111275780601f106110fc57610100808354040283529160200191611127565b820191906000526020600020905b81548152906001019060200180831161110a57829003601f168201915b505050505081526020016002820160009054906101000a90046001600160a01b03166001600160a01b03166001600160a01b03168152602001600382015481526020016004820154815260200160058201548152602001600682018054806020026020016040519081016040528092919081815260200182805480156111d657602002820191906000526020600020905b81546001600160a01b031681526001909101906020018083116111b8575b5050509183525050600782015460208201526008820154604082015260098201546060820152600a9091015460ff8082161515608084015261010082048116151560a08401526201000090910416151560c090910152825183908390811061124e57634e487b7160e01b600052603260045260246000fd5b6020026020010181905250808061126490611cf3565b91505061106b565b50919050565b336000908152600960205260409020600101548190600160a81b900460ff166112d55760405162461bcd60e51b81526020600482015260156024820152745265737472696374656420746f206d656d6265727360581b604482015260640161046e565b6000818152600b60205260409020600a0154610100900460ff16801561131357506000818152600b60205260409020600a015462010000900460ff16155b801561132f57506000818152600b602052604090206009015442105b6113945760405162461bcd60e51b815260206004820152603060248201527f436f686f72742069732066756c6c2c20696e616374697665206f72206465616460448201526f1b1a5b99481dd85cc81c995858da195960821b606482015260840161046e565b6000828152600b6020526040902060088101543410156113f65760405162461bcd60e51b815260206004820152601760248201527f496e73756666696369656e742076616c75652073656e74000000000000000000604482015260640161046e565b600381015460009081905b8082101561146c57336001600160a01b031684600601838154811061143657634e487b7160e01b600052603260045260246000fd5b6000918252602090912001546001600160a01b0316141561145a576001925061146c565b8161146481611cf3565b925050611401565b82156114ba5760405162461bcd60e51b815260206004820152601a60248201527f596f752061726520616c7265616479207369676e656420757021000000000000604482015260640161046e565b6006840180546001810182556000918252602082200180546001600160a01b03191633179055600485018054916114f083611cf3565b9190505550836008015484600501600082825461150d9190611c86565b9091555050604080518781523360208201527fcc55d82d6fadaf6e8568ba29d82e8eea5068e0ca29bfd23448e94c477cfd848f910160405180910390a183600301548460040154106104e157600a8401805462ff0000191662010000179055600284015460058501546040516001600160a01b039092169181156108fc0291906000818181858888f193505050501580156115ac573d6000803e3d6000fd5b506040518681527f6c562d519a961e2e41e6c572c7ac55f1b1d9724331eefcdd1531341d27f942509060200160405180910390a1505050505050565b600681815481106115f857600080fd5b6000918252602090912001546001600160a01b0316905081565b828054828255906000526020600020908101928215611667579160200282015b8281111561166757825182546001600160a01b0319166001600160a01b03909116178255602090920191600190910190611632565b506116739291506116eb565b5090565b82805461168390611cbe565b90600052602060002090601f0160209004810192826116a55760008555611667565b82601f106116be57805160ff1916838001178555611667565b82800160010185558215611667579182015b828111156116675782518255916020019190600101906116d0565b5b8082111561167357600081556001016116ec565b80356001600160a01b038116811461171757600080fd5b919050565b600082601f83011261172c578081fd5b8135602067ffffffffffffffff82111561174857611748611d24565b8160051b611757828201611c55565b838152828101908684018388018501891015611771578687fd5b8693505b8584101561179a5761178681611700565b835260019390930192918401918401611775565b50979650505050505050565b600082601f8301126117b6578081fd5b813567ffffffffffffffff8111156117d0576117d0611d24565b6117e3601f8201601f1916602001611c55565b8181528460208386010111156117f7578283fd5b816020850160208301379081016020019190915292915050565b600060208284031215611822578081fd5b61182b82611700565b9392505050565b600080600080600060a08688031215611849578081fd5b61185286611700565b945060208601359350604086013567ffffffffffffffff80821115611875578283fd5b61188189838a0161171c565b94506060880135915080821115611896578283fd5b6118a289838a016117a6565b935060808801359150808211156118b7578283fd5b506118c4888289016117a6565b9150509295509295909350565b6000602082840312156118e2578081fd5b813567ffffffffffffffff8111156118f8578182fd5b6119048482850161171c565b949350505050565b600080600080600060a08688031215611923578081fd5b853567ffffffffffffffff811115611939578182fd5b611945888289016117a6565b9550506020860135935060408601359250606086013591506080860135801515811461196f578182fd5b809150509295509295909350565b60006020828403121561198e578081fd5b5035919050565b6000815180845260208085019450808401835b838110156119cd5781516001600160a01b0316875295820195908201906001016119a8565b509495945050505050565b60008151808452815b818110156119fd576020818501810151868301820152016119e1565b81811115611a0e5782602083870101525b50601f01601f19169290920160200192915050565b60006020808301818452808551808352604092508286019150828160051b870101848801865b83811015611b2757603f1989840301855281516101a08151855288820151818a870152611a78828701826119d8565b91505087820151611a93898701826001600160a01b03169052565b50606082810151908601526080808301519086015260a0808301519086015260c08083015186830382880152611ac98382611995565b60e0858101519089015261010080860151908901526101208086015190890152610140808601511515908901526101608086015115159089015261018094850151151594909701939093525050509386019390860190600101611a49565b509098975050505050505050565b60006020808301818452808551808352604092508286019150828160051b870101848801865b83811015611b2757888303603f1901855281518051845287810151151588850152868101516001600160a01b03168785015260608082015115159085015260809081015160a091850182905290611bb481860183611995565b968901969450505090860190600101611b5b565b60208152600061182b60208301846119d8565b60006101808e8352806020840152611bf58184018f6119d8565b6001600160a01b039d909d16604084015250506060810199909952608089019790975260a088019590955260c087019390935260e08601919091526101008501521515610120840152151561014083015215156101609091015292915050565b604051601f8201601f1916810167ffffffffffffffff81118282101715611c7e57611c7e611d24565b604052919050565b60008219821115611c9957611c99611d0e565b500190565b600082611cb957634e487b7160e01b81526012600452602481fd5b500490565b600181811c90821680611cd257607f821691505b6020821081141561126c57634e487b7160e01b600052602260045260246000fd5b6000600019821415611d0757611d07611d0e565b5060010190565b634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052604160045260246000fdfea26469706673582212200bc95c326f64a6d1859afa467f9acca37e6be5b7a22070ce277085e5735a25d264736f6c63430008040033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 394,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "parentAddress",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 396,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "id",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 399,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "userId",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_struct(Counter)5_storage"
+      },
+      {
+        "astId": 402,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "cohortId",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_struct(Counter)5_storage"
+      },
+      {
+        "astId": 404,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "name",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 406,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "descriptionURI",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 409,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "coreTeam",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_array(t_address)dyn_storage"
+      },
+      {
+        "astId": 411,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "membershipPrice",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 414,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "initialized",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_bool"
+      },
+      {
+        "astId": 419,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "users",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_mapping(t_address,t_struct(User)478_storage)"
+      },
+      {
+        "astId": 422,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "userAddresses",
+        "offset": 0,
+        "slot": "10",
+        "type": "t_array(t_address)dyn_storage"
+      },
+      {
+        "astId": 483,
+        "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+        "label": "cohorts",
+        "offset": 0,
+        "slot": "11",
+        "type": "t_mapping(t_uint256,t_struct(Cohort)466_storage)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_address)dyn_storage": {
+        "base": "t_address",
+        "encoding": "dynamic_array",
+        "label": "address[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_struct(User)478_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct HackerHouseDAO.User)",
+        "numberOfBytes": "32",
+        "value": "t_struct(User)478_storage"
+      },
+      "t_mapping(t_uint256,t_struct(Cohort)466_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct HackerHouseDAO.Cohort)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Cohort)466_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Cohort)466_storage": {
+        "encoding": "inplace",
+        "label": "struct HackerHouseDAO.Cohort",
+        "members": [
+          {
+            "astId": 440,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "id",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 442,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "descriptionURI",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 444,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "trustee",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address"
+          },
+          {
+            "astId": 446,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "nPersons",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 448,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "slotsReserved",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 450,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "amountFunded",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 453,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "members",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_array(t_address)dyn_storage"
+          },
+          {
+            "astId": 455,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "totalPrice",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 457,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "pricePerPerson",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 459,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "deadline",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 461,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "isCreatorSlot",
+            "offset": 0,
+            "slot": "10",
+            "type": "t_bool"
+          },
+          {
+            "astId": 463,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "isActive",
+            "offset": 1,
+            "slot": "10",
+            "type": "t_bool"
+          },
+          {
+            "astId": 465,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "isFull",
+            "offset": 2,
+            "slot": "10",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "352"
+      },
+      "t_struct(Counter)5_storage": {
+        "encoding": "inplace",
+        "label": "struct Counters.Counter",
+        "members": [
+          {
+            "astId": 4,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "_value",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "32"
+      },
+      "t_struct(User)478_storage": {
+        "encoding": "inplace",
+        "label": "struct HackerHouseDAO.User",
+        "members": [
+          {
+            "astId": 468,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "id",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 470,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "exists",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_bool"
+          },
+          {
+            "astId": 472,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "userAddr",
+            "offset": 1,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 474,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "isMember",
+            "offset": 21,
+            "slot": "1",
+            "type": "t_bool"
+          },
+          {
+            "astId": 477,
+            "contract": "contracts/HackerHouseDAO.sol:HackerHouseDAO",
+            "label": "approvers",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_array(t_address)dyn_storage"
+          }
+        ],
+        "numberOfBytes": "96"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

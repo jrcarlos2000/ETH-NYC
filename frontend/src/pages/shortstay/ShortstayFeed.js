@@ -31,7 +31,7 @@ const ShortstayFeed = (props) => {
         if (!signer || feedData) {
             return;
         }
-        let result = await contract.getShortStays([0, 1, 2, 3, 4, 5]);
+        let result = await contract.getShortStays([0]);
         console.log("result - ", result);
         result = await Promise.all(result.map(async (item) => {
             const descriptionURI = item.descriptionURI;
