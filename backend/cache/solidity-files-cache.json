@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/DummyToken.sol": {
-      "lastModificationDate": 1656188918916,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/contracts/DummyToken.sol": {
+      "lastModificationDate": 1656185381997,
       "contentHash": "723943b5dbdd624e835017c748357cf1",
       "sourceName": "contracts/DummyToken.sol",
       "solcConfig": {
@@ -46,8 +46,8 @@
         "DummyToken"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1656188973776,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1656185671749,
       "contentHash": "a9d2146925da52142435d3bb8df53c3c",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
@@ -92,8 +92,8 @@
         "ERC20"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/interfaces/AggregatorV3Interface.sol": {
-      "lastModificationDate": 1656188918916,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/contracts/interfaces/AggregatorV3Interface.sol": {
+      "lastModificationDate": 1656185382000,
       "contentHash": "a9f63e4304813a523f5fe7a4c427641e",
       "sourceName": "contracts/interfaces/AggregatorV3Interface.sol",
       "solcConfig": {
@@ -134,8 +134,8 @@
         "AggregatorV3Interface"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1656188974043,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1656185671909,
       "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
@@ -176,8 +176,8 @@
         "IERC20"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1656188974046,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1656185671911,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
@@ -220,8 +220,8 @@
         "IERC20Metadata"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1656188973592,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1656185671605,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -262,8 +262,8 @@
         "Context"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/mock/MockChainlinkOracleFeed.sol": {
-      "lastModificationDate": 1656188918917,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/contracts/mock/MockChainlinkOracleFeed.sol": {
+      "lastModificationDate": 1656185382000,
       "contentHash": "b7f5f03b14fb50c32af845903d506c58",
       "sourceName": "contracts/mock/MockChainlinkOracleFeed.sol",
       "solcConfig": {
@@ -306,8 +306,8 @@
         "MockChainlinkOracleFeed"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/HackerHouseDAO.sol": {
-      "lastModificationDate": 1656195287996,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/contracts/HackerHouseDAO.sol": {
+      "lastModificationDate": 1656199798110,
       "contentHash": "c63843b78d028ad94af439b5b6e2c196",
       "sourceName": "contracts/HackerHouseDAO.sol",
       "solcConfig": {
@@ -350,8 +350,8 @@
         "HackerHouseDAO"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
-      "lastModificationDate": 1656188973593,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
+      "lastModificationDate": 1656185671606,
       "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
       "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
       "solcConfig": {
@@ -392,8 +392,8 @@
         "Counters"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/NomadicVault.sol": {
-      "lastModificationDate": 1656203456065,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/contracts/NomadicVault.sol": {
+      "lastModificationDate": 1656209339437,
       "contentHash": "9f069834498009fd1fafb3acf3c984ba",
       "sourceName": "contracts/NomadicVault.sol",
       "solcConfig": {
@@ -439,8 +439,8 @@
         "NomadicVault"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol": {
-      "lastModificationDate": 1656188974194,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol": {
+      "lastModificationDate": 1656185672011,
       "contentHash": "2337f0279507b5edf14a07067adf0d05",
       "sourceName": "@openzeppelin/contracts/utils/math/SafeMath.sol",
       "solcConfig": {
@@ -481,8 +481,50 @@
         "SafeMath"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/NomadicWorldCoin.sol": {
-      "lastModificationDate": 1656188918916,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1656185672382,
+      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/contracts/NomadicWorldCoin.sol": {
+      "lastModificationDate": 1656185381998,
       "contentHash": "81841ce14b616fb0fe70021e72830dcb",
       "sourceName": "contracts/NomadicWorldCoin.sol",
       "solcConfig": {
@@ -528,8 +570,8 @@
         "NomadicWorldCoin"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/helpers/ByteHasher.sol": {
-      "lastModificationDate": 1656188918916,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/contracts/helpers/ByteHasher.sol": {
+      "lastModificationDate": 1656185381999,
       "contentHash": "b3bff12fce06c9efeb7b7eff7db8301b",
       "sourceName": "contracts/helpers/ByteHasher.sol",
       "solcConfig": {
@@ -570,8 +612,8 @@
         "ByteHasher"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/interfaces/IWorldID.sol": {
-      "lastModificationDate": 1656188918916,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/contracts/interfaces/IWorldID.sol": {
+      "lastModificationDate": 1656185382000,
       "contentHash": "6e589e9466eab16b9c0951084390cc53",
       "sourceName": "contracts/interfaces/IWorldID.sol",
       "solcConfig": {
@@ -612,8 +654,8 @@
         "IWorldID"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/NomadicKeeper.sol": {
-      "lastModificationDate": 1656188918916,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/contracts/NomadicKeeper.sol": {
+      "lastModificationDate": 1656185381998,
       "contentHash": "1fdd46d708c3735f71b90472dcfd2ad2",
       "sourceName": "contracts/NomadicKeeper.sol",
       "solcConfig": {
@@ -656,8 +698,8 @@
         "NomadicKeeper"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/@chainlink/contracts/src/v0.8/KeeperCompatible.sol": {
-      "lastModificationDate": 1656188974138,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/node_modules/@chainlink/contracts/src/v0.8/KeeperCompatible.sol": {
+      "lastModificationDate": 1656185671971,
       "contentHash": "c153645393332a62a1e73cb0d5a6162c",
       "sourceName": "@chainlink/contracts/src/v0.8/KeeperCompatible.sol",
       "solcConfig": {
@@ -701,8 +743,8 @@
         "KeeperCompatible"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/@chainlink/contracts/src/v0.8/KeeperBase.sol": {
-      "lastModificationDate": 1656188974137,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/node_modules/@chainlink/contracts/src/v0.8/KeeperBase.sol": {
+      "lastModificationDate": 1656185671970,
       "contentHash": "216a5d4c261e07cc7b31f828950e35ad",
       "sourceName": "@chainlink/contracts/src/v0.8/KeeperBase.sol",
       "solcConfig": {
@@ -743,8 +785,8 @@
         "KeeperBase"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/@chainlink/contracts/src/v0.8/interfaces/KeeperCompatibleInterface.sol": {
-      "lastModificationDate": 1656188974559,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/node_modules/@chainlink/contracts/src/v0.8/interfaces/KeeperCompatibleInterface.sol": {
+      "lastModificationDate": 1656185672293,
       "contentHash": "bdbf3e274e50272d9c830fa414fcbec9",
       "sourceName": "@chainlink/contracts/src/v0.8/interfaces/KeeperCompatibleInterface.sol",
       "solcConfig": {
@@ -785,8 +827,8 @@
         "KeeperCompatibleInterface"
       ]
     },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/contracts/UserRegistry.sol": {
-      "lastModificationDate": 1656188918916,
+    "/Users/carlosssramosss/self-study/ETH-NYC/backend/contracts/UserRegistry.sol": {
+      "lastModificationDate": 1656185381999,
       "contentHash": "2283149a0ea81d7edc81561d4c7708cc",
       "sourceName": "contracts/UserRegistry.sol",
       "solcConfig": {
@@ -825,48 +867,6 @@
       ],
       "artifacts": [
         "UserRegistry"
-      ]
-    },
-    "/Users/konradgnat/dev/hackathons/ethnyc/ETH-NYC/backend/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1656188974768,
-      "contentHash": "cc4777addd464ea56fa35b1c45df0591",
-      "sourceName": "hardhat/console.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.4.22 <0.9.0"
-      ],
-      "artifacts": [
-        "console"
       ]
     }
   }

@@ -60,6 +60,12 @@ module.exports = {
       url: "http://127.0.0.1:8545/",
       chainId: 1337,
       timeout: 6000000,
+
+      accounts: [
+        process.env.DEPLOYER_PRIVATE_KEY || privateKeys[2],
+        process.env.GOVERNOR_PRIVATE_KEY || privateKeys[1],
+      ],
+      
     },
     mainnet : {
       url : `${process.env.MAINNET_PROVIDER_URL}`,
