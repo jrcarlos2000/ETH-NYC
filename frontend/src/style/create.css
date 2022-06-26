@@ -115,7 +115,7 @@
         height: 5vw;
         font-size: 1.5vw;
         cursor: pointer;
-        background-image: linear-gradient(200deg, #FF3E60 40%, #6f0c34);
+        background: #FF3E60;
         transition: all 0.7s ease;
         margin: 0vw 0 4vh 17.2vw;
     }
@@ -162,10 +162,21 @@
     .create-btn-shortstay{
         margin-left: 22.5vw;
         margin-right: 0;
+        background: #FF3E60;
     }
     .image-replacement{
         width: 20vw;
         height: 20vw;
         background-color: #343434;
+    }
+    .worldcoin-success{
+        position: absolute;
+        z-index: 10;
+        right: 35vw;
+        top: 2vh;
+        background-color: #0000006d;
+        padding: 2vh 1.5vw 2vh 1.5vw;
+        border-left: 1px solid rgb(47, 255, 123);
+        border-radius: 5px;
     }
 }

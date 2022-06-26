@@ -1,5 +1,6 @@
 import React, { useRef, useState,useEffect } from "react";
 import "../../style/create.css";
+import "../../style/loader.css"
 import { useSigner, useContract, useNetwork, useAccount } from "wagmi";
 import { CONTRACT_NAMES, NOMADICVAULT } from "../../utils/config";
 import { contractData } from "../../utils/config";
@@ -21,6 +22,7 @@ const CreateShortstay = (props) => {
   const { data: signer } = useSigner();
   const [isDisplayed, setIsDisplayed] = useState(false);
   const [currID, setCurrID] = useState(null);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     setIsDisplayed(true)
@@ -72,6 +74,7 @@ const CreateShortstay = (props) => {
   }
 
   const onSubmitNormal = async () => {
+    setLoader(true);
     const descriptionURI = `${city}-${tags}`;
     const nPersons = Number(housemates);
     const totalPrice = Number(price);
@@ -97,6 +100,7 @@ const CreateShortstay = (props) => {
     );
     console.log('result: ', result);
     const resWait = await result.wait();
+    setLoader(false);
     console.log('resWait: ', resWait);
 
     const logs = await getCovalentForTxLogs(resWait.transactionHash);
@@ -138,7 +142,7 @@ const CreateShortstay = (props) => {
 
   return (
     <div className="create-page">
-      {isDisplayed && currID && (<div>transaction mined succesfully at {currID}</div>)}
+      {isDisplayed && currID && (<div className="worldcoin-success">transaction mined succesfully at {currID}</div>)}
       {userData && (
         <WorldIDComponent
           signal={userData.address}
@@ -250,7 +254,10 @@ const CreateShortstay = (props) => {
               }}
             />
           </div>
-        <input type="submit" className="create-btn create-btn-shortstay" value="CREATE" />
+        {loader ? 
+          <button className="create-btn create-btn-shortstay" value="CREATE" ><div className="loader">Loading...</div></button> : 
+          <input type="submit" className="create-btn create-btn-shortstay" value="CREATE" />
+        }
       </form>
       <div className="image-preview">
         {selectedImage ? selectedImage && (
