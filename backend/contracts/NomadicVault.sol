@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "./HackerHouseDAO.sol";
+import "hardhat/console.sol";
 
 contract NomadicVault {
     using SafeMath for uint256;
@@ -30,6 +31,7 @@ contract NomadicVault {
         address addr;
         bool isActive;
         address[] coreTeam;
+        uint256 coreTeamCount;
         string name;
         string descriptionURI;
     }
@@ -40,6 +42,7 @@ contract NomadicVault {
     address public owner;
     address public hhTemplate;
     address[] public hhAddresses;
+    uint256 public numOfCoreTeam = 5;
     Counters.Counter public stayId;
     Counters.Counter public daoId;
 
@@ -148,9 +151,9 @@ contract NomadicVault {
         }
     }
 
-    function proposeDao(string memory _name, string memory _descriptionURI, uint256 _membershipCost) external {
+    function proposeDAO(string memory _name, string memory _descriptionURI, uint256 _membershipCost) external {
         uint256 _daoId = daoId.current();
-        address[] memory _coreTeam;
+        address[] memory _coreTeam = new address[](numOfCoreTeam);
         _coreTeam[0] = address(msg.sender);
 
         hhouses[_daoId] = HackerHouse({
@@ -158,21 +161,63 @@ contract NomadicVault {
             addr: address(0),
             isActive: false,
             coreTeam: _coreTeam,
+            coreTeamCount: 1,
             name: _name,
             descriptionURI: _descriptionURI
         });
         emit DAOProposed(_daoId);
 
         daoId.increment();
+
+    }
+
+    function getActiveDAOs() public view returns (HackerHouse[] memory) {
+        uint256 count = daoId.current();
+        uint256 activeCount = 0;
+        uint256 currentIndex = 0;
+        for (uint256 i = 0; i < count; i++) {
+            if (hhouses[i].isActive) {
+                activeCount++;
+            }
+        }
+        HackerHouse[] memory activeHH = new HackerHouse[](activeCount);
+        for (uint256 i = 0; i < activeCount; i++) {
+            if (hhouses[i].isActive) {
+                activeHH[currentIndex] = hhouses[i];
+                currentIndex++;
+            }
+        }
+        return activeHH;
+    }
+
+    function getFormingDAOs() public view returns (HackerHouse[] memory) {
+        uint256 count = daoId.current();
+        uint256 formingCount = 0;
+        uint256 currentIndex = 0;
+        for (uint256 i = 0; i < count; i++) {
+            if (!hhouses[i].isActive) {
+                formingCount++;
+            }
+        }
+        HackerHouse[] memory formingHH = new HackerHouse[](formingCount);
+        for (uint256 i = 0; i < formingCount; i++) {
+            if (!hhouses[i].isActive) {
+                formingHH[currentIndex] = hhouses[i];
+                currentIndex++;
+            }
+        }
+        return formingHH;
     }
 
     function joinCoreTeam(uint256 _daoId) external {
         require(!hhouses[_daoId].isActive, "dao is already active");
-        hhouses[_daoId].coreTeam.push(msg.sender);
-        if (hhouses[_daoId].coreTeam.length == 5) {
+        hhouses[_daoId].coreTeam[hhouses[_daoId].coreTeamCount] = address(msg.sender);
+        hhouses[_daoId].coreTeamCount++;
+        if (hhouses[_daoId].coreTeamCount >= numOfCoreTeam) {
             hhouses[_daoId].isActive = true;
             _deployHHouse(_daoId);
         }
+        console.log("joinCoreTeam daoId: %s hhouses[_daoId].coreTeam.length %s", _daoId, hhouses[_daoId].coreTeam.length);
     }
 
     function _deployHHouse(uint256 _daoId) internal {
@@ -181,6 +226,7 @@ contract NomadicVault {
         hhDao.initialize(address(this), _daoId, hhouses[_daoId].coreTeam, hhouses[_daoId].name, hhouses[_daoId].descriptionURI);
         hhouses[_daoId].addr = address(hhDao);
         hhAddresses.push(address(hhDao));
+        console.log("deployed %s", address(hhDao));
 
         emit HHouseDeployed(_daoId, address(hhDao), hhouses[_daoId].name);
     }
