@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../../style/feed.css"
 import testData from "../../testData/feed";
 import { useSigner, useContract, useProvider, useNetwork } from 'wagmi'
@@ -13,6 +13,7 @@ const ShortstayFeed = (props) => {
     const contractName = CONTRACT_NAMES[NOMADICVAULT];
     const contractAddress = contractData[activeChain.id][contractName].address;
     const contractAbi = contractData[activeChain.id][contractName].abi;
+    const [feedData, setFeedData] = useState();
     console.log('contractAddress: ', contractAddress);
     console.log("signer: ", signer);
     const contract = useContract({
@@ -25,37 +26,52 @@ const ShortstayFeed = (props) => {
         fetchStayList();
     }, [signer]);
     const fetchStayList = async () => {
-        if (!signer) {
+        if (!signer || feedData) {
             return;
         }
-        const result = await contract.getShortStays([1]);
+        const result = await contract.getShortStays([0, 1, 2]);
         console.log("result - ", result);
+        setFeedData(result);
+
+        // uint256 id;
+        // string descriptionURI;
+        // address trustee;
+        // uint256 nPersons;
+        // uint256 slotsReserved;
+        // uint256 amountFunded;
+        // address[] members;
+        // uint256 totalPrice;
+        // uint256 pricePerPerson;
+        // uint256 deadline;
+        // bool isCreatorSlot; // true if creator of short stay is one of the persons staying (nPersons)
+        // bool isActive; // if stay is currently open for booking
+        // bool isFull;
     };
 
     const renderOffers = () => {
-    const offer = testData.map((offer) => {
-        let pricePerPerson = offer.totalPrice/offer.nPersons;
-        return(
-            <div className="stay-container" key={offer.id}>
-                <div className="stay-banner"></div>
-                <div className="stay-info">
-                    <div className="offer-row1">
-                        <h3 className="main-offer-name" id="feed-city-header">{offer.city}</h3>
-                        <p className="offer-ppl" id="feed-ppl"><b>{offer.slotsReserved}/{offer.nPersons}</b></p>
-                    </div>
-                    <div className="offer-row2">
-                        {offer.tags.map((tag) => {
-                            return(
-                                <div className="tag">{tag}</div>
-                            )
-                        })}
-                    </div>
-                    <div className="offer-row3" id="row3-feed">
-                        <p className="chip-in-txt">Chip in for: <b>${pricePerPerson}</b></p>
-                        <button className="button join-btn">VIEW</button>
+        const offer = testData.map((offer) => {
+            let pricePerPerson = offer.totalPrice/offer.nPersons;
+            return(
+                <div className="stay-container" key={offer.id}>
+                    <div className="stay-banner"></div>
+                    <div className="stay-info">
+                        <div className="offer-row1">
+                            <h3 className="main-offer-name" id="feed-city-header">{offer.city}</h3>
+                            <p className="offer-ppl" id="feed-ppl"><b>{offer.slotsReserved}/{offer.nPersons}</b></p>
+                        </div>
+                        <div className="offer-row2">
+                            {offer.tags.map((tag) => {
+                                return(
+                                    <div className="tag">{tag}</div>
+                                )
+                            })}
+                        </div>
+                        <div className="offer-row3" id="row3-feed">
+                            <p className="chip-in-txt">Chip in for: <b>${pricePerPerson}</b></p>
+                            <button className="button join-btn">VIEW</button>
+                        </div>
                     </div>
                 </div>
-            </div>
             )
         });
 

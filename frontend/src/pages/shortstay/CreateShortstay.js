@@ -72,7 +72,9 @@ const CreateShortstay = (props) => {
         timeAvailable,
         isCreatorSlot
     );
-    await result.wait();
+    console.log('result: ', result);
+    const resWait = await result.wait();
+    console.log('resWait: ', resWait);
   }
 
   const onSubmit = async (event) => {
