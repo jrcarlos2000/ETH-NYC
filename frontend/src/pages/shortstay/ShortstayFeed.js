@@ -52,7 +52,7 @@ const ShortstayFeed = (props) => {
                     </div>
                     <div className="offer-row3" id="row3-feed">
                         <p className="chip-in-txt">Chip in for: <b>${pricePerPerson}</b></p>
-                        <button className="button join-btn">VIEW</button>
+                        <button className="button join-btn join-feed">VIEW</button>
                     </div>
                 </div>
             </div>

@@ -53,7 +53,7 @@ const HackerhouseFeed = (props) => {
                     </div>
                     <div className="offer-row3" id="row3-feed">
                         <p className="chip-in-txt">Chip in for: <b>${hackerhouse.fee}</b></p>
-                        <Link to={`/hackerhouse/${hackerhouse.id}`}><button className="button join-btn">VIEW</button></Link>
+                        <Link to={`/hackerhouse/${hackerhouse.id}`}><button className="button join-btn join-feed">VIEW</button></Link>
                     </div>
                 </div>
             </div>

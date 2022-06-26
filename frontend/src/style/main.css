@@ -49,6 +49,7 @@ a{
   margin: 5vw 0 0 5vw;
   font-weight: 900;
   text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.196);
+  z-index: 100;
 }
 .connect-container{
   position: absolute;
@@ -188,15 +189,13 @@ a{
       backdrop-filter: blur(4px);
       z-index: -1;
       padding: 2vw 0 0 0 ;
-      position: absolute;
       bottom: 0;
     }
     .main-offer-dim{
-      position: absolute;
       width: 24vw;
-      height: 11vw;
+      height: 21vh;
       padding: 1.2vw;
-      margin: -1.2vw 0 0 -1.2vw;
+      margin: -22.2vh 0 0 -1.2vw;
       background-color: rgba(0, 0, 0, 0.25);
       border-radius: 8px;
       backdrop-filter: blur(2px);
@@ -213,13 +212,12 @@ a{
           color: rgb(255, 255, 255);
           box-shadow: 4px 10px 25px rgba(0, 0, 0, 0.543);
           width: 24vw;
-          height: 11vw;
+          height: 20vh;
           margin: 3vw 3.2vw 2vw 3.2vw;
           padding: 1.2vw;
           border: solid 3px black;
           border-radius: 10px;
           background-color: rgb(29, 29, 29);
-          z-index: -1;
           background-image: url("../images/nycbanner.png");
           background-position: center;
           background-size: cover;
@@ -249,7 +247,7 @@ a{
         max-height: 1.2vw;
         padding: 0.4vw;
         text-align: center;
-        background-color: rgb(34, 34, 34);
+        background-image: linear-gradient(200deg, #FF3E60 40%, #6f0c34);
         margin: 0.5vw 0.8vw 0 0vw;
         border-radius: 5px;
         box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.493);
@@ -261,13 +259,15 @@ a{
         display: flex;
         padding-top: 1.5vw;
         z-index: 1;
+        padding-top: 6vh;
       }
       .chip-in-txt{
         font-size: 1.1vw;
       }
       .join-btn{
-        width: 12vw;
-        margin-left: 4vw;
+        width: 11vw;
+        margin-left: 3vw;
+        cursor: pointer;
       }
       .profile-btn{
         width: 3vw;
