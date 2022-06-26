@@ -13,6 +13,7 @@ const CreateHackerhouse = (props) => {
     const [values, setValues] = useState('');
     const [mission, setMission] = useState('');
     const [codeOfConduct, setCodeOfConduct] = useState('');
+    const [loader, setLoader] = useState(false);
     const { data: signer } = useSigner()
 
     const contractName = CONTRACT_NAMES[NOMADICVAULT];
@@ -27,6 +28,7 @@ const CreateHackerhouse = (props) => {
     })
 
     const onSubmit = async (event) => {
+        setLoader(true);
         event.preventDefault();
         console.log("submit")
         const metadata = {
@@ -36,7 +38,9 @@ const CreateHackerhouse = (props) => {
         }
         const cid = await uploadDataToIPFS(metadata);
 
-        await contract.proposeDAO(name, cid, membershipFee);
+        const result = await contract.proposeDAO(name, cid, membershipFee);
+        await result.wait();
+        setLoader(false);
         alert("transaction was successful")
     }
 
@@ -92,7 +96,10 @@ const CreateHackerhouse = (props) => {
                             <textarea type="textarea" className="text-field hackerhouse-field textarea" value={codeOfConduct} onChange={handleCodeOfConduct}/>
                         </div>
                     </div>
-                <input type="submit" className="create-btn" placeholder="CREATE"/>
+                    {loader ? 
+                        <button className="create-btn" value="CREATE" ><div className="loader">Loading...</div></button> : 
+                        <input type="submit" className="create-btn" value="CREATE" />
+                    }
             </form>
         </div>
     )
