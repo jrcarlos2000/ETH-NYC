@@ -21,6 +21,7 @@
     "crypto-browserify": "^3.12.0",
     "ethers": "^5.6.9",
     "install": "^0.13.0",
+    "nft.storage": "^6.3.0",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "npm": "^8.13.0",
     "process": "^0.11.10",
@@ -39,10 +40,10 @@
     "web3": "^1.7.4"
   },
   "scripts": {
-        "start": "cra-webpack-rewired start",
-        "build": "cra-webpack-rewired build",
-        "test": "cra-webpack-rewired test",
-        "eject": "cra-webpack-rewired eject"
+    "start": "cra-webpack-rewired start",
+    "build": "cra-webpack-rewired build",
+    "test": "cra-webpack-rewired test",
+    "eject": "cra-webpack-rewired eject"
   },
   "eslintConfig": {
     "extends": [

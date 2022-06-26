@@ -6,7 +6,7 @@ import { contractData } from "../../utils/config";
 import { defaultAbiCoder as abi } from "@ethersproject/abi";
 import { WorldIDComponent } from "../../WorldIDComponent";
 import { Link } from "react-router-dom";
-
+import { uploadDataToIPFS } from "../../utils/core";
 const CreateShortstay = (props) => {
   const { activeChain } = useNetwork();
   const [city, setCity] = useState("");
@@ -64,6 +64,8 @@ const CreateShortstay = (props) => {
     const totalPrice = Number(price);
     const timeAvailable = 123;
     const isCreatorSlot = creatorSpot;
+
+    await uploadDataToIPFS();
     
     const result = await contract.proposeShortStay(
         descriptionURI,
@@ -112,7 +114,7 @@ const CreateShortstay = (props) => {
       {userData && (
         <WorldIDComponent
           signal={userData.address}
-          signalParams={['testing',10,10000,12000,false]}
+          signalParams={['testing',10,10000,12000]}
           setProof={(proof) => setWorldIDProof(proof)}
         />
       )}
