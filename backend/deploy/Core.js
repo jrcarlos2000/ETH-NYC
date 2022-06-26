@@ -9,9 +9,25 @@ const {
   log,
 } = require("../utils/deploy");
 
-const deployVault = async () => {
+const deployCore = async () => {
   const { deployerAddr, governorAddr } = await getNamedAccounts();
-  const dNomadicVault = await deployWithConfirmation("NomadicVault");
+
+  const dSampleDAO = await deployWithConfirmation("HackerHouseDAO");
+  const dNomadicVault = await deployWithConfirmation("NomadicVault",[dSampleDAO.address]);
+};
+
+const deployUserRegistry = async () => {
+  // we read addresses that we want to use for our deployment function
+  // const tokens = await getTokenAddresses();
+  // Named accounts allows us to tell which account we want to use for a certain tx
+  const { deployerAddr, governorAddr } = await getNamedAccounts();
+  // Signers are used to call signed txs from contracts
+  const sGovernor = await ethers.provider.getSigner(governorAddr);
+  const sDeployer = await ethers.provider.getSigner(deployerAddr);
+  //will deploy a contract and wait for its confirmation
+  await deployWithConfirmation("UserRegistry");
+  // this is how we read the contract
+  const cUserRegistry = await ethers.getContract("UserRegistry");
 };
 
 const deployNomadicWorldCoin= async () => {
@@ -21,10 +37,10 @@ const deployNomadicWorldCoin= async () => {
 }
 
 const main = async () => {
-  await deployVault();
+  await deployCore();
   await deployNomadicWorldCoin();
 };
 
 main.id = "Core";
-main.skip = () => true;
+main.skip = () => false;
 module.exports = main;
