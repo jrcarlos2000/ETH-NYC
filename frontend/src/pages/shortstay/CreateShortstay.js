@@ -250,16 +250,16 @@ const CreateShortstay = (props) => {
               }}
             />
           </div>
-        <input type="submit" className="create-btn" placeholder="CREATE" />
+        <input type="submit" className="create-btn create-btn-shortstay" value="CREATE" />
       </form>
       <div className="image-preview">
-        {selectedImage && (
+        {selectedImage ? selectedImage && (
           <div>
           <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
           <br />
           <button className="button remove-btn" onClick={()=>setSelectedImage(null)}>Remove</button>
-          </div>
-        )}
+          </div> ): 
+          <div className="image-replacement"></div>}
       </div>
       </div>
     </div>

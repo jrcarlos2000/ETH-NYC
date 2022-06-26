@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../style/hackerhouse.css"
-import testCohorts from "../../testData/featured";
+import testCohorts from "../../testData/cohorts";
 import testMembers from "../../testData/members";
   
 const Hackerhouse = (props) => {
@@ -81,6 +81,21 @@ const Hackerhouse = (props) => {
         </div>
     )
     }
+    const renderApplicants = () => {
+        const member = testMembers.map((applicant) => {
+            return(
+                <div className="member-container">
+                    <p className="member-address">{applicant}</p>
+                    <button className="button dao-approve-btn">APPROVE</button>
+                </div>
+            )
+    });
+    return(
+        <div className="members">
+            {member}
+        </div>
+    )
+    }
     return (
         <div className="hackerhouse-page">
             <Link to="/profile"><div className="profile-btn"></div></Link>
@@ -107,11 +122,11 @@ const Hackerhouse = (props) => {
             </div>
             <div className="line"></div>
             {cohortsTab ? 
-                <div className="tab-content">{renderCohorts()}</div> :
+                <div className="tab-content"><div className="content-dim"></div>{renderCohorts()}</div> :
             membersTab ? 
-                <div className="tab-content">{renderMembers()}</div> :
+                <div className="tab-content"><div className="content-dim"></div>{renderMembers()}</div> :
             applicantsTab ? 
-                <div>Applicants</div> : 
+            <div className="tab-content"><div className="content-dim"></div>{renderApplicants()}</div> : 
             ''}
 
         </div>
