@@ -114,6 +114,16 @@ module.exports = {
         process.env.GOVERNOR_PRIVATE_KEY || privateKeys[1],
       ],
       chainId: 56,
+    },
+    boba_rinkeby: {
+      provider: function () {
+        return new HDWalletProvider({
+          privateKeys: [pk_1, pk_2],
+          providerOrUrl: 'https://rinkeby.boba.network',
+        })
+      },
+      network_id: 28,
+      host: 'https://rinkeby.boba.network',
     }
   },
   namedAccounts: {
