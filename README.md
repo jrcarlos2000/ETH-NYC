@@ -13,6 +13,9 @@ Our project uses WalletConnect which makes connecting to our app convenient for 
 # ETHNYC 2022 Submission
 https://ethglobal.com/showcase/nomad-dao-8gesk
 
+### pitch deck
+https://pitch.com/public/6114c484-4c2a-43ce-a8f6-1a9b4be816a5
+
 ### Architecture
 
 ![NomadDAO Architecture](./assets/architecture.png "NomadDAO Architecture")
