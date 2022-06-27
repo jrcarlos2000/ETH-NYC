@@ -6,9 +6,9 @@ import { CONTRACT_NAMES, NOMADICVAULT } from '../../utils/config';
 import { contractData } from '../../utils/config';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import { ENS } from '@ensdomains/ensjs'
+// import { ENS } from '@ensdomains/ensjs'
 import { ethers } from 'ethers'
-const ENSInstance = new ENS()
+// const ENSInstance = new ENS()
 
 const ShortstayFeed = (props) => {
     const { data: signer } = useSigner()
@@ -51,6 +51,18 @@ const ShortstayFeed = (props) => {
                 }
             }
 
+            
+            // ens reverse lookup
+            // const trusteeAddressOrENS = await provider.lookupAddress(trusteeAddress);
+
+            /* Profile fetching from an address */
+            if (item.trusteeAddress) {
+                // const profile = await ENSInstance.getProfile(
+                //     item.trusteeAddress,
+                // )
+                // console.log('profile: ', profile);
+            }
+
             return {
                 ...descData,
                 ...item,
@@ -78,14 +90,6 @@ const ShortstayFeed = (props) => {
             const members = offer.members;
             const totalPrice = offer.totalPrice.toNumber();
             const pricePerPerson = offer.pricePerPerson.toNumber();
-            
-            // ens reverse lookup
-            // const trusteeAddressOrENS = await provider.lookupAddress(trusteeAddress);
-
-            /* Profile fetching from an address */
-            const profile = await ENSInstance.getProfile(
-                trusteeAddress,
-            )
 
   
             return(
@@ -107,7 +111,7 @@ const ShortstayFeed = (props) => {
                             <p className="chip-in-txt">Trustee: <b>{trusteeAddress}</b></p>
                             <p className="chip-in-txt">Chip in for: <b>${pricePerPerson}</b></p>
                             <p className="chip-in-txt">Amount Funded: <b>${amountFunded}</b></p>
-                            <p className="chip-in-txt">Members: <b>{[members.slice(0, members - 1), isCreatorSlot ? trusteeAddressOrENS : ''].join(', ')}</b></p>
+                            <p className="chip-in-txt">Members: <b>{[members.slice(0, members - 1), isCreatorSlot ? trusteeAddress : ''].join(', ')}</b></p>
                             <button className="button join-btn" onClick={() => joinShortStay(shortStayId)}>Join</button>
                         </div>
                     </div>
